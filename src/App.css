@@ -1,38 +1,37 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.First{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  background-color: aqua;
+  justify-content: space-between;
+  
 
-.App-link {
-  color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.back{
+  background-image: url("../public/image3.jpg");
+  height: 40rem;
+  background-size: 100%;
+}
+.organise{
+  background-image: url("../public/organise.jpg");
+  height: 40rem;
+  background-size: 100%;
+}
+.category{
+  background-image: url("ADMIN/category.jpg");
+  height: 40rem;
+  background-size: 100%;
+}
+.sub{
+  background-image: url("ADMIN/category.jpg");
+  height: 40rem;
+  background-size: 100%;
+}
+.password{
+  background-image: url("ADMIN/password.jpg");
+  height: 40rem;
+  background-size: 100%;
+}
+.exihibition{
+  background-image: url("ARTIST/exihi.jpg");
+  height: 40rem;
+  background-size: 100%;
 }
