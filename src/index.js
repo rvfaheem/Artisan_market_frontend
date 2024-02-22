@@ -31,6 +31,7 @@ import { Product_update } from './ARTIST/Product_update';
 import { Product_view } from './ARTIST/Product_view';
 import { View_orders } from './ARTIST/View_orders';
 import { Assign_delivery } from './ARTIST/Assign_delivery';
+import { View_product } from './ARTIST/View_product';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -72,13 +73,14 @@ root.render(
          <Route path="exihibition_product_add" element={<Exihibition_product_add/>}/>
          <Route path="product_add" element={<Product_add/>}/>
          <Route path="product_update" element={<Product_update/>}/>
-         <Route path="product_view" elemment={<Product_view/>}/>
          <Route path="view_orders" element={<View_orders/>}/>
          <Route path="assign_delivery" element={<Assign_delivery/>}/>
+         <Route path="view_product" element={<View_product/>}/>
         
 
       
       </Route>
+         <Route path="/ds" elemment={<Product_view/>}/>
         <Route path='*' element={<div>No Routes</div>}/>
         
    

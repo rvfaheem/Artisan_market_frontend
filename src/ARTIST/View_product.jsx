@@ -1,12 +1,11 @@
 import React from 'react'
 import image from './bttle.jpg'
 
-
-export const Product_view = () => {
+export const View_product = () => {
   return (
     <>
-    <div className='bg-slate-950'>
-    
+    <div>
+    <>
         <div class='organise m-4 p-4'>
       {/* <div>
         <div className='bg-[#D9D9D9]  '>
@@ -20,7 +19,7 @@ export const Product_view = () => {
 
       
 
-<div class=" overflow-x-auto ">
+<div class="relative overflow-x-auto">
 
     <div className="flex gap-4">
       <label className='bg-white gap-4'>From Date</label>
@@ -97,8 +96,8 @@ export const Product_view = () => {
                     Address1
                 </td>
                 <div className='flex pt-2 pb-2 gap-3'>
-                <button className='bg-[#3BD45C] w-[50%] text-white pt-3 pb-3 rounded-xl '>Accept</button>
-                <button className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Reject</button>
+                <button className='bg-[#3BD45C] w-[50%] text-white pt-3 pb-3 rounded-xl '>Update</button>
+                <button className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Delete</button>
                 </div>
                 
             </tr>
@@ -110,8 +109,11 @@ export const Product_view = () => {
 
 
     </div>
-    
+    </>
+
+
     </div>
+    
     </>
   )
 }

@@ -12,27 +12,27 @@ export const Exihibition_product_add = () => {
           <div className='bg-[#AED0E9] flex flex-col justify-center items-center w-9/12 h-70 p-14 ml-9 mb-48 mt-32 gap-4'>
            <div className="flex  justify-center">
            
-           <span><label className='font-semibold  text-[25px] '>Product Name</label></span>
+           <span><label className='font-semibold w-10 text-[25px] '>Product Name</label></span>
            <input className='mb-6 px-67 h-8 w-56' type="text" />
             
            </div>
            <div className="flex  ">
-           <span><label className='font-semibold w-56 text-[25px]'>Category:</label></span>
+           <span><label className='font-semibold h-5 w-10 pr-10 text-[25px]'>Category:</label></span>
            <input className='mb-6 px-67 h-8 w-56' type="text" />
             
            </div>
            <div className="flex gap-2 ">
-           <label className='font-semibold text-[25px]'>Creator</label>
+           <label className='font-semibold pr-10  text-[25px]'>Creator</label>
            <input className='mb-6 px-67 h-8 w-56' type="text" />
             
            </div>
            <div className="flex gap-2 ">
-           <label className='font-semibold text-[25px]'>Image</label>
+           <label className='font-semibold pr-10 text-[25px]'>Image</label>
            <input className='mb-6 px-67 h-8 w-56' type="text" />
             
            </div>
            <div className="flex gap-2 ">
-           <label className='font-semibold text-[25px]'>Description</label>
+           <label className='font-semibold pr-7 text-[25px]'>Description</label>
            <input className='mb-6 px-67 h-8 w-56' type="text" />
             
            </div>
