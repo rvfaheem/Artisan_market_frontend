@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const A_Change_password = () => {
+export const O_Change_password = () => {
   return (
     <>
     <div class='password'>
@@ -47,3 +47,4 @@ export const A_Change_password = () => {
     </>
   )
 }
+

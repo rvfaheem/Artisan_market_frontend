@@ -19,7 +19,7 @@ export const ArtistNavigation = () => {
     
     <div className='justify-end w-[100%] items-center flex gap-5'>
         <Link to='/artist'><div>HOME</div></Link>
-        <div>PROFILE</div>
+        <Link to='/artist/artist_profile'><div>PROFILE</div></Link>
         
         <div><span onClick={dropdown}>PRODUCT</span>
           {product &&

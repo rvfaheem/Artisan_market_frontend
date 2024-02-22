@@ -32,6 +32,19 @@ import { Product_view } from './ARTIST/Product_view';
 import { View_orders } from './ARTIST/View_orders';
 import { Assign_delivery } from './ARTIST/Assign_delivery';
 import { View_product } from './ARTIST/View_product';
+// USER
+import { User_navigation } from './USER/User_navigation';
+import { UserHome } from './USER/User_home';
+import { Products } from './USER/Products';
+// ORGANISER
+import { Organiser_nav } from './ORGANISER/Organiser_nav';
+import { Organiser_home } from './ORGANISER/Organiser_home';
+import { Create_exihibition } from './ORGANISER/Create_exihibition';
+import { Accept_or_reject } from './ORGANISER/Accept_or_reject';
+import { Send_exhi_offline_notification } from './ORGANISER/Send_exhi_offline_notification';
+import { Send_exhi_online_notification } from './ORGANISER/Send_exhi_online_notification';
+import { O_Change_password } from './ORGANISER/Change_password';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -80,6 +93,29 @@ root.render(
 
       
       </Route>
+
+      {/* USER Module */}
+      <Route path="/user" element={<User_navigation/>}>
+      <Route index element={<UserHome/>}/>
+      <Route path="products" element={<Products/>}/>
+
+
+      </Route>
+
+      {/* ORGANISER Module */}
+      <Route path="/organiser" element={<Organiser_nav/>}>
+      <Route index element={<Organiser_home/>} />
+      <Route path="/organiser/create_exihibition/" element={<Create_exihibition/>}/>
+      <Route path="/organiser/accept_reject/" element={<Accept_or_reject/>}/>
+      <Route path="/organiser/send_online/" element={<Send_exhi_online_notification/>}/>
+      <Route path="/organiser/send_offline/" element={<Send_exhi_offline_notification/>}/>
+      <Route path="/organiser/change_password/" element={<O_Change_password/>}/>
+
+      </Route>
+
+
+
+
          <Route path="/ds" elemment={<Product_view/>}/>
         <Route path='*' element={<div>No Routes</div>}/>
         

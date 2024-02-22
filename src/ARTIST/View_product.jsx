@@ -1,5 +1,6 @@
 import React from 'react'
 import image from './bttle.jpg'
+import { Link } from 'react-router-dom'
 
 export const View_product = () => {
   return (
@@ -26,6 +27,7 @@ export const View_product = () => {
       <input type="date" />
       <label className='bg-white gap-4'>To Date</label>
       <input type="date" />
+      <input type="text" />
       <button>Search</button>
 
 
@@ -38,25 +40,25 @@ export const View_product = () => {
                     S.L No
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Name
+                    Date
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Image
+                    Product
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Category
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Artwork
+                    Sub-Category
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    E-mail
+                    Image
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Phone No
+                    Description
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Address
+                    Status
                 </th>
                 <th>
 
@@ -72,31 +74,31 @@ export const View_product = () => {
                     1
                 </td>
                 <td class="px-6 py-4">
-                    Akshay
+                    03-02-2024
                 </td>
                 <td class="px-6 py-4">
-                    <img src={image} className='w-8 h-8' alt="" />
+                    Bottle Art-1
                 </td>
                 <td class="px-6 py-4">
                     
 
-                 Painting
+                 Bottle-Art
                  
                 </td>
                 <td class="px-6 py-4">
-                <img src={image} className="w-18 h-8" alt="" />
+                 Simple design
                 </td>
                 <td class="px-6 py-4">
-                    akshay@
+                <img src={image} className='w-8 h-8' alt="" />
                 </td>
                 <td class="px-6 py-4">
-                    254675654
+                    Description
                 </td>
                 <td class="px-6 py-4">
-                    Address1
+                    requested
                 </td>
                 <div className='flex pt-2 pb-2 gap-3'>
-                <button className='bg-[#3BD45C] w-[50%] text-white pt-3 pb-3 rounded-xl '>Update</button>
+                <Link to='/artist/product_update'><button className='bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl '>Update</button></Link>
                 <button className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Delete</button>
                 </div>
                 
