@@ -36,6 +36,12 @@ import { View_product } from './ARTIST/View_product';
 import { User_navigation } from './USER/User_navigation';
 import { UserHome } from './USER/User_home';
 import { Products } from './USER/Products';
+import { Payment } from './USER/Payment';
+import { Product_details } from './USER/Product_details';
+import { Offline_exihibition_notification } from './USER/Offline_exihibition_notification';
+import { Offline_exihibitions_notifications } from './USER/Offline_exihibitions_notifications';
+import { Online_exihibition_notification } from './USER/Online_exihibition_notification';
+import { Online_exihibitions_notifications } from './USER/Online_exihibitions_notifications';
 // ORGANISER
 import { Organiser_nav } from './ORGANISER/Organiser_nav';
 import { Organiser_home } from './ORGANISER/Organiser_home';
@@ -44,6 +50,8 @@ import { Accept_or_reject } from './ORGANISER/Accept_or_reject';
 import { Send_exhi_offline_notification } from './ORGANISER/Send_exhi_offline_notification';
 import { Send_exhi_online_notification } from './ORGANISER/Send_exhi_online_notification';
 import { O_Change_password } from './ORGANISER/Change_password';
+import { Exihibition } from './USER/Exihibition';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -98,6 +106,13 @@ root.render(
       <Route path="/user" element={<User_navigation/>}>
       <Route index element={<UserHome/>}/>
       <Route path="products" element={<Products/>}/>
+      <Route path="payment" element={<Payment/>}/>
+      <Route path="product_details" element={<Product_details/>}/>
+      <Route path="offline_notification" element={<Offline_exihibition_notification/>}/>
+      <Route path="offline_notifications" element={<Offline_exihibitions_notifications/>}/>
+      <Route path="online_notification" element={<Online_exihibition_notification/>}/>
+      <Route path="online_notifications" element={<Online_exihibitions_notifications/>}/>
+      <Route path="exihibition"  element={<Exihibition/>}/>
 
 
       </Route>

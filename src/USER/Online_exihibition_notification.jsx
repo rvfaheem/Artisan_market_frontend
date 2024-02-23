@@ -1,4 +1,5 @@
 import React from 'react'
+import image from './exhi2.jpg'
 
 export const Online_exihibition_notification = () => {
   return (
