@@ -2,7 +2,7 @@ import React from 'react'
 import image from './Artist1.jpg'
 import { Link } from 'react-router-dom'
 
-export const Artist_profile = () => {
+export const User_profile = () => {
   return (
     <div>
       
@@ -27,7 +27,7 @@ export const Artist_profile = () => {
                     <p class="text-base font-normal text-gray-600">Name@gmail.com</p>
                     <p class="text-base font-normal text-gray-600">3345670088</p>
                     <p class="text-base font-normal text-gray-600">Address</p><br /><br /><br /><br />
-                    <Link to="/artist/profile_edit/"><button className='bg-green-600 rounted w-fit h-fit'>Edit</button></Link>
+                    <Link to="/user/u_profile_edit/"><button className='bg-green-600 rounted w-fit h-fit'>Edit</button></Link>
 
                 </div> 
                 {/* <div class="mt-6 mb-3 flex gap-14 md:!gap-14">

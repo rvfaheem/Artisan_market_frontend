@@ -1,5 +1,6 @@
 import React from 'react'
 import image from './flower.jpg'
+import { Link } from 'react-router-dom'
 
 export const Product_details = () => {
   return (
@@ -37,7 +38,8 @@ export const Product_details = () => {
               <label className='bg-slate-400 p-2 font-bold text-[38px]'> ₹1000</label>
           </div>
           <br /><br /><br />
-          <button className='bg-lime-500 rounded p-2 font-bold text-[38px]'>PAYMENT</button>
+          <Link to="/user/Add_to_cart/"><a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a></Link>
+          <Link to="/user/payment/"><button className='bg-lime-500 rounded p-2 font-bold text-[38px]'>PAYMENT</button></Link>
 
       </div>
 

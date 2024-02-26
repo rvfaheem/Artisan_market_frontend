@@ -41,7 +41,8 @@ export const Organiser_nav = () => {
     </div>
         
             <div className='flex justify-between px-5 gap-5'>
-              <Link to="/organiser"><div>Home</div></Link>
+              <Link to="/organiser"><div>HOME</div></Link>
+              <Link to="/organiser/o_profile/"><div>PROFILE</div></Link>
             <div><span onClick={dropdown}>Exihibition</span>
             {exihi &&
                  <div className='list-none absolute top-[78px] p-4 bg-fuchsia-600'>
