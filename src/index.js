@@ -71,6 +71,7 @@ import { Delivery_profile_edit } from './DELIVERY/Delivery_profile_edit';
 import { Product_feedback } from './USER/Product_feedback';
 import { U_View_orders } from './USER/View_orders';
 import { Add_to_cart } from './USER/Add_to_cart';
+import { U_Change_password } from './USER/U_Change_password';
 
 
 
@@ -145,6 +146,7 @@ root.render(
       <Route path="product_feedback" element={<Product_feedback/>}/>
       <Route path="view_orders" element={<U_View_orders/>}/>
       <Route path="/user/Add_to_cart/" element={<Add_to_cart/>}/>
+      <Route path="/user/change_password/" element={<U_Change_password/>}/>
 
 
       </Route>

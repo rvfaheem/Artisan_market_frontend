@@ -12,7 +12,7 @@
 }
 .organise{
   background-image: url("../public/organise.jpg");
-  height: 40rem;
+  /* height: 40rem; */
   background-size: 100%;
 }
 .category{

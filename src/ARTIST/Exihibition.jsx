@@ -12,11 +12,17 @@ export const A_Exihibition = () => {
       <div className='text-[50px] '>
                 EXIHIBITION 2024 
 
+      
+      <div className=''>
+        <div className='flex'>
+        <div><label className='text-[30px]'>Starting date:02-03-2024</label></div>
+        {/* <div className='text-[30px]'>02-03-2024</div> */}
+        </div>
+        <div className='flex'>
+        <div><label className='text-[30px]'>Ending date:02-03-2024</label></div><br /><br /><br />
+      {/* <div className='text-[30px]'>02-03-2024</div> */}
       </div>
-      <div className='flex'>
-        <div>02-03-2024</div>
-      <div>03-03-2024</div><br /><br /><br />
-
+      </div>
       </div>
     
       </div>

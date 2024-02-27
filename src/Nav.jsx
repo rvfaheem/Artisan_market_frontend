@@ -9,7 +9,7 @@ export const Nav = () => {
     }
   return (
     <>
-    <div className='flex bg-sky-700 justify-between py-7 px-5'>    
+    <div className='flex flex-wrap bg-sky-700 justify-between py-7 px-5'>    
     <div>
         <div className='text-4xl'>ARTISAN MARKET</div>
     </div>  

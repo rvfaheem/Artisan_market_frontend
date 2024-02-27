@@ -3,7 +3,7 @@ import React from 'react'
 export const O_registration_form = () => {
   return (
     <>
-    <div className='bg-green-300 w-screen h-screen'>    
+    <div class=' organise bg-green-300 w-screen h-100%'>    
     <div className='flex justify-center'>    
       
      
@@ -20,37 +20,32 @@ export const O_registration_form = () => {
             <label className='p-4 fond-bold text-[20px]'>1000</label>
             </div> */}
             <div className='p-3'>
-              <label>ORGANISER NAME:</label><br />
-              <input type="text" />
+              <label>NAME:</label><br />
+              <input type="text" placeholder='name' />
               </div>
-              
               <div className='p-3'>
               <label>IMAGE</label><br />
-              <input type="text" />
+              <input type="file" />
               </div>
               <div className='p-3'>
-              <label>PRODUCERS:</label><br />
-              <input type="text" />
-              </div>              
-              <div className='p-3'>
               <label>G-MAIL:</label><br />
-              <input type="text" />
+              <input type="text" placeholder='G-Mail' />
               </div>          
               <div className='p-3'>
               <label>PHONE NO:</label><br />
-              <input type="text" />
+              <input type="text" placeholder='phone no'/>
               </div>
               <div className='p-3'>
               <label>ADDRESS:</label><br />
-              <input type="text" />
+              <input type="text" placeholder='address' />
               </div>
               <div className='p-3'>
               <label>PASSWORD:</label><br />
-              <input type="text" />
+              <input type="text" placeholder='password' />
               </div>
               <div className='p-3'>
               <label>CONFIRM PASSWORD:</label><br />
-              <input type="text" />
+              <input type="text" placeholder='confirm password' />
               </div>                            
           <div>
             <button className='p-3 justify-center bg-red-700'>SUBMIT</button>

@@ -44,17 +44,21 @@ export const Assign_delivery = () => {
                     Product
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Category
+                    Name
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Sub-Category
-                </th>
+
                 <th scope="col" class="px-6 py-3">
                     Image
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Description
+                    G-mail
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    Phone No
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Address
+                </th>                                
                 <th scope="col" class="px-6 py-3">
                     Status
                 </th>
@@ -80,25 +84,24 @@ export const Assign_delivery = () => {
                 <td class="px-6 py-4">
                     
 
-                 Bottle-Art
+                 name
                  
-                </td>
-                <td class="px-6 py-4">
-                 Simple design
                 </td>
                 <td class="px-6 py-4">
                 <img src={image} className='w-8 h-8' alt="" />
                 </td>
                 <td class="px-6 py-4">
-                    Description
+                Name@gmail.com
                 </td>
                 <td class="px-6 py-4">
-                    requested
+                    2324253445
                 </td>
-                <div className='flex pt-2 pb-2 gap-3'>
-                <button className='bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl '>Update</button>
-                <button className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Delete</button>
-                </div>
+                <td class="px-6 py-4">
+                    address
+                </td>
+                
+                <button className='bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl '>Assign</button>
+
                 
             </tr>
 
