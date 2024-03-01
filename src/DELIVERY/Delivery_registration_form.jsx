@@ -9,7 +9,8 @@ export const Delivery_registration_form = () => {
      
       
         <div className='bg-red-300 w-fit h-fit p-10'>
-          <div className='bg-sky-600 w-96 h-FIT'>
+<form>
+<div className='bg-sky-600 w-96 h-FIT'>
           <div><label className='p-10 font-bold text-[20px] justify-center flex gap-2'>
             <p>REGISTRATION</p>
             <p> FORM</p>
@@ -19,6 +20,7 @@ export const Delivery_registration_form = () => {
             <label className='p-4 fond-bold text-[20px]'>AMOUNT</label><br /><br /><br /><br /><br />
             <label className='p-4 fond-bold text-[20px]'>1000</label>
             </div> */}
+            
             <div className='p-3'>
               <label>NAME:</label><br />
               <input type="text" placeholder='name' />
@@ -51,8 +53,12 @@ export const Delivery_registration_form = () => {
             <button className='p-3 justify-center bg-red-700'>SUBMIT</button>
           </div>
           </div>
+</form>
+        
         </div>
+      
       </div>
+      
     </div>
         </>
   )

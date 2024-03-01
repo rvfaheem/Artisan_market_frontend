@@ -10,6 +10,7 @@ export const A_profile_edit = () => {
       
         <div className='bg-red-300 w-fit h-fit p-10'>
           <div className='bg-sky-600 w-96 h-FIT'>
+            <form>
           <div><label className='p-10 font-bold text-[20px] justify-center flex gap-2'>
             <p>REGISTRATION</p>
             <p> FORM</p>
@@ -43,7 +44,9 @@ export const A_profile_edit = () => {
           <div>
             <button className='p-3 justify-center bg-red-700'>SUBMIT</button>
           </div>
+          </form>
           </div>
+          
         </div>
       </div>
     </div>

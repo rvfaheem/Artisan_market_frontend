@@ -6,6 +6,15 @@ export const Nav = () => {
     const [drop,setdrop]=useState(false)
     let dropdown=()=>{
         setdrop(!drop)
+
+        // const [nav,setnav]=useState(true)
+
+        // let Toggle=()=>{
+        //   setnav(!nav)
+        // }
+        // let ToggleTrue=()=>{
+        //   setnav(true)
+        // }        
     }
   return (
     <>

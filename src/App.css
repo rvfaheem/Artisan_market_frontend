@@ -12,8 +12,10 @@
 }
 .organise{
   background-image: url("../public/organise.jpg");
-  /* height: 40rem; */
-  background-size: 100%;
+  height: 50rem;
+  background-repeat: no-repeat;
+
+  /* background-size: ; */
 }
 .category{
   background-image: url("ADMIN/category.jpg");
@@ -34,4 +36,7 @@
   background-image: url("ARTIST/exihi.jpg");
   height: 40rem;
   background-size: 100%;
+}
+.navtoggle{
+  display: none;
 }

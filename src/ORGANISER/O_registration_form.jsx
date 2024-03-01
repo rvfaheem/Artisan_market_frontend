@@ -9,7 +9,8 @@ export const O_registration_form = () => {
      
       
         <div className='bg-red-300 w-fit h-fit p-10'>
-          <div className='bg-sky-600 w-96 h-FIT'>
+<form>
+<div className='bg-sky-600 w-96 h-FIT'>
           <div><label className='p-10 font-bold text-[20px] justify-center flex gap-2'>
             <p>REGISTRATION</p>
             <p> FORM</p>
@@ -50,7 +51,8 @@ export const O_registration_form = () => {
           <div>
             <button className='p-3 justify-center bg-red-700'>SUBMIT</button>
           </div>
-          </div>
+          </div> 
+</form>
         </div>
       </div>
     </div>

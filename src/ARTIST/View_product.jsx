@@ -21,7 +21,7 @@ export const View_product = () => {
       
 
 <div class="relative overflow-x-auto">
-
+    <form>
     <div className="flex gap-4">
       <label className='bg-white gap-4'>From Date</label>
       <input type="date" />
@@ -32,6 +32,7 @@ export const View_product = () => {
 
 
     </div>
+    </form>
 
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">

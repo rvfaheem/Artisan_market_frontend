@@ -16,21 +16,22 @@ export const Delivery_products = () => {
       
 
       
-
-<div class="relative overflow-x-auto">
-
-    <div className="flex gap-4">
-      <label className='bg-white gap-4'>From Date</label>
+<form>
+    <div className="flex flex-wrap gap-4">
+      <label className='bg-white gap-4 p-4 bg-gray-400'>From Date</label>
       <input type="date" />
-      <label className='bg-white gap-4'>To Date</label>
+      <label className='bg-white gap-4 p-4 bg-gray-400'>To Date</label>
       <input type="date" />
       <input type="text" />
-      <button>Search</button>
+      <button className='bg-green-500 p-4 rounded-xl'>Search</button>
 
 
     </div>
+</form>
+<div class="relative overflow-x-auto">
 
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
+
+    <table class="w-11/12 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
@@ -96,7 +97,7 @@ export const Delivery_products = () => {
                    address 
                 </td>
                 <div className='flex pt-2 pb-2 gap-3'>
-                <Link to='/artist/assign_delivery'><button className='bg-[#3BD45C] w-[100%] text-white pt-4 pb-4 rounded-xl '>Delivered</button></Link>
+                <button className='bg-[#3BD45C] w-[100%] text-white pt-4 pb-4 rounded-xl '>Delivered</button>
                 
                 </div>
                 

@@ -1,6 +1,11 @@
 import React from 'react'
 
 export const A_registration_form = () => {
+  // const [data,setData]=useState('')
+  //    let handleChange=(event)=>{
+  //     setData({...data,[event.target.name]:event.target.value})
+  //    }
+
   return (
     <>
     <div class=' organise bg-green-300 w-screen h-100%'>    

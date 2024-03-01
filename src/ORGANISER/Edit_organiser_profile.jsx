@@ -19,6 +19,7 @@ export const Edit_organiser_profile = () => {
             <label className='p-4 fond-bold text-[20px]'>AMOUNT</label><br /><br /><br /><br /><br />
             <label className='p-4 fond-bold text-[20px]'>1000</label>
             </div> */}
+            <form>
             <div className='p-3'>
               <label>ORGANISER NAME:</label><br />
               <input type="text" />
@@ -47,6 +48,7 @@ export const Edit_organiser_profile = () => {
           <div>
             <button className='p-3 justify-center bg-red-700'>SUBMIT</button>
           </div>
+          </form>
           </div>
         </div>
       </div>

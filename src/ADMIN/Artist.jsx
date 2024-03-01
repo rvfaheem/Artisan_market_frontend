@@ -21,7 +21,7 @@ export const Artist = () => {
 
 <div class="relative overflow-x-auto">
 
-    <div className="flex gap-4">
+    <div className="flex flex-wrap gap-4">
       <label className='bg-white gap-4'>From Date</label>
       <input type="date" />
       <label className='bg-white gap-4'>To Date</label>
@@ -31,7 +31,7 @@ export const Artist = () => {
 
     </div>
 
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
+    <table class="w-full flex flex-wrap text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">

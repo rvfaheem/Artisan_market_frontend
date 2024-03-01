@@ -3,57 +3,93 @@ import React from 'react'
 export const Exihibition_product_add = () => {
   return (
     <>
-        <>
-    <div>
-      
-        {/* <img className='w-screen h-screen' src={image}></img> */}
-        
-        <div class='bg-gray-900  py-45 bg-center pt-8 ml-34 flex justify-center'>
-          <div className='bg-[#AED0E9] flex flex-col justify-center items-center w-9/12 h-70 p-14 ml-9 mb-48 mt-32 gap-4'>
-           <div className="flex  justify-center">
-           
-           <span><label className='font-semibold w-10 text-[25px] '>Product Name</label></span>
-           <input className='mb-6 px-67 h-8 w-56' type="text" />
-            
-           </div>
-           <div className="flex  ">
-           <span><label className='font-semibold h-5 w-10 pr-10 text-[25px]'>Category:</label></span>
-           <input className='mb-6 px-67 h-8 w-56' type="text" />
-            
-           </div>
-           <div className="flex gap-2 ">
-           <label className='font-semibold pr-10  text-[25px]'>Creator</label>
-           <input className='mb-6 px-67 h-8 w-56' type="text" />
-            
-           </div>
-           <div className="flex gap-2 ">
-           <label className='font-semibold pr-10 text-[25px]'>Image</label>
-           <input className='mb-6 px-67 h-8 w-56' type="text" />
-            
-           </div>
-           <div className="flex gap-2 ">
-           <label className='font-semibold pr-7 text-[25px]'>Description</label>
-           <input className='mb-6 px-67 h-8 w-56' type="text" />
-            
-           </div>
-           <div className="flex gap-2 ">
-           <label className='font-semibold text-[25px]'>Rate</label>
-           <input className='mb-6 px-67 h-8 w-56' type="text" />
-            
-           </div>
-            <div>
-              
-            <button className= 'p-3 m-2 font-bold text-[26px] bg-green-600 w-28 mt-67' type="submit">Add</button>
-            
-            </div>
 
-          </div>
-        
 
-        </div>
-      
-    </div>
-    </>
+<div class="organise min-h-screen bg-gray-100 p-0 sm:p-12">
+  <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
+    <h1 class="text-2xl font-bold mb-8">EXIHIBITION PRODUCT ADD</h1>
+    <form id="form" novalidate>
+      <div class="relative z-0 w-full mb-5">
+      <label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >Product Name</label>
+        <input
+          type="text"
+          name=""
+          placeholder="Product Name"
+          required
+          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+        />
+        <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+        <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+      </div>
+      <label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >Category</label>
+      <div class="relative z-0 w-full mb-5">
+        <input
+          type="text"
+          name=""
+          placeholder="Name"
+          required
+          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+        />
+        <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+        <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+      </div>      
+
+
+
+<div class="relative z-0 w-full mb-5">
+<label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >Creator</label>
+        <input
+          type="text"
+          name=""
+          placeholder="G-Mail"
+          required
+          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+        />
+        <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+        <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+      </div>
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
+<input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>      
+      <label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >Description</label>
+      <div class="relative z-0 w-full mb-5">
+        <input
+          type="text"
+          name=""
+          placeholder="Phone No"
+          required
+          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+        />
+        <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+        <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+      </div>      
+
+
+
+      <label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >Rate</label>
+      <div class="relative z-0 w-full mb-5">
+        <input
+          type="text"
+          name="Address"
+          placeholder="Address "
+          class="pt-3 pb-2  block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+        />
+        
+        <label for="money" class="absolute duration-300 top-3 left-5 -z-1 origin-0 text-gray-500"></label>
+        <span class="text-sm text-red-600 hidden" id="error">Amount is required</span>
+      </div>
+
+
+
+      <button
+        id="button"
+        type="button"
+        class="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none"
+      >
+        ADD
+      </button>
+    </form>
+  </div>
+</div>
     </>
   )
 }
