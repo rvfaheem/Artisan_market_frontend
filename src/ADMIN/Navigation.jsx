@@ -13,7 +13,7 @@ export const AdminNavigation = () => {
   }  
   return (
     <>
-    <div className='flex flex-wrap px-3 p-5  bg-[#66DECF]'>
+    <div className='flex p-5 px-3   bg-indigo-950'>
         
         <div className='w-[500px] text-[30px] '>ARTISAN MARKET</div>
         <button onClick={Toggle} data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -27,7 +27,7 @@ export const AdminNavigation = () => {
   nav&&
 
 
-    <div className='justify-end w-[100%] items-center flex flex-col sm:flex-row gap-5'>
+    <div className='justify-end w-[100%] items-center flex flex-col sm:flex-row gap-5 text-white'>
       <Link to='/admin'><div>HOME</div></Link>
         <Link to='/admin/organiser'><div>ORGANISER</div></Link>
         <Link to='/admin/artist'><div>ARTIST</div></Link>

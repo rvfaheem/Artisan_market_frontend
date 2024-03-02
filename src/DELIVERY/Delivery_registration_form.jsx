@@ -3,7 +3,7 @@ import React from 'react'
 export const Delivery_registration_form = () => {
   return (
     <>
-    <div class=' organise bg-green-300 w-screen h-100%'>    
+    <div class=' organiser bg-green-300 w-screen h-100%'>    
     <div className='flex justify-center'>    
       
      
@@ -28,7 +28,16 @@ export const Delivery_registration_form = () => {
               <div className='p-3'>
               <label>IMAGE</label><br />
               <input type="file" />
+              </div>              
+              <div className='p-3'>
+              <label>ID-PROOF</label><br />
+              <input type="file" />
               </div>
+              <div className='p-3'>
+              <label>EXPERIENCE</label><br />
+              <input type="file" />
+              </div>
+                            
               <div className='p-3'>
               <label>G-MAIL:</label><br />
               <input type="text" placeholder='G-Mail' />

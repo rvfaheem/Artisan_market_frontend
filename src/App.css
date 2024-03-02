@@ -10,10 +10,20 @@
   height: 40rem;
   background-size: 100%;
 }
-.organise{
-  background-image: url("../public/organise.jpg");
+
+.organiser{
+  /* background-image: url("../public/organise.jpg"); */
+  background-color: aqua;
   height: 50rem;
   background-repeat: no-repeat;
+
+  /* background-size: ; */
+}
+.organise{
+  background-image: url("../public/organise.jpg");
+  height: 100%;
+  background-size: 100%;
+  /* background-repeat: no-repeat; */
 
   /* background-size: ; */
 }

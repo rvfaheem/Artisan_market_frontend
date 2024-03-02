@@ -8,7 +8,7 @@ export const A_registration_form = () => {
 
   return (
     <>
-    <div class=' organise bg-green-300 w-screen h-100%'>    
+    <div class=' organiser bg-green-300 w-screen h-100%'>    
     <div className='flex justify-center'>    
       
      
@@ -33,6 +33,14 @@ export const A_registration_form = () => {
               <label>IMAGE</label><br />
               <input type="file" />
               </div>
+              <div className='pl-4'>
+              <label>CATEGORY:</label><br />
+              <input type="text" placeholder='Category' />
+              </div>              
+              <div className='p-3'>
+              <label>ARTWORK</label><br />
+              <input type="file" />
+              </div>              
               <div className='p-3'>
               <label>G-MAIL:</label><br />
               <input type="text" placeholder='G-Mail' />

@@ -3,8 +3,9 @@ import image from './Artist.jpg'
 import image1 from './document.jpg'
 
 export const Artist = () => {
+
   return (
-    <div>
+    <div className='bg-cyan-200'>
         <>
         <div class='organise m-4 p-4'>
       {/* <div>
@@ -31,8 +32,8 @@ export const Artist = () => {
 
     </div>
 
-    <table class="w-full flex flex-wrap text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <table class="w-[100%] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50  bg-cyan-200 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     S.L No
@@ -67,7 +68,7 @@ export const Artist = () => {
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <tr class="bg-white border-b  bg-cyan-200 dark:border-gray-700">
             <td class="px-6 py-4">
                     1
                 </td>
@@ -84,6 +85,7 @@ export const Artist = () => {
                  
                 </td>
                 <td class="px-6 py-4">
+                    
                 <img src={image1} className="w-18 h-8" alt="" />
                 </td>
                 <td class="px-6 py-4">
