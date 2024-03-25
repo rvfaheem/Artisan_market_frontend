@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import image from './Artist1.jpg'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export const Delivery_profile = () => {
+    let id=localStorage.getItem('id')
+    const[userData,setUserData]=useState('id')
+    useEffect(()=>{
+      let fetchdata=async ()=>{
+      let response=await axios.get(`http://localhost:4000/viewprofile/${id}`,)
+      console.log(response.data)
+      setUserData(response.data)
+    }
+    fetchdata()
+  },[])
   return (
     <div>
       
@@ -19,12 +30,12 @@ export const Delivery_profile = () => {
                 </div> 
                 <div class="mt-16 flex flex-col items-center">
                     <h4 class="text-xl font-bold text-navy-700 dark:text-white">
-                    Name
+                    {userData.name}
                     </h4>
-                    <p class="text-base font-normal text-gray-600">Artist(Painting)</p>
-                    <p class="text-base font-normal text-gray-600">Name@gmail.com</p>
-                    <p class="text-base font-normal text-gray-600">3345670088</p>
-                    <p class="text-base font-normal text-gray-600">Address</p><br /><br /><br /><br />
+                    <p class="text-base font-normal text-gray-600">{userData.category}</p>
+                    <p class="text-base font-normal text-gray-600">{userData.gmail}</p>
+                    <p class="text-base font-normal text-gray-600">{userData.phoneNumber}</p>
+                    <p class="text-base font-normal text-gray-600">{userData.Addres}</p><br /><br /><br /><br />
                     <Link to="/delivery/D_profile_edit/"><button className='bg-green-600 rounted w-fit h-fit'>Edit</button></Link>
 
                 </div> 

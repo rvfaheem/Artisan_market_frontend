@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import image from './artist.jpg'
 import image1 from './mona-lisa.jpg'
 import image2 from './flower.jpg'
@@ -35,7 +34,7 @@ That is Paper origami, Drawing, painting,flower, gift,sculpture,bottle art,…
 <div className='bg-fuchsia-200'>
     <div className='flex flex-wrap justify-center  '>
         <div>
-            <Link to="View_product"><img className='w-36 h-36' src={image} alt=''/></Link>
+            <img className='w-36 h-36' src={image} alt=''/>
         </div>
         <div>
             <img className='w-36 h-36' src={image} alt=''/>
@@ -190,7 +189,7 @@ That is Paper origami, Drawing, painting,flower, gift,sculpture,bottle art,…
 
 
 
-<div className='flex '>
+<div className='flex'>
                 
 
    <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

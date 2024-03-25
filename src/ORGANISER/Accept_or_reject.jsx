@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import image from './artist.jpg'
 
 export const Accept_or_reject = () => {
+    const [nav1,setnav1]=useState(true)
+
+    let Toggle1=()=>{
+      setnav1(!nav1)
+    }
+    let ToggleTrue1=()=>{
+      setnav1(true)
+    }
+    let ToggleFalse=()=>{
+        setnav1(false)
+    }    
   return (
     <>
     <div class='organise m-4 p-4'>
@@ -83,8 +94,9 @@ export const Accept_or_reject = () => {
              
             </td>
             <td class="px-6 py-4">
-               <img src={image} className='w-8 h-8' alt="" />
-            </td>
+                    <img src={image} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
+                    
+                    </td>
             <td class="px-6 py-4">
                 akshay@
             </td>
@@ -105,7 +117,13 @@ export const Accept_or_reject = () => {
 </table>
 </div>
 
-
+{
+                    nav1&&
+                    <div className='absolute sm:left-[30%] z-10'>
+                    
+                        <img  src={image} className="w-96 rounded-[50%]   z-[10] h-96" alt="" />
+                    </div> 
+                    }
 
 </div>
 </>

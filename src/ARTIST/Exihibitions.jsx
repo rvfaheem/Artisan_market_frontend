@@ -4,6 +4,18 @@ import image from './exhi2.jpg'
 export const A_Exihibitions = () => {
   return (
     <>
+          <form>
+<div className="flex gap-4">
+  <label className='bg-white gap-4'>From Date</label>
+  <input type="date" />
+  <label className='bg-white gap-4'>To Date</label>
+  <input type="date" />
+  <input type="text" />
+  <button>Search</button>
+
+
+</div>
+</form>
     <div className='flex justify-center flex-wrap'>
 
 

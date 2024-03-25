@@ -3,7 +3,10 @@ import image from './exhi2.jpg'
 
 export const Offline_exihibition = () => {
   return (
+
+    
     <div>
+
           <div class='flex p-7'>
 
 <div>

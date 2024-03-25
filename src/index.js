@@ -8,7 +8,6 @@ import { Landingpage } from './Landingpage';
 import { Adminhome } from './ADMIN/Adminhome';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import { AdminNavigation } from './ADMIN/Navigation';
-import { Organiser } from './ADMIN/Organiser';
 import { Artist } from './ADMIN/Artist';
 import { Delivery } from './ADMIN/Delivery'; 
 import { Addcategory } from './ADMIN/Addcategory';
@@ -72,7 +71,8 @@ import { Product_feedback } from './USER/Product_feedback';
 import { U_View_orders } from './USER/View_orders';
 import { Add_to_cart } from './USER/Add_to_cart';
 import { U_Change_password } from './USER/U_Change_password';
-
+import Organiser from './ADMIN/Organiser';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 

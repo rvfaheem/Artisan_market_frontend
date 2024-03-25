@@ -1,16 +1,37 @@
 import React from 'react'
+import axios from 'axios'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 export const Delivery_registration_form = () => {
+  const navigate=useNavigate()
+  const [data,setData]=useState('')
+
+  let handleChange=(event)=>{
+    setData({...data,[event.target.name]:event.target.value})
+  }
+  let handleSubmit=async (event)=>{
+    event.preventDefault()
+    setData({...data,userType:'delivery'})
+    let response=await axios.post('http://localhost:4000/register',{...data,userType:'delivery'})
+    console.log(response)
+    navigate('/login')
+  
+    
+}
   return (
     <>
-    <div class=' organiser bg-green-300 w-screen h-100%'>    
+    <ToastContainer />
+    <div class=' organiser w-screen'>    
     <div className='flex justify-center'>    
       
      
       
-        <div className='bg-red-300 w-fit h-fit p-10'>
-<form>
-<div className='bg-sky-600 w-96 h-FIT'>
+        {/* <div className='bg-red-300 w-fit h-fit p-10'> */}
+        <div>
+<form onSubmit={handleSubmit}>
+<div className='bg-sky-600 opacity-85 w-96 h-FIT'>
           <div><label className='p-10 font-bold text-[20px] justify-center flex gap-2'>
             <p>REGISTRATION</p>
             <p> FORM</p>
@@ -23,43 +44,43 @@ export const Delivery_registration_form = () => {
             
             <div className='p-3'>
               <label>NAME:</label><br />
-              <input type="text" placeholder='name' />
+              <input onChange={handleChange} name="name" type="text" placeholder='name' />
               </div>
               <div className='p-3'>
               <label>IMAGE</label><br />
-              <input type="file" />
+              <input onChange={handleChange} name="image" type="file" />
               </div>              
               <div className='p-3'>
               <label>ID-PROOF</label><br />
-              <input type="file" />
+              <input onChange={handleChange} name="id_proof" type="file" />
               </div>
               <div className='p-3'>
               <label>EXPERIENCE</label><br />
-              <input type="file" />
+              <input onChange={handleChange} name="experience" type="file" />
               </div>
                             
               <div className='p-3'>
               <label>G-MAIL:</label><br />
-              <input type="text" placeholder='G-Mail' />
+              <input  onChange={handleChange} name="gmail" type="email" placeholder='G-Mail' />
               </div>          
               <div className='p-3'>
               <label>PHONE NO:</label><br />
-              <input type="text" placeholder='phone no'/>
+              <input onChange={handleChange} name="phoneNumber" type="number" pattern="[0-9]{10}" placeholder='phone no'/>
               </div>
               <div className='p-3'>
               <label>ADDRESS:</label><br />
-              <input type="text" placeholder='address' />
+              <input type="text" name="Address" onChange={handleChange} placeholder='address' />
               </div>
               <div className='p-3'>
               <label>PASSWORD:</label><br />
-              <input type="text" placeholder='password' />
+              <input onChange={handleChange} name="password" type="text" placeholder='password' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
               </div>
               <div className='p-3'>
               <label>CONFIRM PASSWORD:</label><br />
-              <input type="text" placeholder='confirm password' />
+              <input onChange={handleChange} name="confirm_password" type="text" placeholder='confirm password' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" />
               </div>                            
           <div>
-            <button className='p-3 justify-center bg-red-700'>SUBMIT</button>
+            <button type='submit' className='p-3 justify-center bg-red-700'>SUBMIT</button>
           </div>
           </div>
 </form>

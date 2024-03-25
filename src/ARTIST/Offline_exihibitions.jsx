@@ -5,7 +5,18 @@ export const Offline_exihibitions = () => {
   return (
     <>
     <div className='flex justify-center flex-wrap'>
+    <form>
+<div className="flex gap-4">
+  <label className='bg-white gap-4'>From Date</label>
+  <input type="date" />
+  <label className='bg-white gap-4'>To Date</label>
+  <input type="date" />
+  <input type="text" />
+  <button>Search</button>
 
+
+</div>
+</form>
 
 <div className='flex gap-4 '>
 

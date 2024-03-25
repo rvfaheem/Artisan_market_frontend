@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import image from './Artist1.jpg'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export const Organiser_profile = () => {
+    let id=localStorage.getItem('id')
+    const[userData,setUserData]=useState('id')
+    useEffect(()=>{
+      let fetchdata=async ()=>{
+      let response=await axios.get(`http://localhost:4000/viewprofile/${id}`,)
+      console.log(response.data)
+      setUserData(response.data)
+    }
+    fetchdata()
+  },[])
   return (
   
  
@@ -15,17 +26,17 @@ export const Organiser_profile = () => {
                 <div class="relative flex h-32 w-full justify-center rounded-xl bg-cover" >
                     <img src='https://horizon-tailwind-react-git-tailwind-components-horizon-ui.vercel.app/static/media/banner.ef572d78f29b0fee0a09.png' class="absolute flex h-32 w-full justify-center rounded-xl bg-cover" /> 
                     <div class="absolute -bottom-12 flex h-[87px] w-[87px] items-center justify-center rounded-full border-[4px] border-white bg-pink-400 dark:!border-navy-700">
-                        <img class="h-full w-full rounded-full" src={image} alt="" />
+                        <img class="h-full w-full rounded-full" src={`http://localhost:4000/uploads/${userData.image}`} alt="" />
                     </div>
                 </div> 
                 <div class="mt-16 flex flex-col items-center">
                     <h4 class="text-xl font-bold text-navy-700 dark:text-white">
-                    Name
+                    {userData.name}
                     </h4>
-                    <p class="text-base font-normal text-gray-600">Artist(Painting)</p>
-                    <p class="text-base font-normal text-gray-600">Name@gmail.com</p>
-                    <p class="text-base font-normal text-gray-600">3345670088</p>
-                    <p class="text-base font-normal text-gray-600">Address</p><br /><br /><br /><br />
+                    <p class="text-base font-normal text-gray-600">{userData.category}</p>
+                    <p class="text-base font-normal text-gray-600">{userData.gmail}</p>
+                    <p class="text-base font-normal text-gray-600">{userData.phoneNumber}</p>
+                    <p class="text-base font-normal text-gray-600">{userData.Address}</p><br /><br /><br /><br />
                     <Link to="/organiser/o_profile_edit/"><button className='bg-green-600 rounted w-fit h-fit'>Edit</button></Link>
 
                 </div> 
