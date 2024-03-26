@@ -51,39 +51,39 @@ export const A_registration_form = () => {
         <form onSubmit={handleSubmit} >
             <div className='p-3'>
               
-              <label>NAME:</label><br />
+              <label className=' text-gray-500 font-bold'>NAME:</label><br />
               <input onChange={handleChange} name="name" className='rounded' type="text" placeholder='name' />
               </div>
               <div className='p-3'>
-              <label>IMAGE</label><br />
+              <label className=' text-gray-500 font-bold'>IMAGE</label><br />
               <input onChange={handleChange} image="image" className='rounded' type="file" />
               </div>
               <div className='pl-4'>
-              <label>CATEGORY:</label><br />
+              <label className=' text-gray-500 font-bold'>CATEGORY:</label><br />
               <input onChange={handleChange} name="category" className='rounded' type="text" placeholder='Category' />
               </div>              
               <div className='p-3'>
-              <label>ARTWORK</label><br />
+              <label className=' text-gray-500 font-bold'>ARTWORK</label><br />
               <input onChange={handleChange} name="artwork" type="file" className='rounded' />
               </div>              
               <div className='p-3'>
-              <label>G-MAIL:</label><br />
+              <label className=' text-gray-500 font-bold'>G-MAIL:</label><br />
               <input onChange={handleChange} type="email" name="gmail" placeholder='G-Mail' className='rounded' />
               </div>          
               <div className='p-3'>
-              <label>PHONE NO:</label><br />
+              <label className=' text-gray-500 font-bold'>PHONE NO:</label><br />
               <input onChange={handleChange} type="number" pattern="[0-9]{10}" name="phoneNumber" placeholder='phone no' className='rounded'/>
               </div>
               <div className='p-3'>
-              <label>ADDRESS:</label><br />
+              <label className=' text-gray-500 font-bold'>ADDRESS:</label><br />
               <input onChange={handleChange} type="text" name="Address" placeholder='address' className='rounded' />
               </div>
               <div className='p-3'>
-              <label>PASSWORD:</label><br />
+              <label className=' text-gray-500 font-bold'>PASSWORD:</label><br />
               <input onChange={handleChange} type="text" name="password" placeholder='password' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" className='rounded' />
               </div>
               <div className='p-3'>
-              <label>CONFIRM PASSWORD:</label><br />
+              <label className=' text-gray-500 font-bold'>CONFIRM PASSWORD:</label><br />
               <input onChange={handleChange} type="text" name="confirm_password" placeholder='confirm password' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" className='rounded' />
               </div>
                                           

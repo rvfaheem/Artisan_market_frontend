@@ -1,11 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import image from './Artist.jpg';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 const Organiser = () => {
+  const[data,setdata]=useState([''])
+  const[refresh,setrefresh]=useState(false)
   const [nav1, setNav1] = useState(true);
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 5; // Adjust this based on your preference
+  useEffect(()=>{
+    let fetchData=async()=>{
+      let response=await axios.get(`http://localhost:4000/admin/viewuser`)
+      console.log(response.data)
+      setdata(response.data)
+    }
+    fetchData()
+  },[])
+
+  let handleSubmit=async(statuss,id)=>{
+    setrefresh(!refresh)
+    console.log(id);
+    let response=await axios.put(`http://localhost:4000/admin/manageUser/${id}`,{status:statuss})
+    console.log(response)
+    setdata('')
+  }
 
   let toggle1 = () => {
     setNav1(!nav1);
@@ -77,8 +97,7 @@ const Organiser = () => {
   // Calculate index of the first and last item to be displayed
   const indexOfLastItem = (currentPage + 1) * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = applications.slice(indexOfFirstItem, indexOfLastItem);
-
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
   // Function to handle page change
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
@@ -129,22 +148,23 @@ const Organiser = () => {
             </thead>
             {/* Table Body */}
             <tbody>
-              {currentItems.map((application) => (
-                <tr key={application.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-                  <td className='px-6 py-4'>{application.id}</td>
-                  <td className='px-6 py-4'>{application.name}</td>
+              {currentItems.map((organiser) => (
+                <tr key={organiser.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+                  <td className='px-6 py-4'>{organiser.id}</td>
+                  <td className='px-6 py-4'>{organiser.name}</td>
                   <td className='px-6 py-4'>
-                    <img src={application.image} onMouseLeave={toggleFalse} onMouseEnter={toggle1} className='w-8 h-8' alt='' />
+                    <img src={organiser.image} onMouseLeave={toggleFalse} onMouseEnter={toggle1} className='w-8 h-8' alt='' />
                   </td>
-                  <a download href=""><td class="px-6 py-4 text-blue-600" className='px-6 py-4'>{application.experience}</td></a>
-                  <td className='px-6 py-4'>{application.email}</td>
-                  <td className='px-6 py-4'>{application.phone}</td>
-                  <td className='px-6 py-4'>{application.address}</td>
+                  <a download href=""><td class="px-6 py-4 text-blue-600" className='px-6 py-4'>{organiser.experience}</td></a>
+                  <td className='px-6 py-4'>{organiser.gmail}</td>
+                  <td className='px-6 py-4'>{organiser.phoneNumber}</td>
+                  <td className='px-6 py-4'>{organiser.Address}</td>
+                  <td className='px-6 py-4'>{organiser.status}</td>
                   <td>
-                    <button className='bg-[#3BD45C] w-[50%] text-white pt-3 pb-3 rounded-xl '>Accept</button>
+                    <button type='submit' onClick={()=>{handleSubmit('accept',organiser._id)}} className='bg-[#3BD45C] w-[50%] text-white pt-3 pb-3 rounded-xl '>Accept</button>
                   </td>
                   <td>
-                    <button className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Reject</button>
+                    <button type='submit' onClick={()=>{handleSubmit('reject',organiser._id)}} className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Reject</button>
                   </td>
                 </tr>
               ))}
@@ -167,11 +187,11 @@ const Organiser = () => {
         
         </div>
       </div>
-      {nav1 && (
+      {/* {nav1 && (
             <div className='absolute sm:left-[50%] top-28 z-10'>
               <img src={image} className='w-96 rounded-[50%] z-[10] h-96' alt='' />
             </div>
-          )}
+          )} */}
     </>
   );
 };

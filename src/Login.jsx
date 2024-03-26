@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import APP from './App'
 import './App.css'
 import axios from 'axios'
-import { toast } from 'react-toastify'
+import { ToastContainer, toast } from 'react-toastify'
 import {useNavigate} from  'react-router-dom'
 
 export const Login = () => {
@@ -37,7 +37,12 @@ export const Login = () => {
           Navigate('/user')
         }
         else if(response.data.userType=='organiser'){
+          if(response.data.status=='accept'){
           Navigate('/organiser')
+          }
+          else{
+toast.error("Not accepted Admin")
+          }
         }
         else if(response.data.userType=='delivery'){
           Navigate('/delivery')
@@ -53,7 +58,7 @@ export const Login = () => {
   }  
   return (
     <>
-
+<ToastContainer/>
           <section class="back  ">
             <div class="flex mt=2 flex-col items-center justify-center px-6 py-6  mx-auto ">
               <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">

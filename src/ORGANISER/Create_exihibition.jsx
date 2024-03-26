@@ -12,7 +12,7 @@ export const Create_exihibition = () => {
 
   let handleSubmit=async (event)=>{
     event.preventDefault()
-    let response=await axios.post(`http://localhost:4000/organiser/create_exihibition`,{...data,userId:id})
+    let response=await axios.post(`http://localhost:4000/organiser/createexihibition`,{...data,userId:id})
     console.log(response);
     setData('')
   }  
@@ -29,7 +29,7 @@ export const Create_exihibition = () => {
         <input
           type="text"
           onChange={handleChanage}
-          name="exihibitiionName"
+          name='exihibitionName'
           placeholder="Exihibition Name"
           required
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"

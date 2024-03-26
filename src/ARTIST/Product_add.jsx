@@ -8,15 +8,15 @@ export const Product_add = () => {
     const [data,setData] = useState()
 
 
-
-  const [name,setName]=useState('')
-  const [ image,setImage]=useState('')
-  const [price,setPrice]=useState('')
-
   let handleChanage=(event)=>{
-    setData({...data,[event.target.name]:event.target.value})
-    console.log(data);
+    if(event.target.name === 'Image'){
+    setData({...data,[event.target.name]:event.target.files[0]})
+
+    }else{
+      setData({...data,[event.target.name]:event.target.value})
+    }
   }
+  console.log(data);
 
   useEffect(()=>{
       let fetchdata=async ()=>{
@@ -38,25 +38,29 @@ export const Product_add = () => {
     formdata.append("productName",data.productName)
     formdata.append("price",data.price)
     formdata.append("Image",data.Image)
-    
+    formdata.append("sub_categoryid",data.sub_categoryid)
 
     console.log(data,'ddtas');
     // return true
 
     let response=await axios.post(`http://localhost:4000/artist/addproduct`,formdata)
     console.log(response);
-    setData('')
+   
   }
   const [catId,setCatId]=useState()
   let handleCategory=async(event)=>
   {
-    console.log(event.target.value);
-setCatId(event.target.value)
+    if(event.target.value){
+      setCatId(event.target.value)
+      let response=await axios.get(`http://localhost:4000/artist/viewsubcategory/${event.target.value}`)
+      console.log(response);
+        setsubcategory(response.data)
+    }
+  }
+  const  handleSubCategory=(e)=>{
+    setData({...data,sub_categoryid:e.target.value})
 
 
-  let response=await axios.get(`http://localhost:4000/artist/viewsubcategory/${event.target.value}`)
-  console.log(response);
-    setsubcategory(response.data)
   }
   return (
     <>
@@ -95,7 +99,7 @@ setCatId(event.target.value)
         <select
           
           name="category"
-          value=""
+          
           onChange={handleCategory}
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         > 
@@ -114,15 +118,16 @@ setCatId(event.target.value)
       <div class="relative z-0 w-full mb-5">
         <select
           name="select"
-          value=""
-         onChange={handleCategory}
+         onChange={handleSubCategory}
           
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         >
+<option value=''>choose</option>
           {subcategory?.map((item)=>(
 
 <option value={item._id}>{item.sub_category}</option>
 ))}
+
         </select>
         <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
         <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
@@ -134,7 +139,6 @@ setCatId(event.target.value)
                  onChange={handleChanage}
           type="number"
           name="price"
-          
           placeholder="Price "
           class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
@@ -152,6 +156,10 @@ setCatId(event.target.value)
       >
         ADD PRODUCT
       </button>
+
+      {/* {
+        JSON.stringify(data)
+      } */}
 
     </form>
   </div>
