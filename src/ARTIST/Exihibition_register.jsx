@@ -1,7 +1,43 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export const Exihibition_register = () => {
+  
+  const [data,setData] = useState()
+
+  let handleChanage=(event)=>{
+    if(event.target.name === 'Image'){
+    setData({...data,[event.target.name]:event.target.files[0]})
+
+    }else{
+      setData({...data,[event.target.name]:event.target.value})
+    }
+  }
+  console.log(data);
+
+
+  let handleSubmit=async (event)=>{
+    event.preventDefault()
+
+    const formdata = new FormData()
+    formdata.append("productName",data.productName)
+    formdata.append("name",data.name)
+    formdata.append("image",data.image)
+    formdata.append("email",data.gmail)
+    formdata.append("phoneNumber",data.phoneNumber)
+    formdata.append("Address",data.Address)
+    
+    
+    
+
+    console.log(data,'ddtas');
+    // return true
+
+    let response=await axios.post(`http://localhost:4000/artist/exihibitionregister`,formdata)
+    console.log(response);
+   
+  }  
   return (
     <>
 
@@ -9,12 +45,13 @@ export const Exihibition_register = () => {
 <div class="organise min-h-screen bg-gray-100 p-0 sm:p-12">
   <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
     <h1 class="text-2xl font-bold mb-8">EXIHIBITION REGISTER</h1>
-    <form id="form" novalidate>
+    <form onSubmit={handleSubmit}>
       <div class="relative z-0 w-full mb-5">
       <label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >Product Name</label>
         <input
           type="text"
-          name=""
+          name="productName"
+          onChange={handleChanage}
           placeholder="Product Name"
           required
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
@@ -26,7 +63,8 @@ export const Exihibition_register = () => {
       <div class="relative z-0 w-full mb-5">
         <input
           type="text"
-          name=""
+          name="name"
+          onChange={handleChanage}
           placeholder="Name"
           required
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
@@ -42,7 +80,8 @@ export const Exihibition_register = () => {
 <label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >G-Mail</label>
         <input
           type="text"
-          name=""
+          name="email"
+          onChange={handleChanage}
           placeholder="G-Mail"
           required
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
@@ -54,7 +93,8 @@ export const Exihibition_register = () => {
       <div class="relative z-0 w-full mb-5">
         <input
           type="text"
-          name=""
+          name="phoneNumber"
+          onChange={handleChanage}
           placeholder="Phone No"
           required
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
@@ -70,6 +110,7 @@ export const Exihibition_register = () => {
         <input
           type="text"
           name="Address"
+          onChange={handleChanage}
           placeholder="Address "
           class="pt-3 pb-2  block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
@@ -80,13 +121,15 @@ export const Exihibition_register = () => {
 
 
 
-      <Link to="/artist/exihibition_product_add/"><button
+      <Link to="/artist/exihibition_product_add/">
+        <button
         id="button"
-        type="button"
+        type="submit"
         class="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none"
       >
         REGISTER
-      </button></Link>
+      </button>
+      </Link>
     </form>
   </div>
 </div>

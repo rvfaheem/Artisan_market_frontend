@@ -132,8 +132,8 @@ root.render(
       <Route path="/user" element={<User_navigation/>}>
       <Route index element={<UserHome/>}/>
       <Route path="products" element={<Products/>}/>
-      <Route path="payment" element={<Payment/>}/>
-      <Route path="product_details" element={<Product_details/>}/>
+      <Route path="payment/:id" element={<Payment/>}/>
+      <Route path="product_details/:id" element={<Product_details/>}/>
       <Route path="offline_notification" element={<Offline_exihibition_notification/>}/>
       <Route path="offline_notifications" element={<Offline_exihibitions_notifications/>}/>
       <Route path="online_notification" element={<Online_exihibition_notification/>}/>

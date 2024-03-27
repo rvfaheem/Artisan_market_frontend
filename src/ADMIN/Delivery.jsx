@@ -1,13 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import image from './Artist.jpg';
+import axios from 'axios';
 
 
 
 export const Delivery = () => {
   const [nav1, setNav1] = useState(true);
+  const[data,setdata]=useState([''])
+  const[refresh,setrefresh]=useState(false)
   const [currentPage, setCurrentPage] = useState(0);
   const itemsPerPage = 5; // Adjust this based on your preference
+
+  useEffect(()=>{
+    let fetchData=async()=>{
+      let response=await axios.get(`http://localhost:4000/admin/viewuser`)
+      console.log(response.data)
+      setdata(response.data)
+    }
+    fetchData()
+  },[])
+
+  let handleSubmit=async(statuss,id)=>{
+    setrefresh(!refresh)
+    console.log(id);
+    let response=await axios.put(`http://localhost:4000/admin/manageUser/${id}`,{status:statuss})
+    console.log(response)
+    setdata('')
+  }
 
   let toggle1 = () => {
     setNav1(!nav1);
@@ -86,7 +106,7 @@ export const Delivery = () => {
   // Calculate index of the first and last item to be displayed
   const indexOfLastItem = (currentPage + 1) * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = applications.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
   // Function to handle page change
   const handlePageChange = ({ selected }) => {
@@ -141,23 +161,24 @@ export const Delivery = () => {
             </thead>
             {/* Table Body */}
             <tbody>
-              {currentItems.map((application) => (
-                <tr key={application.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-                  <td className='px-6 py-4'>{application.id}</td>
-                  <td className='px-6 py-4'>{application.name}</td>
+              {currentItems.map((delivery) => (
+                <tr key={delivery.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+                  <td className='px-6 py-4'>{delivery.id}</td>
+                  <td className='px-6 py-4'>{delivery.name}</td>
                   <td className='px-6 py-4'>
-                    <img src={application.image} onMouseLeave={toggleFalse} onMouseEnter={toggle1} className='w-8 h-8' alt='' />
+                    <img src={delivery.image} onMouseLeave={toggleFalse} onMouseEnter={toggle1} className='w-8 h-8' alt='' />
                   </td>
-                  <a download href=""><td class="px-6 py-4 text-blue-600" className='px-6 py-4'>{application.id_proof}</td></a>
-                  <td class="px-6 py-4 text-blue-600" className='px-6 py-4'>{application.experience}</td>
-                  <td className='px-6 py-4'>{application.email}</td>
-                  <td className='px-6 py-4'>{application.phone}</td>
-                  <td className='px-6 py-4'>{application.address}</td>
+                  <a download href=""><td class="px-6 py-4 text-blue-600" className='px-6 py-4'>{delivery.id_proof}</td></a>
+                  <td class="px-6 py-4 text-blue-600" className='px-6 py-4'>{delivery.experience}</td>
+                  <td className='px-6 py-4'>{delivery.gmail}</td>
+                  <td className='px-6 py-4'>{delivery.phoneNumber}</td>
+                  <td className='px-6 py-4'>{delivery.Address}</td>
+                  <td className='px-6 py-4'>{delivery.status}</td>
                   <td>
-                    <button className='bg-[#3BD45C] w-[50%] text-white pt-3 pb-3 rounded-xl '>Accept</button>
+                    <button type='submit' onClick={()=>{handleSubmit('accept',delivery._id)}} className='bg-[#3BD45C] w-[50%] text-white pt-3 pb-3 rounded-xl '>Accept</button>
                   </td>
                   <td>
-                    <button className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Reject</button>
+                    <button type='submit' onClick={()=>{handleSubmit('reject',delivery._id)}}className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Reject</button>
                   </td>
                 </tr>
               ))}

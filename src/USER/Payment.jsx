@@ -1,6 +1,31 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export const Payment = () => {
+  let {id}=useParams()
+  const [data,setData]=useState('')
+
+  useEffect(() =>{
+    let fetchData = async () =>{
+      let response = await axios.get(`http://localhost:4000/user/viewproductdetails/${id}`)
+      console.log(response.data)
+      setData(response.data)
+    }
+    fetchData()
+  },[])
+
+  let handleChanage=(event)=>{
+    setData({...data,[event.target.name]:event.target.value})
+    console.log(data);
+  }
+
+  let handleSubmit=async (event)=>{
+    event.preventDefault()
+    let response=await axios.post(`http://localhost:4000/user/payment`,data)
+    console.log(response);
+    setData('')
+  }
   return (
     <>
 <div className='bg-green-300 w-screen h-screen'>    
@@ -14,31 +39,33 @@ export const Payment = () => {
         <div className='flex justify-center'>
           
         <label className='p-4 fond-bold text-[20px]'>AMOUNT</label><br /><br /><br /><br /><br />
-        <label className='p-4 fond-bold text-[20px]'>1000</label>
+        <label className='p-4 fond-bold text-[20px]'>{data.price}</label>
         </div>
+     <form onSubmit={handleSubmit}>
         <div className='p-3'>
           <label>NAME:</label><br />
-          <input type="text" />
+          <input name='name' onChange={handleChanage} type="text" />
           </div>
           <div className='p-3'>
           <label>PHONE NO:</label><br />
-          <input type="text" />
+          <input name='phoneNumber' onChange={handleChanage} type="text" />
           </div>
           <div className='p-3'>
           <label>CARD NO:</label><br />
-          <input type="text" />
+          <input onChange={handleChanage} name='cardno' type="text" />
           </div>          
           <div className='p-3'>
           <label>MM/YY:</label><br />
-          <input type="text" />
+          <input onChange={handleChanage} name='mmyy' type="text" />
           </div>
           <div className='p-3'>
           <label>CVV:</label><br />
-          <input type="text" />
+          <input onChange={handleChanage} name='cvv' type="text" />
           </div>
       <div>
-        <button className='p-3 justify-center bg-red-700'>SUBMIT</button>
+        <button type='submit' className='p-3 justify-center bg-red-700'>SUBMIT</button>
       </div>
+      </form>   
       </div>
     </div>
   </div>
