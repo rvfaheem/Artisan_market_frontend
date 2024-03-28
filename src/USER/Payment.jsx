@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 
 export const Payment = () => {
   let {id}=useParams()
+  let userid=localStorage.getItem('id')
   const [data,setData]=useState('')
 
   useEffect(() =>{
@@ -22,7 +23,7 @@ export const Payment = () => {
 
   let handleSubmit=async (event)=>{
     event.preventDefault()
-    let response=await axios.post(`http://localhost:4000/user/payment`,data)
+    let response=await axios.post(`http://localhost:4000/user/payment`,{userId:userid,productId:id})
     console.log(response);
     setData('')
   }
