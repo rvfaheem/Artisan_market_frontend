@@ -14,7 +14,7 @@ export const Delivery = () => {
 
   useEffect(()=>{
     let fetchData=async()=>{
-      let response=await axios.get(`http://localhost:4000/admin/viewuser`)
+      let response=await axios.get(`http://localhost:4000/admin/viewuserdelivery`)
       console.log(response.data)
       setdata(response.data)
     }

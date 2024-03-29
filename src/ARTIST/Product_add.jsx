@@ -39,6 +39,7 @@ export const Product_add = () => {
     formdata.append("price",data.price)
     formdata.append("Image",data.Image)
     formdata.append("sub_categoryid",data.sub_categoryid)
+    formdata.append("artistId",id)
 
     console.log(data,'ddtas');
     // return true

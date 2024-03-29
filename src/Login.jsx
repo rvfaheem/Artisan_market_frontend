@@ -31,10 +31,14 @@ export const Login = () => {
           Navigate('/admin')
         }
         else if(response.data.userType=='artist'){
+          if(response.data.status=='accept'){
           Navigate('/artist')
         }
+        }
         else if(response.data.userType=='user'){
+          if(response.data.status=='accept'){
           Navigate('/user')
+          }
         }
         else if(response.data.userType=='organiser'){
           if(response.data.status=='accept'){
@@ -45,7 +49,9 @@ toast.error("Not accepted Admin")
           }
         }
         else if(response.data.userType=='delivery'){
+          if(response.data.status=='accept'){
           Navigate('/delivery')
+          }
         }
       }
       else{

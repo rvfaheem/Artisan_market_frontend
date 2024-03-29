@@ -12,7 +12,7 @@ const Organiser = () => {
   const itemsPerPage = 5; // Adjust this based on your preference
   useEffect(()=>{
     let fetchData=async()=>{
-      let response=await axios.get(`http://localhost:4000/admin/viewuser`)
+      let response=await axios.get(`http://localhost:4000/admin/viewuserorganiser`)
       console.log(response.data)
       setdata(response.data)
     }

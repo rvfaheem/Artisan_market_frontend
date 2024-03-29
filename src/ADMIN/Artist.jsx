@@ -13,7 +13,7 @@ export const Artist = () => {
 
   useEffect(()=>{
     let fetchData=async()=>{
-      let response=await axios.get(`http://localhost:4000/admin/viewuser`)
+      let response=await axios.get(`http://localhost:4000/admin/viewuserartist`)
       console.log(response.data)
       setdata(response.data)
     }

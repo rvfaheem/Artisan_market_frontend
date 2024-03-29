@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import image from './bttle.jpg'
+import axios from 'axios'
 
 export const View_orders = () => {
+let id=localStorage.getItem('id')
+    const [data,setdata] =useState([])
+    useEffect(()=>{
+        let fetchData=async()=>{
+            let response =await axios.get(`http://localhost:4000/artist/viewproductorder/${id}`)
+            console.log(response.data)
+            setdata(response.data)
+        }
+        fetchData()
+    },[])
   return (
  
     <>
@@ -43,7 +54,13 @@ export const View_orders = () => {
                     Date
                 </th>
                 <th scope="col" class="px-6 py-3">
+                    User
+                </th>
+                <th scope="col" class="px-6 py-3">
                     Product
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Price
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Category
@@ -67,24 +84,30 @@ export const View_orders = () => {
             </tr>
         </thead>
         <tbody>
+            {data.map((item)=>(
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <td class="px-6 py-4">
                     1
                 </td>
                 <td class="px-6 py-4">
-                    03-02-2024
+                {item.orders.date}
                 </td>
                 <td class="px-6 py-4">
-                    Bottle Art-1
+                {item.users.name}
+                </td>
+                <td class="px-6 py-4">
+                    {item.product.productName}
+                </td>
+                <td class="px-6 py-4">
+                    {item.product.price}
                 </td>
                 <td class="px-6 py-4">
                     
-
-                 Bottle-Art
+                 {item.categories.category}
                  
                 </td>
                 <td class="px-6 py-4">
-                 Simple design
+                 {item.sub_categories.sub_category}
                 </td>
                 <td class="px-6 py-4">
                 
@@ -101,7 +124,7 @@ export const View_orders = () => {
                 </div>
                 
             </tr>
-
+))}
         </tbody>
     </table>
 </div>
