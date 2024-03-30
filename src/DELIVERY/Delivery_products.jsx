@@ -1,7 +1,27 @@
-import React from 'react'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export const Delivery_products = () => {
+    let id=localStorage.getItem('id')
+    const [data,setdata] =useState([])
+    const[refresh,setrefresh]=useState([''])
+    useEffect(()=>{
+        let fetchData=async()=>{
+            let response =await axios.get(`http://localhost:4000/delivery/viewproductorder/${id}`)
+            console.log(response.data)
+            setdata(response.data)
+        }
+        fetchData()
+    },[])
+
+    let handleSubmit=async(statuss,orderId)=>{
+        setrefresh(!refresh)
+        console.log(id);
+        let response=await axios.put(`http://localhost:4000/delivery/manageDelivery/${orderId}`,{status:'delivered',deliveryId:id})
+        console.log(response)
+        setdata('')
+    }
   return (
     <>
         <div class='organise m-4 p-4'>
@@ -68,6 +88,7 @@ export const Delivery_products = () => {
             </tr>
         </thead>
         <tbody>
+            {data.map((item)=>(
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <td class="px-6 py-4">
                     1
@@ -76,33 +97,33 @@ export const Delivery_products = () => {
                     03-02-2024
                 </td>
                 <td class="px-6 py-4">
-                    Bottle Art-1
+                {item.order.productName} 
                 </td>
                 <td class="px-6 py-4">
                     
 
-                 Arun
+                 {item.users.name}
                  
                 </td>
                 <td class="px-6 py-4">
-                 Arun@gmail.com
+                {item.users.gmail}
                 </td>
                 <td class="px-6 py-4">
                 Feedback
                 </td>
                 <td class="px-6 py-4">
-                  245341245332  
+                {item.users.phoneNumber} 
                 </td>
                 <td class="px-6 py-4">
-                   address 
+                {item.users.Address} 
                 </td>
                 <div className='flex pt-2 pb-2 gap-3'>
-                <button className='bg-[#3BD45C] w-[100%] text-white pt-4 pb-4 rounded-xl '>Delivered</button>
+                <button type='submit' onClick={()=>{handleSubmit('delivered',item.order._id)}} className='bg-[#3BD45C] w-[100%] text-white pt-4 pb-4 rounded-xl '>Delivered</button>
                 
                 </div>
                 
             </tr>
-
+))}
         </tbody>
     </table>
 </div>

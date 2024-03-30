@@ -22,15 +22,15 @@ export const Delivery_registration_form = () => {
     let formData = new FormData();
         formData.append('name', data.name);
         formData.append('image', data.image);
-        formData.append('id_proof', data.art_work);
-        formData.append('id_proof', data.id_proof);
+        formData.append('idproof', data.idproof);
+        formData.append('Experience', data.Experience);
         formData.append('gmail', data.gmail);
         formData.append('phoneNumber', data.phoneNumber);
         formData.append('Address', data.Address);
         formData.append('password', data.password);
-        formData.append('userType', 'artist');
+        formData.append('userType', 'delivery');
 
-    setData({...data,userType:'artist'})
+    setData({...data,userType:'delivery'})
     let response=await axios.post('http://localhost:4000/register',formData,{
       headers: {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
@@ -76,13 +76,16 @@ export const Delivery_registration_form = () => {
                 <label className=' text-gray-500 font-bold'>IMAGE</label><br />
                 <input onChange={handlefile} className='rounded' name="image" type="file" />
                 </div>
+    
                 <div className='p-3'>
-                <label className=' text-gray-500 font-bold'>ID_PROOF</label><br />
+                <label className=' text-gray-500 font-bold'>ID-PROOF</label><br />
                 <input onChange={handlefile} name="id_proof" type="file" />
-                </div>        
+                
+                </div> 
                 <div className='p-3'>
                 <label className=' text-gray-500 font-bold'>EXPERIENCE</label><br />
                 <input onChange={handlefile} name="experience" type="file" />
+                
                 </div>                
                 <div className='p-3'>
                 <label className=' text-gray-500 font-bold'>G-MAIL:</label><br />
@@ -117,4 +120,3 @@ export const Delivery_registration_form = () => {
         </>
   )
 }
-

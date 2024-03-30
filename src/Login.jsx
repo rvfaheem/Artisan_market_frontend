@@ -34,16 +34,19 @@ export const Login = () => {
           if(response.data.status=='accept'){
           Navigate('/artist')
         }
+        else{
+          toast.error("Not accepted Admin")
+                    }
         }
         else if(response.data.userType=='user'){
-          if(response.data.status=='accept'){
           Navigate('/user')
-          }
+          
         }
         else if(response.data.userType=='organiser'){
           if(response.data.status=='accept'){
           Navigate('/organiser')
           }
+          
           else{
 toast.error("Not accepted Admin")
           }
@@ -52,6 +55,9 @@ toast.error("Not accepted Admin")
           if(response.data.status=='accept'){
           Navigate('/delivery')
           }
+          else{
+            toast.error("Not accepted Admin")
+                      }
         }
       }
       else{

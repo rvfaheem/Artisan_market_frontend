@@ -119,7 +119,7 @@ root.render(
          <Route path="product_add" element={<Product_add/>}/>
          <Route path="product_update" element={<Product_update/>}/>
          <Route path="view_orders" element={<View_orders/>}/>
-         <Route path="assign_delivery" element={<Assign_delivery/>}/>
+         <Route path="assign_delivery/:id" element={<Assign_delivery/>}/>
          <Route path="view_product" element={<View_product/>}/>
          <Route path="profile_edit" element={<A_profile_edit/>}/>
          <Route path="A_registration_form" element={<A_registration_form/>}/>

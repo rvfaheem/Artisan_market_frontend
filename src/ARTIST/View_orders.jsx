@@ -119,7 +119,7 @@ let id=localStorage.getItem('id')
                     
                 </td>
                 <div className='flex pt-2 pb-2 gap-3'>
-                <Link to='/artist/assign_delivery'><button className='bg-[#3BD45C] w-[100%] text-white pt-4 pb-4 rounded-xl '>Assign Delivery Boy</button></Link>
+                <Link to={`/artist/assign_delivery/${item.orders._id}`}><button className='bg-[#3BD45C] w-[100%] text-white pt-4 pb-4 rounded-xl '>Assign Delivery Boy</button></Link>
                 
                 </div>
                 
