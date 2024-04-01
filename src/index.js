@@ -108,10 +108,10 @@ root.render(
         <Route index element={<Artist_home/>}/>
         <Route path="change_password" element={<A_Change_password/>}/>
         {/* Online_Exihibition */}
-        <Route path='exihibition' element={<A_Exihibition/>}/>
+        <Route path='exihibition/:id' element={<A_Exihibition/>}/>
         <Route path='exihibitions' element={<A_Exihibitions/>}/>
         {/* Offline_exihibition */}
-        <Route path='off_exihibition' element={<Offline_exihibition/>}/>
+        <Route path='off_exihibition/:id' element={<Offline_exihibition/>}/>
         <Route path='o_exihibitions' element={<Offline_exihibitions/>}/>
         <Route path="artist_profile" element={<Artist_profile/>}/>
          <Route path="exihibition_register" element={<Exihibition_register/>}/>

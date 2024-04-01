@@ -15,7 +15,13 @@ export const Send_exhi_offline_notification = () => {
   }
   console.log(data);
 
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setData({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
 
+let id=localStorage.getItem('id')
   let handleSubmit=async (event)=>{
     event.preventDefault()
 
@@ -24,16 +30,22 @@ export const Send_exhi_offline_notification = () => {
     formdata.append("sponcers",data.sponcers)
     formdata.append("image",data.image)
     formdata.append("venue",data.venue)
-    formdata.append("description",data.descrption)
+    formdata.append("description",data.description)
     formdata.append("startingdate",data.startingdate)
     formdata.append("endingdate",data.endingdate)
+    formdata.append("organiserId",id)
     
     
 
     console.log(data,'ddtas');
     // return true
 
-    let response=await axios.post(`http://localhost:4000/organiser/Sendoffline`,formdata)
+    let response=await axios.post(`http://localhost:4000/organiser/Sendoffline`,formdata,{
+      headers: {
+        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+      }
+    })
+    
     console.log(response);
    
   }  
@@ -83,7 +95,7 @@ export const Send_exhi_offline_notification = () => {
         <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
       </div>
       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
-<input name='image' onChange={handleChanage} class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+<input name='image' onChange={handlefile} class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
 
       <div class="relative z-0 w-full mb-5">
         <textarea

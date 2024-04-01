@@ -1,25 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import image from './exhi2.jpg'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 export const A_Exihibition = () => {
+  let {id}=useParams()
+  
+  const [data,setdata]=useState([''])
+
+  useEffect(()=>{
+    let fetchData=async () =>{
+      let response=await axios.get(`http://localhost:4000/artist/viewofflineexihibition/${id}`)
+      console.log(response.data)
+      setdata(response.data)
+    }
+    fetchData()
+  },[])
   return (
     <>
     <div>
       <div className='bg-orange-500 w-screen h-screen opacity-75 '>
         <div className='flex'>
         <div>
-          <img className='w-11/12 h-96 p-3' src={image} alt="" />
+          <img className='w-11/12 h-96 p-3' src={`http://localhost:4000/uploads/${data.Image}`} alt="" />
 
         </div>
         <div className='bg-gray-500 w-6/12 h-96 p-11 m-2'>
-          <div className='bg-neutral-600'>FROM DATE:02-03-30
+          <div className='bg-neutral-600'>FROM DATE:{data.startingdate}
          
           </div>
           <div className='bg-neutral-600'>
-          TO DATE:03-03-30
+          TO DATE:{data.endingdate}
           </div>
           <p className='p-8 text-[15px]'>
-      An exhibition, in the most general sense, is an organized presentation and display of a selection of items. In practice, exhibitions usually occur within a cultural or educational setting such as a museum, art gallery, park, library, exhibition hall, or World's fairs. Exhibitions can include many things such as art in both major museums and smaller galleries, interpretive exhibitions, natural history museums and history museums, and also varieties such as more commercially focused exhibitions and trade fairs. They can also foster community engagement, dialogue, and education, providing visitors with opportunities to explore diverse perspectives, historical contexts, and contemporary issues. Additionally, exhibitions frequently contribute to the promotion of artists, innovators, and industries, acting as a conduit for the exchange of ideas and the celebration of human creativity and achievement.
+      {data.exihibitionName} <br />
+      {data.description}
       </p>
           </div>
           <div>

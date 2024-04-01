@@ -7,14 +7,35 @@ export const O_registration_form = () => {
   const navigate=useNavigate()
   const [data,setData]=useState('')
 
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setData({...data,[event.target.name]:event.target.files[0]})
+    console.log(data);
+  }
+
   let handleChange=(event)=>{
     setData({...data,[event.target.name]:event.target.value})
   }
   let handleSubmit=async (event)=>{
     event.preventDefault()
+    let formData = new FormData();
+    formData.append('name', data.name);
+    formData.append('image', data.image);
+    formData.append('experience', data.experience);
+    formData.append('gmail', data.gmail);
+    formData.append('phoneNumber', data.phoneNumber);
+    formData.append('Address', data.Address);
+    formData.append('password', data.password);
+    formData.append('userType', 'organiser');
+
     setData({...data,userType:'organiser'})
-    let response=await axios.post('http://localhost:4000/register',{...data,userType:'organiser'})
+    let response=await axios.post('http://localhost:4000/register',formData,{
+      headers: {
+        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+      }
+    })
     console.log(response)
+    // toast.success('registered')
     navigate('/login')
   }
   return (
@@ -45,11 +66,11 @@ export const O_registration_form = () => {
               </div>
               <div className='p-3'>
               <label className=' text-gray-500 font-bold'>IMAGE</label><br />
-              <input onChange={handleChange} className='rounded' name="image" type="file" />
+              <input onChange={handlefile} className='rounded' name="image" type="file" />
               </div>
               <div className='p-3'>
               <label className=' text-gray-500 font-bold'>EXPERIENCE</label><br />
-              <input onChange={handleChange} name="experience" type="file" />
+              <input onChange={handlefile} name="experience" type="file" />
               </div>              
               <div className='p-3'>
               <label className=' text-gray-500 font-bold'>G-MAIL:</label><br />

@@ -26,7 +26,7 @@ export const Offline_exihibition = () => {
           <div class='flex p-7'>
 
 <div>
-  <img className='w-fit h-screen'src={image} alt=''/>
+  <img className='w-fit h-screen'src={`http://localhost:4000/uploads/${data.image}`} alt=''/>
 </div>
 <div className='text-[50px] '>
            {data.exihibitionName}
