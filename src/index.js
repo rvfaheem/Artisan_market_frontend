@@ -73,6 +73,7 @@ import { Add_to_cart } from './USER/Add_to_cart';
 import { U_Change_password } from './USER/U_Change_password';
 import Organiser from './ADMIN/Organiser';
 import 'react-toastify/dist/ReactToastify.css';
+import { View_exihibition_register } from './ARTIST/View_exihibition_register';
 
 
 
@@ -114,7 +115,8 @@ root.render(
         <Route path='off_exihibition/:id' element={<Offline_exihibition/>}/>
         <Route path='o_exihibitions' element={<Offline_exihibitions/>}/>
         <Route path="artist_profile" element={<Artist_profile/>}/>
-         <Route path="exihibition_register" element={<Exihibition_register/>}/>
+         <Route path="exihibition_register/:id" element={<Exihibition_register/>}/>
+         <Route path="view_exihibition_register" element={<View_exihibition_register/>}/>
          <Route path="exihibition_product_add" element={<Exihibition_product_add/>}/>
          <Route path="product_add" element={<Product_add/>}/>
          <Route path="product_update" element={<Product_update/>}/>

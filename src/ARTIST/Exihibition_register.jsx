@@ -1,13 +1,22 @@
 import axios from 'axios'
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 export const Exihibition_register = () => {
+  let {id}=useParams()
+  let userid=localStorage.getItem('id')
+
+  // useEffect(()=>{
+  //   let fetchData = async()=>{
+  //     let response = await axios.get()
+  //   }
+  // })
   
   const [data,setData] = useState()
 
   let handleChanage=(event)=>{
-    if(event.target.name === 'Image'){
+    if(event.target.name === 'image'){
+      
     setData({...data,[event.target.name]:event.target.files[0]})
 
     }else{
@@ -24,9 +33,11 @@ export const Exihibition_register = () => {
     formdata.append("productName",data.productName)
     formdata.append("name",data.name)
     formdata.append("image",data.image)
-    formdata.append("email",data.gmail)
+    formdata.append("email",data.email)
     formdata.append("phoneNumber",data.phoneNumber)
     formdata.append("Address",data.Address)
+    formdata.append("userid",userid)
+    formdata.append("exihibitionid",id)
     
     
     
@@ -34,7 +45,11 @@ export const Exihibition_register = () => {
     console.log(data,'ddtas');
     // return true
 
-    let response=await axios.post(`http://localhost:4000/artist/exihibitionregister`,formdata)
+    let response=await axios.post(`http://localhost:4000/artist/exihibitionregister`,formdata,{
+      headers: {
+        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+      }
+    })
     console.log(response);
    
   }  
@@ -74,7 +89,7 @@ export const Exihibition_register = () => {
       </div>      
 
       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
-<input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+<input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" onChange={handleChanage} name='image' id="file_input" type="file"/>
 
 <div class="relative z-0 w-full mb-5">
 <label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >G-Mail</label>
@@ -121,7 +136,7 @@ export const Exihibition_register = () => {
 
 
 
-      <Link to="/artist/exihibition_product_add/">
+      
         <button
         id="button"
         type="submit"
@@ -129,7 +144,7 @@ export const Exihibition_register = () => {
       >
         REGISTER
       </button>
-      </Link>
+      
     </form>
   </div>
 </div>

@@ -44,6 +44,7 @@ export const ArtistNavigation = () => {
                 <div className='list-none absolute top-[78px] p-6 bg-[#AED0E9]'>
                   <Link to='/artist/product_add'><li>ADD</li></Link>
                   <Link to='/artist/view_product'><li>View</li></Link>
+                  <Link to='/artist/view_exihibition_register'><li>View</li></Link>
                 </div>
           
           }

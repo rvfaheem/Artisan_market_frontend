@@ -17,7 +17,7 @@ export const Online_exihibitions_notifications = () => {
   return (
     <div>
         <>
-    <div className='flex justify-center flex-wrap'>
+    <div className='flex sm:gap-4 flex-wrap'>
 
 
     <div className='flex gap-4 '>
@@ -25,7 +25,7 @@ export const Online_exihibitions_notifications = () => {
 
                 <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                   <a href="#">
-                     <img class="rounded-t-lg" src={`http://localhost:4000/uploads/${item.Image}`} alt="" />
+                     <img class="rounded-t-lg" src={`http://localhost:4000/uploads/${item.image}`} alt="" />
                  </a>
                  <div class="p-5">
                      <a href="#">
