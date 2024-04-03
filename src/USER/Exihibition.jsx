@@ -29,7 +29,7 @@ export const Exihibition = () => {
       <p class="mt-2">{item?.sub_category?.sub_category}</p>
     </div>
     <div>
-      <Link to={`/user/product_details/${item._id}`}><button class="text-white text-md font-semibold bg-green-400 py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110 ">Buy Now</button></Link>
+      <Link to={`/user/exi_prod_details/${item._id}`}><button class="text-white text-md font-semibold bg-green-400 py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110 ">Buy Now</button></Link>
     </div>
   </div>
 </div>

@@ -1,3 +1,9 @@
+.Register{
+  background-image: url("../public/registr.jpg");
+  background-color: aqua;
+  height: 50rem;
+  background-repeat: no-repeat;
+}
 .First{
   display: flex;
   background-color: aqua;

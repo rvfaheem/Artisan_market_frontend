@@ -41,7 +41,7 @@ export const O_registration_form = () => {
   return (
     <>
     <ToastContainer />
-    <div class=' organiser bg-indigo-500 w-screen '>    
+    <div class=' Register bg-indigo-500 w-screen '>    
     <div className='flex justify-center'>    
       
      
@@ -49,7 +49,7 @@ export const O_registration_form = () => {
         {/* <div className='bg-red-300 w-fit h-fit p-10'> */}
         <div>
 <form onSubmit={handleSubmit}>
-<div className='bg-sky-600 opacity-85 w-96 h-FIT'>
+<div className='bg-sky-600 opacity-90 m-4 w-96 h-FIT'>
           <div><label className='p-10 font-bold text-[20px] justify-center flex gap-2'>
             {/* <p>REGISTRATION</p>
             <p> FORM</p> */}

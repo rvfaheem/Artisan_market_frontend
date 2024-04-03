@@ -42,14 +42,14 @@ export const User_registration_form = () => {
   return (
     <>
      <ToastContainer />
-    <div class=' organiser bg-indigo-500 w-screen '>    
+    <div class=' Register bg-indigo-500 w-screen '>    
     <div className='flex justify-center'>    
       
      
       
         {/* <div className='bg-red-300 w-fit h-fit p-10'> */}
         <div>
-<div className='bg-sky-600 opacity-100 w-96 h-FIT'>
+<div className='bg-sky-600 opacity-90 m-4 w-96 h-FIT'>
             
             <div><label className='p-10 font-bold text-[20px] justify-center flex gap-2'>
             <h1 class="mb-2 text-[20px] font-extrabold text-gray-900 dark:text-white md:text-xl  text-[50px]"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400 text-[20px]">REGISTRATION</span> FORM</h1>

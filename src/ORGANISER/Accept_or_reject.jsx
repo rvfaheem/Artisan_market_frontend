@@ -205,7 +205,7 @@ export const Accept_or_reject = () => {
               <ReactPaginate
                 pageCount={Math.ceil(applications.length / itemsPerPage)}
                 pageRangeDisplayed={5}
-                marginPagesDisplayed={2}
+                marginPagesDisplayed={10}
                 onPageChange={handlePageChange}
                 containerClassName='pagination'
                 activeClassName='active'

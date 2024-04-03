@@ -141,7 +141,7 @@ root.render(
       <Route path="online_notification" element={<Online_exihibition_notification/>}/>
       <Route path="online_notifications" element={<Online_exihibitions_notifications/>}/>
       <Route path="exihibition"  element={<Exihibition/>}/>
-      <Route path="exi_prod_details" element={<Exihibition_product_details/>}/>
+      <Route path="exi_prod_details/:id" element={<Exihibition_product_details/>}/>
       <Route path="u_registration_form" element={<User_registration_form/>}/>
       <Route path="u_profile" element={<User_profile/>}/>
       <Route path="u_profile_edit" element={<Edit_user_profile/>}/>

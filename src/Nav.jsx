@@ -24,7 +24,7 @@ export const Nav = () => {
     </div>  
     <div className='flex gap-5' >
 
-    <div><span onClick={dropdown} >Register</span>
+    <div><span onClick={dropdown} >REGISTER</span>
         {drop&&
         <div className='list-none absolute right-[30px]sm:right[18px]p-5 bg-sky-700 text-white p-2 sm:top-[60px]'>
             <Link to="/artist/A_registration_form/"><li>Artist</li></Link>
@@ -37,7 +37,7 @@ export const Nav = () => {
 
 </div>
 
-<Link to='/login'><div>Login</div></Link>
+<Link to='/login'><div>LOGIN</div></Link>
 <login />
 
 </div> 
