@@ -85,7 +85,7 @@ export const Product_details = () => {
               <label className='bg-slate-400 p-2 font-bold text-[38px]'>{data.price}</label>
           </div>
           <br /><br /><br />
-          <Link to="/user/Add_to_cart/"><a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a></Link>
+          {/* <Link to="/user/Add_to_cart/"><a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a></Link> */}
           <button className='bg-lime-500 rounded p-2 font-bold text-[38px]' onClick={Toggle}>PAYMENT</button>
 
       </div>

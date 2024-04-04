@@ -2,11 +2,12 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
 export const U_View_orders = () => {
+    let id=localStorage.getItem('id')
 
     const [data, setdata] = useState([])
     useEffect(()=>{
         let fetchData=async()=>{
-          let response=await axios.get(`http://localhost:4000/user/vieworders`)
+          let response=await axios.get(`http://localhost:4000/user/vieworders/${id}`)
           console.log(response.data)
           setdata(response.data)
         }
@@ -78,15 +79,16 @@ export const U_View_orders = () => {
             </tr>
         </thead>
         <tbody>
-            {data.map((item)=>(
+            {data.map((item,index)=>(
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <td class="px-6 py-4">
+                {index}
                 </td>
                 <td class="px-6 py-4">
-                    {item.orders.date}
+                    {item.order.date}
                 </td>
                 <td class="px-6 py-4">
-                {item.products.productName}
+                {item.product.productName}
                 </td>
                 <td class="px-6 py-4">
                 {item.category.category}
@@ -96,14 +98,14 @@ export const U_View_orders = () => {
                  
                 </td>
                 <td class="px-6 py-4">
-                {item.sub_categorie.sub_category}
+                {item.subcategory.sub_category}
                 </td>
                 <td class="px-6 py-4">
-                {item.products.price}
+                {item.product.price}
                 </td>
-                <td class="px-6 py-4">
+                {/* <td class="px-6 py-4">
                     
-                </td>
+                </td> */}
                 <td class="px-6 py-4">
                     
                 </td>
