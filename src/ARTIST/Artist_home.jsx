@@ -8,7 +8,10 @@ import image4 from './bttle.jpg'
 export const Artist_home = () => {
   return (
     <>
-    <div className='flex'>
+            <div>
+        <img className='w-screen h-screen' src={image} alt=''/>
+        </div>
+    {/* <div className='flex'>
         <div>
         <img className='w-screen h-screen' src={image} alt=''/>
         </div>
@@ -25,7 +28,7 @@ export const Artist_home = () => {
         <img className='w-screen h-screen' src={image4} alt=''/>
         </div>
         
-    </div>
+    </div> */}
     <div><br />
         <h3 class='italic hover:not-italic  text-[50px] bg-fuchsia-200'>Everyone gets a platform to show off their skills and they can use it to make earnings
 That is Paper origami, Drawing, painting,flower, gift,sculpture,bottle art,…

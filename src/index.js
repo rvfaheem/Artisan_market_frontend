@@ -119,7 +119,7 @@ root.render(
          <Route path="view_exihibition_register" element={<View_exihibition_register/>}/>
          <Route path="exihibition_product_add" element={<Exihibition_product_add/>}/>
          <Route path="product_add" element={<Product_add/>}/>
-         <Route path="product_update" element={<Product_update/>}/>
+         <Route path="product_update/:id" element={<Product_update/>}/>
          <Route path="view_orders" element={<View_orders/>}/>
          <Route path="assign_delivery/:id" element={<Assign_delivery/>}/>
          <Route path="view_product" element={<View_product/>}/>

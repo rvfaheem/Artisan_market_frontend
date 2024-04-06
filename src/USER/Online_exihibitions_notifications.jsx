@@ -17,10 +17,11 @@ export const Online_exihibitions_notifications = () => {
   return (
     <div>
         <>
+    
+
+
+    {/* <div className='flex gap-4 '> */}
     <div className='flex sm:gap-4 flex-wrap'>
-
-
-    <div className='flex gap-4 '>
         {data.map((item)=>(
 
                 <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -41,6 +42,8 @@ export const Online_exihibitions_notifications = () => {
                  </div>
              </div>
              ))}
+             </div>
+             
              {/* <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                  <a href="#">
                      <img class="rounded-t-lg" src={image} alt="" />
@@ -194,8 +197,8 @@ export const Online_exihibitions_notifications = () => {
 
              
 
-    </div>
-    </div>
+    {/* </div> */}
+    {/* </div> */}
     </>
     </div>
   )

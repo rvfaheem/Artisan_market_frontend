@@ -36,6 +36,7 @@ export const Product_add = () => {
 
     const formdata = new FormData()
     formdata.append("productName",data.productName)
+    formdata.append("Description",data.Description)
     formdata.append("price",data.price)
     formdata.append("Image",data.Image)
     formdata.append("sub_categoryid",data.sub_categoryid)
@@ -133,7 +134,18 @@ export const Product_add = () => {
         <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
         <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
       </div>
-
+      <div class="relative z-0 w-full mb-5">
+        <input
+          onChange={handleChanage}
+          type="textarea"
+          name="Description"
+          placeholder="Description"
+          required
+          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+        />
+        <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+        <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+      </div>
   
       <div class="relative z-0 w-full mb-5">
         <input

@@ -1,7 +1,10 @@
 import React from 'react'
 import image from './exhi2.jpg'
+// import {useParams} from 'react-router-dom'
 
 export const Online_exihibition_notification = () => {
+  // let {id}=useParams
+
   return (
     <>
     <div class='flex p-7'>
@@ -23,7 +26,7 @@ export const Online_exihibition_notification = () => {
 
 
       <div>
-      <a href="/user/exihibition/" class="inline-flex items-center px-6 py-4 text-sm font-medium p-14 m-5 text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      <a href={'/user/exihibition/${._id}'} class="inline-flex items-center px-6 py-4 text-sm font-medium p-14 m-5 text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Currently-going on</a>
       </div>
       

@@ -5,16 +5,46 @@ export const Create_exihibition = () => {
   let id=localStorage.getItem('id')
   const [data,setData]=useState('')
 
+let handleFile=(event)=>{
+  setData({...data,[event.target.name]:event.target.files[0]})
+  console.log(data);
+
+}
+
+
   let handleChanage=(event)=>{
-    setData({...data,[event.target.name]:event.target.value})
+    if(event.target.name === 'image'){
+      setData({...data,[event.target.name]:event.target.files[0]})
+  
+      }else{
+        setData({...data,[event.target.name]:event.target.value})
+      }
     console.log(data);
   }
 
   let handleSubmit=async (event)=>{
     event.preventDefault()
-    let response=await axios.post(`http://localhost:4000/organiser/createexihibition`,{...data,userId:id})
+
+    const formdata = new FormData()
+    formdata.append("exihibitionName",data.exihibitionName)
+    formdata.append("sponcers",data.sponcers)
+    formdata.append("description",data.description)
+    formdata.append("image",data.image)
+    formdata.append("startdate",data.startdate)
+    formdata.append("enddate",data.enddate)
+    formdata.append("userId",data.userId)
+
+    console.log(data,'ddtas');
+    // return true
+
+    let response=await axios.post(`http://localhost:4000/organiser/createexihibition`,formdata,{
+      headers: {
+        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+      }
+    })
+
     console.log(response);
-    setData('')
+   
   }  
   return (
     <div>
@@ -49,7 +79,7 @@ export const Create_exihibition = () => {
         <span class="text-sm text-red-600 hidden" id="error">Password is required</span>
       </div>
       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
-<input onChange={handleChanage} name='image' class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+<input onChange={handleFile} name='image' class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
 
       <div class="relative z-0 w-full mb-5">
         <textarea

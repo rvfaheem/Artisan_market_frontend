@@ -66,7 +66,7 @@ export const Edit_user_profile = () => {
       
      
       
-        <div className='bg-red-300 w-fit h-fit p-10'>
+        {/* <div className='bg-red-300 w-fit h-fit p-10'> */}
           <div className='bg-sky-600 w-96 h-FIT'>
           <div><label className='p-10 font-bold text-[20px] justify-center flex gap-2'>
             <p>REGISTRATION</p>
@@ -109,7 +109,7 @@ export const Edit_user_profile = () => {
           </form>
           </div>
         </div>
-      </div>
+      {/* </div> */}
     </div>
         </>
   )

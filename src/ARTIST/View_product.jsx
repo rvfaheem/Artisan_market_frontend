@@ -1,8 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import image from './bttle.jpg'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 export const View_product = () => {
+    let id=localStorage.getItem('id')
+
+    const [data,setdata]=useState([])
+    useEffect(()=>{
+        let fetchData=async()=>{
+            let response=await axios.get(`http://localhost:4000/artist/Viewaddedproducts/${id}`)
+            console.log(response.data)
+            setdata(response.data)
+        }
+        fetchData()
+    },[])
+
+    let handledelete=async (id)=>{
+        let response=await axios.delete(`http://localhost:4000/artist/deleteproduct/${id}`)
+        console.log(response)
+    }
+
     const [nav1,setnav1]=useState(true)
 
     let Toggle1=()=>{
@@ -66,9 +84,9 @@ export const View_product = () => {
                 <th scope="col" class="px-6 py-3">
                     Image
                 </th>
-                <th scope="col" class="px-6 py-3">
+                {/* <th scope="col" class="px-6 py-3">
                     Description
-                </th>
+                </th> */}
                 <th scope="col" class="px-6 py-3">
                     Status
                 </th>
@@ -81,42 +99,43 @@ export const View_product = () => {
             </tr>
         </thead>
         <tbody>
+            {data.map((item,index)=>(
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <td class="px-6 py-4">
-                    1
+                    {index}
                 </td>
                 <td class="px-6 py-4">
                     03-02-2024
                 </td>
                 <td class="px-6 py-4">
-                    Bottle Art-1
+                    {item.product.productName}
                 </td>
                 <td class="px-6 py-4">
                     
 
-                 Bottle-Art
+                 {item.category?.category}
                  
                 </td>
                 <td class="px-6 py-4">
-                 Simple design
+                {item.subcategory.sub_category}
                 </td>
                 <td class="px-6 py-4">
-                    <img src={image} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
+                    <img src={`http://localhost:4000/uploads/${item.product.Image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
                     
                     </td>
-                <td class="px-6 py-4">
-                    Description
-                </td>
+                {/* <td class="px-6 py-4">
+                    {item.product.Description}
+                </td> */}
                 <td class="px-6 py-4">
                     requested
                 </td>
                 <div className='flex pt-2 pb-2 gap-3'>
-                <Link to='/artist/product_update'><button className='bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl '>Update</button></Link>
-                <button className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Delete</button>
+                <Link to={`/artist/product_update/${item.product._id}`}><button className='bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl '>Update</button></Link>
+                <button onClick={()=>handledelete(item.product._id)} className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Delete</button>
                 </div>
                 
             </tr>
-
+))}
         </tbody>
     </table>
 </div>

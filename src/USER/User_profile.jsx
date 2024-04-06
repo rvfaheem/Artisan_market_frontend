@@ -35,7 +35,7 @@ export const User_profile = () => {
                    {userData.name}
                     </h4>
                     <p class="text-base font-normal text-gray-600">{userData.name}</p>
-                    <p class="text-base font-normal text-gray-600">{userData.name}</p>
+                    <p class="text-base font-normal text-gray-600">{userData.gmail}</p>
                     <p class="text-base font-normal text-gray-600">{userData.phoneNumber}</p>
                     <p class="text-base font-normal text-gray-600">{userData.Address}</p><br /><br /><br /><br />
                     <Link to="/user/u_profile_edit/"><button className='bg-green-600 rounted w-fit h-fit'>Edit</button></Link>

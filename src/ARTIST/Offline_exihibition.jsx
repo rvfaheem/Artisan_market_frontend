@@ -11,7 +11,7 @@ export const Offline_exihibition = () => {
 
   useEffect(() =>{
     let fetchData = async () => {
-      let response = await axios.get(`http://localhost:4000/user/viewofflineexihibition/${id}`)
+      let response = await axios.get(`http://localhost:4000/artist/viewofflineexihibition/${id}`)
       console.log(response.data)
       setdata(response.data)
     }

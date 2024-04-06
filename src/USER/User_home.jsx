@@ -41,7 +41,10 @@ export const UserHome = () => {
     console.log(products);
   return (
 <>
-    <div className='flex'>
+<div>
+        <img className='w-screen h-screen' src={image} alt=''/>
+        </div>
+    {/* <div className='flex'>
         <div>
         <img className='w-screen h-screen' src={image} alt=''/>
         </div>
@@ -58,7 +61,7 @@ export const UserHome = () => {
         <img className='w-screen h-screen' src={image4} alt=''/>
         </div>
         
-    </div><br />
+    </div> */}<br />
     <div className='flex'>
     <div class="relative z-0 w-full mb-5">
         <select
