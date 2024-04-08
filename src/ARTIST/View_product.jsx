@@ -7,6 +7,7 @@ export const View_product = () => {
     let id=localStorage.getItem('id')
 
     const [data,setdata]=useState([])
+    const[refresh,setrefresh]=useState(false)
     useEffect(()=>{
         let fetchData=async()=>{
             let response=await axios.get(`http://localhost:4000/artist/Viewaddedproducts/${id}`)
@@ -14,11 +15,12 @@ export const View_product = () => {
             setdata(response.data)
         }
         fetchData()
-    },[])
+    },[refresh])
 
     let handledelete=async (id)=>{
         let response=await axios.delete(`http://localhost:4000/artist/deleteproduct/${id}`)
         console.log(response)
+        setrefresh(!refresh)
     }
 
     const [nav1,setnav1]=useState(true)

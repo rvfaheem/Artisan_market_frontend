@@ -44,6 +44,7 @@ import { Online_exihibition_notification } from './USER/Online_exihibition_notif
 import { Online_exihibitions_notifications } from './USER/Online_exihibitions_notifications';
 import { Exihibition } from './USER/Exihibition';
 import { Exihibition_product_details } from './USER/Exihibition_product_details';
+import { perticular_exihibition_product } from './USER/perticular_exihibition_product';
 // ORGANISER
 import { Organiser_nav } from './ORGANISER/Organiser_nav';
 import { Organiser_home } from './ORGANISER/Organiser_home';
@@ -138,9 +139,9 @@ root.render(
       <Route path="product_details/:id" element={<Product_details/>}/>
       <Route path="offline_notification" element={<Offline_exihibition_notification/>}/>
       <Route path="offline_notifications" element={<Offline_exihibitions_notifications/>}/>
-      <Route path="online_notification" element={<Online_exihibition_notification/>}/>
+      <Route path="online_notification/:id" element={<Online_exihibition_notification/>}/>
       <Route path="online_notifications" element={<Online_exihibitions_notifications/>}/>
-      <Route path="exihibition"  element={<Exihibition/>}/>
+      <Route path="exihibition/:id"  element={<Exihibition/>}/>
       <Route path="exi_prod_details/:id" element={<Exihibition_product_details/>}/>
       <Route path="u_registration_form" element={<User_registration_form/>}/>
       <Route path="u_profile" element={<User_profile/>}/>
@@ -149,7 +150,7 @@ root.render(
       <Route path="view_orders" element={<U_View_orders/>}/>
       <Route path="/user/Add_to_cart/" element={<Add_to_cart/>}/>
       <Route path="/user/change_password/" element={<U_Change_password/>}/>
-
+      {/* <Route path="/user/perti_exihi/" element={<perticular_exihibition_product/>}/> */}
 
       </Route>
 
