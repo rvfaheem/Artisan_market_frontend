@@ -75,6 +75,7 @@ import { U_Change_password } from './USER/U_Change_password';
 import Organiser from './ADMIN/Organiser';
 import 'react-toastify/dist/ReactToastify.css';
 import { View_exihibition_register } from './ARTIST/View_exihibition_register';
+import { Exihibition_orders } from './USER/Exihibition_orders';
 
 
 
@@ -118,7 +119,7 @@ root.render(
         <Route path="artist_profile" element={<Artist_profile/>}/>
          <Route path="exihibition_register/:id" element={<Exihibition_register/>}/>
          <Route path="view_exihibition_register" element={<View_exihibition_register/>}/>
-         <Route path="exihibition_product_add" element={<Exihibition_product_add/>}/>
+         <Route path="exihibition_product_add/:id" element={<Exihibition_product_add/>}/>
          <Route path="product_add" element={<Product_add/>}/>
          <Route path="product_update/:id" element={<Product_update/>}/>
          <Route path="view_orders" element={<View_orders/>}/>
@@ -142,12 +143,14 @@ root.render(
       <Route path="online_notification/:id" element={<Online_exihibition_notification/>}/>
       <Route path="online_notifications" element={<Online_exihibitions_notifications/>}/>
       <Route path="exihibition/:id"  element={<Exihibition/>}/>
+      {/* <Route path="exihibition"  element={<Exihibition/>}/> */}
       <Route path="exi_prod_details/:id" element={<Exihibition_product_details/>}/>
       <Route path="u_registration_form" element={<User_registration_form/>}/>
       <Route path="u_profile" element={<User_profile/>}/>
       <Route path="u_profile_edit" element={<Edit_user_profile/>}/>
       <Route path="product_feedback" element={<Product_feedback/>}/>
       <Route path="view_orders" element={<U_View_orders/>}/>
+      <Route path="Exihibition_orders" element={<Exihibition_orders/>}/>
       <Route path="/user/Add_to_cart/" element={<Add_to_cart/>}/>
       <Route path="/user/change_password/" element={<U_Change_password/>}/>
       {/* <Route path="/user/perti_exihi/" element={<perticular_exihibition_product/>}/> */}

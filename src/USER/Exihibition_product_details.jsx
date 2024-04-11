@@ -26,7 +26,7 @@ export const Exihibition_product_details = () => {
   
   let handleSubmit=async (event)=>{
     event.preventDefault()
-    let response=await axios.post(`http://localhost:4000/user/addorder`,{userId:userid,productId:id})
+    let response=await axios.post(`http://localhost:4000/user/exihiaddorder`,{userId:userid,productId:id})
     console.log(response);
     setdata('')
   }
@@ -41,9 +41,9 @@ export const Exihibition_product_details = () => {
     </button>
 
     
-      <div className='flex sm:gap-10 flex-wrap p-4'>
+      <div className='flex'>
       
-        <img className='w-[50%]' src={`http://localhost:4000/uploads/${data.Image}`} alt='' />
+        <img className='w-[50%] h-5/6' src={`http://localhost:4000/uploads/${data.image}`} alt='' />
       
       <div className=' bg-slate-600 w-fit p-20'>
           <div>

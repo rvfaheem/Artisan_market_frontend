@@ -38,6 +38,7 @@
   background-image: url("../public/organise.jpg");
   background-color: aqua;
   height: 50rem;
+  width: auto;
   background-repeat: no-repeat;
 }
 /* .organiser{

@@ -2,17 +2,26 @@ import React, { useEffect, useState } from 'react'
 import image from './bttle.jpg'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import {useParams} from 'react-router-dom'
 export const Exihibition = () => {
   const [data, setdata] = useState([''])
+  const [data1, setdata1] = useState([''])
+  let {id}=useParams()
 
   useEffect(() => {
       let fetchData = async () => {
-          let response = await axios.get(`http://localhost:4000/user/viewexihibitionproduct`)
+          let response = await axios.get(`http://localhost:4000/user/viewexihibitionproduct1/${id}`)
+          // let response = await axios.get(`http://localhost:4000/user/viewexhibitionproductlt`)
           console.log(response.data)
           setdata(response.data)
+        //   let response1 = await axios.get(`http://localhost:4000/user/viewexihibitionproductgt`)
+        // console.log(response1.data)
+        // setdata1(response1.data)
       }
       fetchData()
   }, [])
+
+
   return (
       <div className='flex sm:gap-4 flex-wrap'>
 
@@ -20,16 +29,19 @@ export const Exihibition = () => {
 
 
 <div class="container  p-9 bg-white max-w-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
-  <img class="rounded-xl" src={`http://localhost:4000/uploads/${item.Image}`} alt="" />
+  <img class="rounded-xl" src={`http://localhost:4000/uploads/${item.product?.image}`} alt="" />
   <div class="flex justify-between items-center">
     <div>
-      <h1 class="mt-5 text-2xl font-semibold">{item.productName}</h1>
-      <p class="mt-2">$11.99</p>
-      <p class="mt-2">{item.price}</p>
-      <p class="mt-2">{item?.sub_category?.sub_category}</p>
+      <h1 class="mt-5 text-2xl font-semibold">{item.product?.productName}</h1>
+      {/* <p class="mt-2">$11.99</p> */}
+      <p class="mt-2">${item.product?.rate}</p>
+      <p class="mt-2">{item.artist}</p>
+      <p class="mt-2">{item?.subcategory?.sub_category}</p>
+      <p class="mt-2">{item?.category?.category}</p>
+      <p class="mt-2">{item?.category?.category}</p>
     </div>
     <div>
-      <Link to={`/user/exi_prod_details/${item._id}`}><button class="text-white text-md font-semibold bg-green-400 py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110 ">Buy Now</button></Link>
+      <Link to={`/user/exi_prod_details/${item?.product?._id}`}><button class="text-white text-md font-semibold bg-green-400 py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110 ">Buy Now</button></Link>
     </div>
   </div>
 </div>

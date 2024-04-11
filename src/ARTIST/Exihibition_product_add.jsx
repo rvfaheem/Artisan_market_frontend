@@ -1,12 +1,26 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import {useParams} from 'react-router-dom'
 
 export const Exihibition_product_add = () => {
+  let {id}=useParams()
+  let userid=localStorage.getItem('id')
+  const[category,setcategory]=useState([])
+  const[subcategory,setsubcategory]=useState([]) 
   
   const [data,setData] = useState()
 
+useEffect(()=>{
+  let fetchData=async ()=>{
+    let response =await axios.get(`http://localhost:4000/admin/viewcategory`,)
+    console.log(response)
+    setcategory(response.data)
+  }
+  fetchData()
+},[])
+
   let handleChanage=(event)=>{
-    if(event.target.name === 'Image'){
+    if(event.target.name === 'image'){
     setData({...data,[event.target.name]:event.target.files[0]})
 
     }else{
@@ -26,6 +40,9 @@ export const Exihibition_product_add = () => {
     formdata.append("artist",data.artist)
     formdata.append("rate",data.rate)
     formdata.append("description",data.description)
+    formdata.append("exihibitionid",id)
+    formdata.append("artistid",userid)
+    formdata.append("sub_categoryid",data.sub_categoryid)
 
     
     
@@ -33,10 +50,28 @@ export const Exihibition_product_add = () => {
     console.log(data,'ddtas');
     // return true
 
-    let response=await axios.post(`http://localhost:4000/artist/exihibitionproductadd`,formdata)
+    let response=await axios.post(`http://localhost:4000/artist/exihibitionproductadd`,formdata,{
+      headers: {
+        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+      }
+    })
     console.log(response);
+
    
-  }  
+  }
+
+  const [catId,setcatId]=useState()
+  let handleCategory=async(event)=>{
+    if(event.target.value){
+      setcatId(event.target.value)
+      let response=await axios.get(`http://localhost:4000/artist/viewsubcategory/${event.target.value}`)
+      console.log(response);
+      setsubcategory(response.data)
+    }
+  } 
+  const handleSubCategory=(e)=>{
+    setData({...data,sub_categoryid:e.target.value})
+  }
   return (
     <>
 
@@ -59,7 +94,7 @@ export const Exihibition_product_add = () => {
         <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
       </div>
       <label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >Category</label>
-      <div class="relative z-0 w-full mb-5">
+      {/* <div class="relative z-0 w-full mb-5">
         <input
           type="text"
           name="category"
@@ -70,9 +105,45 @@ export const Exihibition_product_add = () => {
         />
         <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
         <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
-      </div>      
+      </div>       */}
+
+      <div class="relative z-0 w-full mb-5">
+        <select
+          
+          name="category"
+          
+          onChange={handleCategory}
+          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+        > 
+          <option value=''>choose</option>
+        {category?.map((item)=>(
+
+          <option value={item._id}>{item.category}</option>
+          ))}
+        </select>
+        <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+        <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+      </div>
 
 
+
+      <div class="relative z-0 w-full mb-5">
+        <select
+          name="select"
+         onChange={handleSubCategory}
+          
+          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+        >
+<option value=''>choose</option>
+          {subcategory?.map((item)=>(
+
+<option value={item._id}>{item.sub_category}</option>
+))}
+
+        </select>
+        <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+        <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+      </div>
 
 <div class="relative z-0 w-full mb-5">
 <label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >Creator</label>
@@ -80,15 +151,15 @@ export const Exihibition_product_add = () => {
           type="text"
           name="artist"
           onChange={handleChanage}
-          placeholder="G-Mail"
+          placeholder="Artist"
           required
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
         <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
         <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
       </div>
-      <label name='image' onChange={handleChanage} class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
-<input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>      
+      <label  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
+<input name='image' onChange={handleChanage} class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>      
       <label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >Description</label>
       <div class="relative z-0 w-full mb-5">
         <input

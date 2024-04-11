@@ -14,6 +14,8 @@ export const UserHome = () => {
             let response=await axios.get(`http://localhost:4000/admin/Viewcategory`)
             console.log(response)
             setcategory(response.data)
+
+
         }
         fetchdata()
     },[])

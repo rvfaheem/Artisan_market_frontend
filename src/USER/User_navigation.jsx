@@ -40,6 +40,7 @@ export const User_navigation = () => {
         <Link to="/user/u_profile/"><div>PROFILE</div></Link>
         <Link to="/user/products/"><div>PRODUCTS</div></Link>
         <Link to="/user/view_orders/"><div >ORDERS</div></Link>
+        <Link to="/user/Exihibition_orders/"><div >EDXIHIBITION ORDERS</div></Link>
         <Link to="/user/exihibition/"><div >EXIHIBITION</div></Link>
 
         <div ><div onClick={dropDown}>EXIHIBITION NOTIFICATION</div>
