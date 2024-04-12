@@ -76,6 +76,8 @@ import Organiser from './ADMIN/Organiser';
 import 'react-toastify/dist/ReactToastify.css';
 import { View_exihibition_register } from './ARTIST/View_exihibition_register';
 import { Exihibition_orders } from './USER/Exihibition_orders';
+import { View_exihibition } from './ORGANISER/View_exihibition';
+import { Update_exihibition } from './ORGANISER/Update_exihibition';
 
 
 
@@ -168,6 +170,8 @@ root.render(
       <Route path="/organiser/o_registration_form/" element={<O_registration_form/>}/>
       <Route path="/organiser/o_profile/" element={<Organiser_profile/>}/>
       <Route path="/organiser/o_profile_edit/" element={<Edit_organiser_profile/>}/> 
+      <Route path="/organiser/viewcreateexihibition/" element={<View_exihibition/>}/>
+      <Route path="/organiser/updateexihibition/" element={<Update_exihibition/>}/>
 
       </Route>
 

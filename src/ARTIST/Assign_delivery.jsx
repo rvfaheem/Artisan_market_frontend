@@ -171,7 +171,7 @@ export const Assign_delivery = () => {
                     <td className='px-6 py-4'>{delivery.gmail}</td>
                     <td className='px-6 py-4'>{delivery.phoneNumber}</td>
                     <td className='px-6 py-4'>{delivery.Address}</td>
-                    <td className='px-6 py-4'>{delivery.status}</td>
+                    {/* <td className='px-6 py-4'>{delivery.status}</td> */}
                     <td>
                       <button type='submit' onClick={()=>{handleSubmit('assigned',delivery._id)}} className='bg-[#3BD45C] w-[50%] text-white pt-3 pb-3 rounded-xl '>Assign</button>
                     </td>

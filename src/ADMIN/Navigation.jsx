@@ -1,8 +1,37 @@
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import axios from 'axios'
+import User from '../../../backend/models/user.js'
 
 export const AdminNavigation = () => {
+  
+  useEffect(()=>{
+    let auth=async ()=>{
+      const Navigate=useNavigate()
+
+      let id=localStorage.getItem('Id')
+      let email=localStorage.getItem('email')
+      let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,email:email})
+      console.log(response);
+      if(response==null){
+        navigate('/login')
+      }
+      else if(response?.data?.userType !=='admin'){
+        navigate('/login')
+      }
+ 
+    }
+    auth()
+  },[])
+async (req,res)=>{
+    let response=await  User.findOne(req.body)
+    console.log(response);
+    res.json(response)
+}
+
+
+
   const [nav,setnav]=useState(true)
 
   let Toggle=()=>{

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import image from './bttle.jpg'
+import image from './artist.jpg'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -10,7 +10,7 @@ export const View_exihibition = () => {
     const[refresh,setrefresh]=useState(false)
     useEffect(()=>{
         let fetchData=async()=>{
-            let response=await axios.get(`http://localhost:4000/artist/Viewaddedproducts/${id}`)
+            let response=await axios.get(`http://localhost:4000/organiser/viewexihibitions`)
             console.log(response.data)
             setdata(response.data)
         }
@@ -75,23 +75,23 @@ export const View_exihibition = () => {
                     Date
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Product
+                    Exihibition
                 </th>
-                <th scope="col" class="px-6 py-3">
+                {/* <th scope="col" class="px-6 py-3">
                     Category
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Sub-Category
-                </th>
+                </th> */}
                 <th scope="col" class="px-6 py-3">
                     Image
                 </th>
                 {/* <th scope="col" class="px-6 py-3">
                     Description
                 </th> */}
-                <th scope="col" class="px-6 py-3">
+                {/* <th scope="col" class="px-6 py-3">
                     Status
-                </th>
+                </th> */}
                 <th>
 
                 </th>
@@ -110,30 +110,30 @@ export const View_exihibition = () => {
                     03-02-2024
                 </td>
                 <td class="px-6 py-4">
-                    {item.product.productName}
+                    {item.exihibitionName}
                 </td>
                 <td class="px-6 py-4">
                     
 
-                 {item.category?.category}
+                 
                  
                 </td>
                 <td class="px-6 py-4">
-                {item.subcategory.sub_category}
+                
                 </td>
                 <td class="px-6 py-4">
-                    <img src={`http://localhost:4000/uploads/${item.product.Image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
+                    <img src={`http://localhost:4000/uploads/${item.Image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
                     
                     </td>
                 {/* <td class="px-6 py-4">
                     {item.product.Description}
                 </td> */}
-                <td class="px-6 py-4">
+                {/* <td class="px-6 py-4">
                     requested
-                </td>
+                </td> */}
                 <div className='flex pt-2 pb-2 gap-3'>
-                <Link to={`/artist/product_update/${item.product._id}`}><button className='bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl '>Update</button></Link>
-                <button onClick={()=>handledelete(item.product._id)} className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Delete</button>
+                <Link to={`/artist/product_update/${item._id}`}><button className='bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl '>Update</button></Link>
+                <button onClick={()=>handledelete(item._id)} className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Delete</button>
                 </div>
                 
             </tr>

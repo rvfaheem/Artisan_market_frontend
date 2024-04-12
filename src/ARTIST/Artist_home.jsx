@@ -61,7 +61,7 @@ export const Artist_home = () => {
 That is Paper origami, Drawing, painting,flower, gift,sculpture,bottle art,…
 </h3>
     </div>
-<div className='bg-fuchsia-200'>
+{/* <div className='bg-fuchsia-200'>
     <div className='flex flex-wrap justify-center  '>
         <div>
             <img className='w-36 h-36' src={image} alt=''/>
@@ -136,7 +136,7 @@ That is Paper origami, Drawing, painting,flower, gift,sculpture,bottle art,…
         </div>
 
     </div>
-</div><br /><br /><br />
+</div><br /><br /><br /> */}
         <div>
             <div>
                 NEWS OF EXIHIBITION

@@ -36,7 +36,7 @@ export const A_Exihibitions = () => {
                 <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                   <a href="#">
                     {item.image}
-                     <img class="rounded-t-lg" src={`http://localhost:4000/uploads/${item.image}`}  alt="" />
+                     <img class="rounded-t-lg" className='w-72 h-64' src={`http://localhost:4000/uploads/${item.image}`}  alt="" />
                  </a>
                  <div class="p-5">
                      <a href="#">
