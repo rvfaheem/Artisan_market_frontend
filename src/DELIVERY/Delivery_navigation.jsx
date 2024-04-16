@@ -1,7 +1,34 @@
-import React, { useState } from 'react'
-import { Outlet,Link } from 'react-router-dom'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Outlet,Link,useNavigate } from 'react-router-dom'
 
 export const Delivery_navigation = () => {
+
+  const navigate=useNavigate()
+
+  let logout=()=>{
+    localStorage.removeItem('id')
+    localStorage.removeItem('gmail')
+    navigate('/login')
+  }
+  useEffect(()=>{
+    let auth=async ()=>{
+
+      let id=localStorage.getItem('id')
+      let gmail=localStorage.getItem('gmail')
+      let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,gmail:gmail})
+      console.log(response);
+      if(response==null){
+        navigate('/login')
+      }
+      else if(response?.data?.userType !=='delivery'){
+        navigate('/login')
+      }
+ 
+    }
+    auth()
+  },[])
+
   const [nav,setnav]=useState(true)
 
   let Toggle=()=>{
@@ -34,7 +61,7 @@ export const Delivery_navigation = () => {
       <Link to='/delivery/d_profile/'><div>PROFILE</div></Link>
       <Link to='/delivery/delivery_products/'><div>DELIVERY PRODUCTS</div></Link>
       <Link to='/delivery/d_change_password/'><div>CHANGE PASSWORD</div></Link>
-      <Link to='/Login'><div>LOGOUT</div></Link>
+      <div onClick={logout}>LOGOUT</div>
       
     </div>
     }

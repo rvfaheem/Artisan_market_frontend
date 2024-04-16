@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, Outlet, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
-import User from '../../../backend/models/user.js'
+// import User from '../../../backend/models/user.js'
 
 export const AdminNavigation = () => {
   
+  const navigate=useNavigate()
+
+  let logout=()=>{
+    localStorage.removeItem('id')
+    localStorage.removeItem('gmail')
+    navigate('/login')
+  }
   useEffect(()=>{
     let auth=async ()=>{
-      const Navigate=useNavigate()
 
-      let id=localStorage.getItem('Id')
-      let email=localStorage.getItem('email')
-      let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,email:email})
+      let id=localStorage.getItem('id')
+      let gmail=localStorage.getItem('gmail')
+      let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,gmail:gmail})
       console.log(response);
       if(response==null){
         navigate('/login')
@@ -24,11 +30,7 @@ export const AdminNavigation = () => {
     }
     auth()
   },[])
-async (req,res)=>{
-    let response=await  User.findOne(req.body)
-    console.log(response);
-    res.json(response)
-}
+
 
 
 
@@ -64,7 +66,7 @@ async (req,res)=>{
         <Link to='/admin/Addcategory'><div>ADD CATEGORY</div></Link>
         <Link to='/admin/addsubcategory'><div>ADD SUBCATEGORY</div></Link>
         <Link to='/admin/changepassword'><div>CHANGE PASSWORD</div></Link>
-        <Link to='/Login'><div className='pb-[20px]'>LOGOUT</div></Link>
+        <div onClick={logout} className='pb-[20px]'>LOGOUT</div>
         
         
 

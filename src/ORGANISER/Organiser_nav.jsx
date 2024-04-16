@@ -1,8 +1,36 @@
-import React, {useState} from 'react'
-import { Outlet,Link } from 'react-router-dom'
+import axios from 'axios'
+import React, {useEffect, useState} from 'react'
+import { Outlet,Link,useNavigate } from 'react-router-dom'
 
 
 export const Organiser_nav = () => {
+
+  const navigate=useNavigate()
+
+  let logout=()=>{
+    localStorage.removeItem('id')
+    localStorage.removeItem('gmail')
+    navigate('/login')
+  }
+  useEffect(()=>{
+    let auth=async ()=>{
+
+      let id=localStorage.getItem('id')
+      let gmail=localStorage.getItem('gmail')
+      let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,gmail:gmail})
+      console.log(response);
+      if(response==null){
+        navigate('/login')
+      }
+      else if(response?.data?.userType !=='organiser'){
+        navigate('/login')
+      }
+ 
+    }
+    auth()
+  },[])
+
+
   const [exihi,setexihi]=useState(false)
   const [notification,setnotification]=useState(false)
   const [others,setothers]=useState(false)
@@ -81,7 +109,7 @@ export const Organiser_nav = () => {
             {others &&
                  <div className='list-none absolute top-[78px] p-4 bg-fuchsia-600'>
                   <Link to='/organiser/change_password/'><li>Change_password</li></Link>
-                  <Link to='/Login'><li>Log out</li></Link>
+                  <button onClick={logout}><li>Log out</li></button>
             </div>
             }
             </div>           

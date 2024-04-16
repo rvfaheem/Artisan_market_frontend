@@ -155,7 +155,7 @@ That is Paper origami, Drawing, painting,flower, gift,sculpture,bottle art,…
 
    <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
      <a href="#">
-        <img class="rounded-t-lg" src={`http://localhost:4000/uploads/${item.image}`} alt="" />
+        <img class="rounded-t-lg w-96 h-64 object-cover" src={`http://localhost:4000/uploads/${item.image}`} alt="" />
     </a>
     <div class="p-5">
         <a href="#">
@@ -230,7 +230,7 @@ That is Paper origami, Drawing, painting,flower, gift,sculpture,bottle art,…
 {data1.map((item)=>(
    <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
      <a href="#">
-        <img class="rounded-t-lg" src={`http://localhost:4000/uploads/${item.image}`}  alt="" />
+        <img class="rounded-t-lg w-96 h-64" src={`http://localhost:4000/uploads/${item.image}`}  alt="" />
     </a>
     <div class="p-5">
         <a href="#">

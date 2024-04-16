@@ -18,7 +18,7 @@ export const View_exihibition = () => {
     },[refresh])
 
     let handledelete=async (id)=>{
-        let response=await axios.delete(`http://localhost:4000/artist/deleteproduct/${id}`)
+        let response=await axios.delete(`http://localhost:4000/organiser/deleteproduct/${id}`)
         console.log(response)
         setrefresh(!refresh)
     }
@@ -132,7 +132,7 @@ export const View_exihibition = () => {
                     requested
                 </td> */}
                 <div className='flex pt-2 pb-2 gap-3'>
-                <Link to={`/artist/product_update/${item._id}`}><button className='bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl '>Update</button></Link>
+                <Link to={`/organiser/updateexihibition/${item._id}`}><button className='bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl '>Update</button></Link>
                 <button onClick={()=>handledelete(item._id)} className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Delete</button>
                 </div>
                 

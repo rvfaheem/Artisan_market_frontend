@@ -1,7 +1,34 @@
-import React, { useState } from 'react'
-import { Outlet,Link } from 'react-router-dom'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Outlet,Link,useNavigate } from 'react-router-dom'
 
 export const User_navigation = () => {
+  const navigate=useNavigate()
+
+  let logout=()=>{
+    localStorage.removeItem('id')
+    localStorage.removeItem('gmail')
+    navigate('/login')
+  }
+  useEffect(()=>{
+    let auth=async ()=>{
+
+      let id=localStorage.getItem('id')
+      let gmail=localStorage.getItem('gmail')
+      let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,gmail:gmail})
+      console.log(response);
+      if(response==null){
+        navigate('/login')
+      }
+      else if(response?.data?.userType !=='user'){
+        navigate('/login')
+      }
+ 
+    }
+    auth()
+  },[])
+
+
 
   const [drop,setDrop]=useState(false)
   const [other,setother]=useState(false)
@@ -54,7 +81,7 @@ export const User_navigation = () => {
         {other &&
   <div className='list-none absolute bg-[#AED0E9] top-[78px] pr-16'>
     <Link to="/user/change_password/"><li>CHANGE PASSWORD</li></Link>
-    <Link to="/Login"><li>LOGOUT</li></Link>
+    <button onClick={logout}><li>LOGOUT</li></button>
   </div >
 }</div>
 

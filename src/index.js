@@ -78,6 +78,7 @@ import { View_exihibition_register } from './ARTIST/View_exihibition_register';
 import { Exihibition_orders } from './USER/Exihibition_orders';
 import { View_exihibition } from './ORGANISER/View_exihibition';
 import { Update_exihibition } from './ORGANISER/Update_exihibition';
+import { Product_detail_nav } from './product_detail_nav';
 
 
 
@@ -91,6 +92,7 @@ root.render(
       <Route path="/" element={<Nav />}>
           <Route index element={<Landingpage />} />
           <Route path='/Login' element={<Login />} />
+          <Route path='/product_detail/:id' element={<Product_detail_nav/>}/>
           {/* <Route path='/Adminhome' element={<Adminhome />} /> */}
         </Route>
         <Route path="/admin" element={<AdminNavigation/>}>
@@ -171,7 +173,7 @@ root.render(
       <Route path="/organiser/o_profile/" element={<Organiser_profile/>}/>
       <Route path="/organiser/o_profile_edit/" element={<Edit_organiser_profile/>}/> 
       <Route path="/organiser/viewcreateexihibition/" element={<View_exihibition/>}/>
-      <Route path="/organiser/updateexihibition/" element={<Update_exihibition/>}/>
+      <Route path="/organiser/updateexihibition/:id" element={<Update_exihibition/>}/>
 
       </Route>
 

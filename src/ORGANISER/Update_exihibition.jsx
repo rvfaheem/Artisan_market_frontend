@@ -1,9 +1,23 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export const Update_exihibition = () => {
-    let id=localStorage.getItem('id')
-    const [data,setData]=useState('')
+const [data,setData]=useState('')
+const[userData,setUserData]=useState([''])
+const {id}=useParams()
+  useEffect(()=>{
+    let fetchdata=async ()=>{
+        let response=await axios.get(`http://localhost:4000/artist/viewupdateexihibition/${id}`)
+        console.log(response)
+        setUserData(response.data)
+    }
+    fetchdata()
+},[])
+
+
+   
+    
   
   let handleFile=(event)=>{
     setData({...data,[event.target.name]:event.target.files[0]})
@@ -26,18 +40,24 @@ export const Update_exihibition = () => {
       event.preventDefault()
   
       const formdata = new FormData()
-      formdata.append("exihibitionName",data.exihibitionName)
-      formdata.append("sponcers",data.sponcers)
-      formdata.append("description",data.description)
-      formdata.append("image",data.image)
-      formdata.append("startdate",data.startdate)
-      formdata.append("enddate",data.enddate)
-      formdata.append("userId",data.userId)
+      for(const key in data){
+        if(data[key]){
+          formdata.append(key,data[key])
+        }
+      }
+      console.log(formdata,'formdata')
+      // formdata.append("exihibitionName",data.exihibitionName)
+      // formdata.append("sponcers",data.sponcers)
+      // formdata.append("description",data.description)
+      // formdata.append("image",data.image)
+      // formdata.append("startdate",data.startdate)
+      // formdata.append("enddate",data.enddate)
+      // formdata.append("userId",data.userId)
   
-      console.log(data,'ddtas');
+      // console.log(data,'ddtas');
       // return true
   
-      let response=await axios.post(`http://localhost:4000/organiser/createexihibition`,formdata,{
+      let response=await axios.put(`http://localhost:4000/organiser/editexihibition/${id}`,formdata,{
         headers: {
           'Content-Type': 'multipart/form-data'  // Set the content type for FormData
         }
@@ -50,7 +70,7 @@ export const Update_exihibition = () => {
       <div>
           <>
   
-  
+  {/* {userData.map((item)=>( */}
   <div class="min-h-screen bg-gray-100 p-0 sm:p-12">
     <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
       <h1 class="text-2xl font-bold mb-8">Update Exihibition</h1>
@@ -60,7 +80,7 @@ export const Update_exihibition = () => {
             type="text"
             onChange={handleChanage}
             name='exihibitionName'
-            placeholder="Exihibition Name"
+            placeholder={userData?.exihibitionName}
             required
             class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
           />
@@ -72,7 +92,7 @@ export const Update_exihibition = () => {
             type=""
             onChange={handleChanage}
             name="sponcers"
-            placeholder="Sponcers"
+            placeholder={userData.sponcers}
             class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
           />
           <label for="password" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
@@ -86,7 +106,7 @@ export const Update_exihibition = () => {
             type=""
             onChange={handleChanage}
             name="description"
-            placeholder="Description"
+            placeholder={userData.description}
             class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
           />
           <label for="password" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
@@ -156,11 +176,13 @@ export const Update_exihibition = () => {
          <div class="flex flex-row space-x-4">
           <div class="relative z-0 w-full mb-5">
           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Starting Date</label>
+          {userData.startdate}
+          {/* { new Date(userData.contribution?.date).toLocaleDateString()} */}
             <input
               type="date"
               onChange={handleChanage}
               name="startdate"
-              placeholder="Starting Date "
+              placeholder={userData.startdate}
               onclick="this.setAttribute('type', 'date');"
               class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
             />
@@ -216,6 +238,7 @@ export const Update_exihibition = () => {
       </form>
     </div>
   </div>
+  {/* ))} */}
       </>
       </div>
     )

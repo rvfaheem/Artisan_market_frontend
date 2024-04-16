@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 
 export const U_View_orders = () => {
@@ -107,7 +108,7 @@ export const U_View_orders = () => {
                     
                 </td> */}
                 <td class="px-6 py-4">
-                    
+                <Link to="/user/product_feedback/">Send Product Feedback</Link>
                 </td>
                 <div className='flex pt-2 pb-2 gap-3'>
                 <button className='bg-[#3BD45C] w-[100%] text-white pt-4 pb-4 rounded-xl '>Delivered</button>

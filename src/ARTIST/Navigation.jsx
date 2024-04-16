@@ -1,7 +1,36 @@
-import React, { useState } from 'react'
-import { Link,Outlet } from 'react-router-dom'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link,Outlet,useNavigate } from 'react-router-dom'
 
 export const ArtistNavigation = () => {
+
+
+  const navigate=useNavigate()
+
+  let logout=()=>{
+    localStorage.removeItem('id')
+    localStorage.removeItem('gmail')
+    navigate('/login')
+  }
+  useEffect(()=>{
+    let auth=async ()=>{
+
+      let id=localStorage.getItem('id')
+      let gmail=localStorage.getItem('gmail')
+      let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,gmail:gmail})
+      console.log(response);
+      if(response==null){
+        navigate('/login')
+      }
+      else if(response?.data?.userType !=='artist'){
+        navigate('/login')
+      }
+ 
+    }
+    auth()
+  },[])
+
+
   const [product,setproduct]=useState(false)
   let dropdown=()=>{
     setproduct(!product)
@@ -54,7 +83,7 @@ export const ArtistNavigation = () => {
         <Link to="/artist/view_orders"><div>ORDERS</div></Link>
         
         <Link to='/artist/change_password'><div>CHANGE PASSWORD</div></Link>
-        <Link to='/Login'><div className='pb-[20px]'>LOGOUT</div></Link>
+        <div onClick={logout} className='pb-[20px]'>LOGOUT</div>
         
         
 

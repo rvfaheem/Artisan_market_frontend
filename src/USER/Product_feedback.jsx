@@ -2,21 +2,33 @@ import React from 'react'
 
 export const Product_feedback = () => {
   return (
-    <div className='bg-indigo-500 w-screen h-screen flex justify-center p-16'>
-        <div className='bg-zinc-400 h-72 w-96 '>
-            <div className='flex gap-2'>
-                <div>
-                    <label>Feedback to Artist</label>
-                </div>
-                <div>
-                <textarea className='w-56 h-40' type="" placeholder='feedback' />
-                </div>
-
-            </div>
-            <div className='ml-60'>
-               <button className='bg-red-700 w-fit h-fit p-3 rounded'>Send</button> 
-            </div>
-        </div>
+<>
+<div className=''>
+<form class="max-w-md mx-auto mt-20 p-6 bg-white border rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold mb-6">Product Feedback</h2>
+    {/* <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="name">
+      Name:
+    </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Enter your name"/>
     </div>
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="email">
+      Email:
+    </label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="Enter your email"/>
+    </div> */}
+    <div class="mb-4">
+        <label class="block text-gray-700 font-bold mb-2" for="feedback">
+      Feedback:
+    </label>
+        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="feedback" rows="5" placeholder="Enter your feedback"></textarea>
+    </div>
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+    Send
+  </button>
+</form>
+</div>
+</>
   )
 }
