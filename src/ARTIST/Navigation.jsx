@@ -81,6 +81,7 @@ export const ArtistNavigation = () => {
 
         </div>
         <Link to="/artist/view_orders"><div>ORDERS</div></Link>
+        <Link to="/artist/view_deivered_product"><div>VIEW DELIVERED PRODUCT</div></Link>
         
         <Link to='/artist/change_password'><div>CHANGE PASSWORD</div></Link>
         <div onClick={logout} className='pb-[20px]'>LOGOUT</div>

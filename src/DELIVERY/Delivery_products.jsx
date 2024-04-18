@@ -31,6 +31,8 @@ export const Delivery_products = () => {
           
          
 
+
+
         </div> */}
 
       
@@ -118,7 +120,12 @@ export const Delivery_products = () => {
                 {item.users.Address} 
                 </td>
                 <div className='flex pt-2 pb-2 gap-3'>
-                <button type='submit' onClick={()=>{handleSubmit('delivered',item.order._id)}} className='bg-[#3BD45C] w-[100%] text-white pt-4 pb-4 rounded-xl '>Delivered</button>
+
+                {item.order?.status != "delivered" &&
+                    <button type='submit' onClick={()=>{handleSubmit('delivered',item.order._id)}} className='bg-[#3BD45C] w-[100%] text-white pt-4 pb-4 rounded-xl '>Delivered</button>
+                
+                // <button type='submit'  className='bg-red-600 w-[100%] text-white pt-4 pb-4 rounded-xl '>Delivered</button>
+                }
                 
                 </div>
                 

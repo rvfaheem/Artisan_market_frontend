@@ -91,7 +91,8 @@ export const Organiser_nav = () => {
             {exihi &&
                  <div className='list-none absolute top-[78px] p-4 bg-fuchsia-600'>
                   <Link to='/organiser/create_exihibition'><li>Create</li></Link>
-                  <Link to='/organiser/viewcreateexihibition/'><li>View exihibition</li></Link>
+                  <Link to='/organiser/viewcreateexihibition/'><li>View Online Exihibition</li></Link>
+                  <Link to='/organiser/viewofflineexihibitions/'><li>View Offline Exihibition</li></Link>
                   {/* <Link to='/organiser/updateexihibition/'><li>Update</li></Link> */}
                   <Link to='/organiser/accept_reject'><li>Artist</li></Link>
                   </div>

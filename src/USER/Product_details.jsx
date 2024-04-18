@@ -8,6 +8,7 @@ export const Product_details = () => {
   let userid = localStorage.getItem('id')
 
   const [data, setdata] = useState([''])
+  const [data1,setdata1]=useState([''])
 
   useEffect(() => {
     let fetchData = async () => {
@@ -17,6 +18,14 @@ export const Product_details = () => {
     }
     fetchData()
   }, [])
+
+  // let handleSubmit1=async(statuss,id)=>{
+  //   setrefresh(!refresh)
+  //   console.log(id);
+  //   let response=await axios.put(`http://localhost:4000/admin/manageUser/${id}`,{status:statuss})
+  //   console.log(response)
+  //   setdata('')
+  // }
 
   const [nav, setnav] = useState(false)
 
@@ -71,12 +80,12 @@ export const Product_details = () => {
                 <div class="flex mb-4">
                   <div class="mr-4">
                     <span class="font-bold text-gray-700 dark:text-gray-300">Price:</span>
-                    <span class="text-gray-600 dark:text-gray-300">${data.price}</span>
+                    <span class="text-gray-600 dark:text-gray-300">{data.price}</span>
                   </div>
-                  <div>
+                  {/* <div>
                     <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
                     <span class="text-gray-600 dark:text-gray-300">In Stock</span>
-                  </div>
+                  </div> */}
                 </div>
                 {/* <div class="mb-4">
                     <span class="font-bold text-gray-700 dark:text-gray-300">Select Color:</span>
@@ -157,7 +166,7 @@ export const Product_details = () => {
       <p class="text-red-500 text-xs italic">Please choose a password.</p>
     </div> */}
             <div class="flex items-center justify-between">
-              <button onClick={handleSubmit} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+              <button onClick={handleSubmit}  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                 Submit
               </button>
               {/* <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">

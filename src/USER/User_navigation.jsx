@@ -68,7 +68,7 @@ export const User_navigation = () => {
         <Link to="/user/products/"><div>PRODUCTS</div></Link>
         <Link to="/user/view_orders/"><div >ORDERS</div></Link>
         <Link to="/user/Exihibition_orders/"><div >EDXIHIBITION ORDERS</div></Link>
-        <Link to="/user/exihibition/"><div >EXIHIBITION</div></Link>
+        <Link to="/user/exihibitions/"><div >EXIHIBITION</div></Link>
 
         <div ><div onClick={dropDown}>EXIHIBITION NOTIFICATION</div>
         {drop &&

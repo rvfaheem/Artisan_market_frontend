@@ -148,8 +148,9 @@ export const View_product = () => {
     {
                     nav1&&
                     <div className='absolute sm:left-[30%] z-10'>
-                    
-                        <img  src={image} className="w-96 rounded-[50%]   z-[10] h-96" alt="" />
+                    {data.map((item)=>(
+                        <img  src={`http://localhost:4000/uploads/${item.product.Image}`} className="w-96 rounded-[50%]   z-[10] h-96" alt="" />
+                    ))}
                     </div> 
                     }    
     </>

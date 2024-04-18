@@ -79,6 +79,11 @@ import { Exihibition_orders } from './USER/Exihibition_orders';
 import { View_exihibition } from './ORGANISER/View_exihibition';
 import { Update_exihibition } from './ORGANISER/Update_exihibition';
 import { Product_detail_nav } from './product_detail_nav';
+import { View_offline_exihibitions } from './ORGANISER/View_offline_exihibitions';
+import { Update_offline_exihibitions } from './ORGANISER/Update_offline_exihibitions';
+import { View_categories } from './ADMIN/View_categories';
+import { View_delivered_product } from './ARTIST/View_delivered_product';
+import { Exihibitions } from './USER/Exihibitions';
 
 
 
@@ -93,6 +98,11 @@ root.render(
           <Route index element={<Landingpage />} />
           <Route path='/Login' element={<Login />} />
           <Route path='/product_detail/:id' element={<Product_detail_nav/>}/>
+         <Route path="/A_registration_form" element={<A_registration_form/>}/>
+         <Route path="/u_registration_form" element={<User_registration_form/>}/>
+         <Route path="/o_registration_form/" element={<O_registration_form/>}/> 
+         <Route path="/d_registration_form/" element={<Delivery_registration_form/>}/>
+          
           {/* <Route path='/Adminhome' element={<Adminhome />} /> */}
         </Route>
         <Route path="/admin" element={<AdminNavigation/>}>
@@ -103,6 +113,7 @@ root.render(
          <Route path="addcategory" element={<Addcategory />}/>
          <Route path="addsubcategory" element={<Add_subcategory/>}/>
          <Route path="changepassword" element={<Change_password/>}/>
+         <Route path="viewcategories" element={<View_categories/>}/>
 
          
 
@@ -130,7 +141,7 @@ root.render(
          <Route path="assign_delivery/:id" element={<Assign_delivery/>}/>
          <Route path="view_product" element={<View_product/>}/>
          <Route path="profile_edit" element={<A_profile_edit/>}/>
-         <Route path="A_registration_form" element={<A_registration_form/>}/>
+         <Route path="view_deivered_product" element={<View_delivered_product/>}/>
          
 
 
@@ -149,15 +160,16 @@ root.render(
       <Route path="exihibition/:id"  element={<Exihibition/>}/>
       {/* <Route path="exihibition"  element={<Exihibition/>}/> */}
       <Route path="exi_prod_details/:id" element={<Exihibition_product_details/>}/>
-      <Route path="u_registration_form" element={<User_registration_form/>}/>
+      
       <Route path="u_profile" element={<User_profile/>}/>
       <Route path="u_profile_edit" element={<Edit_user_profile/>}/>
-      <Route path="product_feedback" element={<Product_feedback/>}/>
+      <Route path="product_feedback/:id" element={<Product_feedback/>}/>
       <Route path="view_orders" element={<U_View_orders/>}/>
       <Route path="Exihibition_orders" element={<Exihibition_orders/>}/>
       <Route path="/user/Add_to_cart/" element={<Add_to_cart/>}/>
       <Route path="/user/change_password/" element={<U_Change_password/>}/>
       {/* <Route path="/user/perti_exihi/" element={<perticular_exihibition_product/>}/> */}
+      <Route path="/user/exihibitions/" element={<Exihibitions/>}/>
 
       </Route>
 
@@ -169,11 +181,13 @@ root.render(
       <Route path="/organiser/send_online/" element={<Send_exhi_online_notification/>}/>
       <Route path="/organiser/send_offline/" element={<Send_exhi_offline_notification/>}/>
       <Route path="/organiser/change_password/" element={<O_Change_password/>}/>
-      <Route path="/organiser/o_registration_form/" element={<O_registration_form/>}/>
+      
       <Route path="/organiser/o_profile/" element={<Organiser_profile/>}/>
       <Route path="/organiser/o_profile_edit/" element={<Edit_organiser_profile/>}/> 
       <Route path="/organiser/viewcreateexihibition/" element={<View_exihibition/>}/>
       <Route path="/organiser/updateexihibition/:id" element={<Update_exihibition/>}/>
+      <Route path="/organiser/viewofflineexihibitions/" element={<View_offline_exihibitions/>}/>
+      <Route path="/organiser/updateofflineexihibitions/:id" element={<Update_offline_exihibitions/>}/>
 
       </Route>
 
@@ -182,7 +196,7 @@ root.render(
       <Route index element={<Delivery_home/>} />
       <Route path="/delivery/delivery_products" element={<Delivery_products/>} />
       <Route path="/delivery/d_change_password" element={<D_change_password/>} />
-      <Route path="/delivery/d_registration_form/" element={<Delivery_registration_form/>}/>
+      
       <Route path="/delivery/d_profile/" element={<Delivery_profile/>}/>
       <Route path="/delivery/D_profile_edit/" element={<Delivery_profile_edit/>}/>
       </Route>      

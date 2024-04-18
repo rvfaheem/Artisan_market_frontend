@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 
-export const Online_exihibitions_notifications = () => {
+export const Exihibitions = () => { 
     const [data,setdata]=useState([''])
     
     useEffect(() =>{
         let fetchData=async()=>{
-            let response=await axios.get(`http://localhost:4000/artist/viewonlineexihibitions_b`)
+            let response=await axios.get(`http://localhost:4000/artist/viewonlineexihibitions`)
             console.log(response.data)
             setdata(response.data)
     }
@@ -204,3 +204,4 @@ export const Online_exihibitions_notifications = () => {
     </div>
   )
 }
+

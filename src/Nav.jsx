@@ -27,10 +27,10 @@ export const Nav = () => {
     <div><span onClick={dropdown} >REGISTER</span>
         {drop&&
         <div className='list-none absolute right-[30px]sm:right[18px]p-5 bg-sky-700 text-white p-2 sm:top-[60px]'>
-            <Link to="/artist/A_registration_form/"><li>Artist</li></Link>
-            <Link to="/user/u_registration_form/"><li>User</li></Link>
-            <Link to="/organiser/o_registration_form/"><li>Organiser</li></Link>
-            <Link to="/delivery/d_registration_form/"><li>Delivery boy</li></Link>
+            <Link to="/A_registration_form/"><li>Artist</li></Link>
+            <Link to="/u_registration_form/"><li>User</li></Link>
+            <Link to="/o_registration_form/"><li>Organiser</li></Link>
+            <Link to="/d_registration_form/"><li>Delivery boy</li></Link>
             </div>
         }
         

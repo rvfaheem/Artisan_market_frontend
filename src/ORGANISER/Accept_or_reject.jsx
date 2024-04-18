@@ -37,86 +37,7 @@ export const Accept_or_reject = () => {
     };
   
     // Your application data
-    const applications = [
-      {
-        id: 1,
-        name: 'Pranav',
-        image,
-        category:"painting",
-        id_proof:'Download',
-        email: 'Pranav@gmail.com',
-        art_work:'download',
-        phone: '254675654',
-        address: 'Address',
-      },
-      {
-        id: 1,
-        name: 'Pranav',
-        image,
-        category:"painting",
-        id_proof:'Download',
-        email: 'Pranav@gmail.com',
-        art_work:'download',
-        phone: '254675654',
-        address: 'Address',
-      },
-      {
-        id: 1,
-        name: 'Pranav',
-        image,
-        category:"painting",
-        id_proof:'Download',
-        email: 'Pranav@gmail.com',
-        art_work:'download',
-        phone: '254675654',
-        address: 'Address',
-      },
-      {
-        id: 1,
-        name: 'Pranav',
-        image,
-        category:"painting",
-        id_proof:'Download',
-        email: 'Pranav@gmail.com',
-        art_work:'download',
-        phone: '254675654',
-        address: 'Address',
-      },
-      {
-        id: 1,
-        name: 'Pranav',
-        image,
-        category:"painting",
-        id_proof:'Download',
-        email: 'Pranav@gmail.com',
-        art_work:'download',
-        phone: '254675654',
-        address: 'Address',
-      },
-      {
-        id: 1,
-        name: 'Pranav',
-        image,
-        category:"painting",
-        id_proof:'Download',
-        email: 'Pranav@gmail.com',
-        art_work:'download',
-        phone: '254675654',
-        address: 'Address',
-      },
-      {
-        id: 1,
-        name: 'Pranav',
-        image,
-        category:"painting",
-        id_proof:'Download',
-        email: 'Pranav@gmail.com',
-        art_work:'download',
-        phone: '254675654',
-        address: 'Address',
-      },                    
-      // Add more application objects here
-    ];
+   
   
     // Calculate index of the first and last item to be displayed
     const indexOfLastItem = (currentPage + 1) * itemsPerPage;
@@ -203,7 +124,7 @@ export const Accept_or_reject = () => {
             {/* Pagination */}
             <div className='flex justify-center mt-5'>
               <ReactPaginate
-                pageCount={Math.ceil(applications.length / itemsPerPage)}
+                pageCount={Math.ceil(data.length / itemsPerPage)}
                 pageRangeDisplayed={5}
                 marginPagesDisplayed={10}
                 onPageChange={handlePageChange}

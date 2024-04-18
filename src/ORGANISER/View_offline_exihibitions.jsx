@@ -1,20 +1,42 @@
-import axios from 'axios'
-import { Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
+import image from './artist.jpg'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
-export const U_View_orders = () => {
+export const View_offline_exihibitions = () => {
     let id=localStorage.getItem('id')
 
-    const [data, setdata] = useState([])
+    const [data,setdata]=useState([])
+    const[refresh,setrefresh]=useState(false)
     useEffect(()=>{
         let fetchData=async()=>{
-          let response=await axios.get(`http://localhost:4000/user/vieworders/${id}`)
-          console.log(response.data)
-          setdata(response.data)
+            let response=await axios.get(`http://localhost:4000/organiser/viewofflineexihibitions`)
+            console.log(response.data)
+            setdata(response.data)
         }
         fetchData()
-      },[])
+    },[refresh])
+
+    let handledelete=async (id)=>{
+        let response=await axios.delete(`http://localhost:4000/organiser/deleteexihibition/${id}`)
+        console.log(response)
+        setrefresh(!refresh)
+    }
+
+    const [nav1,setnav1]=useState(true)
+
+    let Toggle1=()=>{
+      setnav1(!nav1)
+    }
+    let ToggleTrue1=()=>{
+      setnav1(true)
+    }
+    let ToggleFalse=()=>{
+        setnav1(false)
+    }
   return (
+    <>
+    <div>
     <>
         <div class='organise m-4 p-4'>
       {/* <div>
@@ -30,7 +52,7 @@ export const U_View_orders = () => {
       
 
 <div class="relative overflow-x-auto">
-<form>
+    <form>
     <div className="flex gap-4">
       <label className='bg-white gap-4'>From Date</label>
       <input type="date" />
@@ -53,24 +75,23 @@ export const U_View_orders = () => {
                     Date
                 </th>
                 <th scope="col" class="px-6 py-3">
-                    Product
+                    Exihibition
                 </th>
-                <th scope="col" class="px-6 py-3">
+                {/* <th scope="col" class="px-6 py-3">
                     Category
                 </th>
                 <th scope="col" class="px-6 py-3">
                     Sub-Category
+                </th> */}
+                <th scope="col" class="px-6 py-3">
+                    Image
                 </th>
-                <th scope="col" class="px-6 py-3">
-                    Amount
-                </th>                
-                <th scope="col" class="px-6 py-3">
-                    Feedback
-                </th>
-
-                <th scope="col" class="px-6 py-3">
+                {/* <th scope="col" class="px-6 py-3">
+                    Description
+                </th> */}
+                {/* <th scope="col" class="px-6 py-3">
                     Status
-                </th>
+                </th> */}
                 <th>
 
                 </th>
@@ -83,41 +104,40 @@ export const U_View_orders = () => {
             {data.map((item,index)=>(
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
             <td class="px-6 py-4">
-                {index}
+                    {index}
                 </td>
                 <td class="px-6 py-4">
-                    {item.order.date}
+                    03-02-2024
                 </td>
                 <td class="px-6 py-4">
-                {item.product.productName}
+                    {item.exihibitionName}
                 </td>
                 <td class="px-6 py-4">
-                {item.category.category}
                     
 
                  
                  
                 </td>
                 <td class="px-6 py-4">
-                {item.subcategory.sub_category}
+                
                 </td>
                 <td class="px-6 py-4">
-                {item.product.price}
-                </td>
-                {/* <td class="px-6 py-4">
+                    <img src={`http://localhost:4000/uploads/${item.Image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
                     
+                    </td>
+                {/* <td class="px-6 py-4">
+                    {item.product.Description}
                 </td> */}
-                <td class="px-6 py-4">
-                <Link to={`/user/product_feedback/${item.order._id}`}>Send Product Feedback</Link>
-                </td>
+                {/* <td class="px-6 py-4">
+                    requested
+                </td> */}
                 <div className='flex pt-2 pb-2 gap-3'>
-                {item.order?.status == "delivered" &&
-                <button className='bg-[#3BD45C] w-[100%] text-white pt-4 pb-4 rounded-xl '>Delivered</button>
-            }
+                <Link to={`/organiser/updateofflineexihibitions/${item._id}`}><button className='bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl '>Update</button></Link>
+                <button onClick={()=>handledelete(item._id)} className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Delete</button>
                 </div>
                 
             </tr>
-            ))}
+))}
         </tbody>
     </table>
 </div>
@@ -125,6 +145,20 @@ export const U_View_orders = () => {
 
 
     </div>
+    {
+                    nav1&&
+                    <div className='absolute sm:left-[30%] z-10'>
+                    
+                        <img  src={image} className="w-96 rounded-[50%]   z-[10] h-96" alt="" />
+                    </div> 
+                    }    
+    </>
+
+
+    </div>
+    
     </>
   )
 }
+
+
