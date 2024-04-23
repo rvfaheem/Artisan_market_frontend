@@ -70,7 +70,7 @@ export const Organiser_nav = () => {
   return (
     <>
     <div >
-    <div className='flex flex-wrap justify-between bg-fuchsia-600 p-6'>
+    <div className='flex flex-wrap bg-black text-white items-center justify-between py-7 px-5'> 
     <div>
         ARTISAN MARKET
     </div>
@@ -87,9 +87,9 @@ export const Organiser_nav = () => {
             <div className='flex flex-col sm:flex-row justify-between px-5 gap-5'>
               <Link to="/organiser"><div>HOME</div></Link>
               <Link to="/organiser/o_profile/"><div>PROFILE</div></Link>
-            <div><span onClick={dropdown}>Exihibition</span>
+            <div><button onClick={dropdown}>Exihibition</button>
             {exihi &&
-                 <div className='list-none absolute top-[78px] p-4 bg-fuchsia-600'>
+                 <div className='list-none absolute top-[78px] p-4 bg-black'>
                   <Link to='/organiser/create_exihibition'><li>Create</li></Link>
                   <Link to='/organiser/viewcreateexihibition/'><li>View Online Exihibition</li></Link>
                   <Link to='/organiser/viewofflineexihibitions/'><li>View Offline Exihibition</li></Link>
@@ -98,22 +98,24 @@ export const Organiser_nav = () => {
                   </div>
             }
             </div>
-            <div><span onClick={dropdown1}>Notification</span>
+            <div><button onClick={dropdown1}>Notification</button>
             {notification &&
-                 <div className='list-none absolute top-[78px] p-4 bg-fuchsia-600'>
-                  <Link to='/organiser/send_online/'><li>Send_online</li></Link>
+                 <div className='list-none absolute top-[78px] p-4 bg-black'>
+                  {/* <Link to='/organiser/send_online/'><li>Send_online</li></Link> */}
                   <Link to='/organiser/send_offline'><li>Send_offline</li></Link>
             </div>
             }
             </div>
-            <div><span onClick={dropdown2}>Other</span>
+            <button onClick={logout}>Log out</button>
+
+            {/* <div><span onClick={dropdown2}>Other</span>
             {others &&
-                 <div className='list-none absolute top-[78px] p-4 bg-fuchsia-600'>
+                 <div className='list-none absolute top-[78px] p-4 bg-black'>
                   <Link to='/organiser/change_password/'><li>Change_password</li></Link>
                   <button onClick={logout}><li>Log out</li></button>
             </div>
             }
-            </div>           
+            </div>            */}
             
             </div>
             } 

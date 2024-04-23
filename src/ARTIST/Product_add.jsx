@@ -1,9 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import FileBase64 from 'react-filebase64'
 export const Product_add = () => {
   let id=localStorage.getItem('id')
   const[category,setcategory]=useState([])
+  const navigate=useNavigate()
   const[subcategory,setsubcategory]=useState([])
     const [data,setData] = useState()
 
@@ -47,7 +49,7 @@ export const Product_add = () => {
 
     let response=await axios.post(`http://localhost:4000/artist/addproduct`,formdata)
     console.log(response);
-   
+    navigate('/artist/view_product')
   }
   const [catId,setCatId]=useState()
   let handleCategory=async(event)=>
@@ -68,7 +70,7 @@ export const Product_add = () => {
     <>
 
 <div className='bg-teal-700 h-screen w-screen'>
-<div class="min-h-screen bg-gray-100 p-0 sm:p-12">
+<div class="organise min-h-screen bg-gray-100 p-0 sm:p-12">
   <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
     <h1 class="text-2xl font-bold mb-8">Add Product</h1>
     <form onSubmit={handleSubmit}>
@@ -93,7 +95,7 @@ export const Product_add = () => {
         } } /> */}
 
       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
-      <input onChange={handleChanage} name='Image' class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+      <input onChange={handleChanage} name='Image' required class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
 
       
 
@@ -108,7 +110,7 @@ export const Product_add = () => {
           <option value=''>choose</option>
         {category?.map((item)=>(
 
-          <option value={item._id}>{item.category}</option>
+          <option required value={item._id}>{item.category}</option>
           ))}
         </select>
         <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
@@ -124,7 +126,7 @@ export const Product_add = () => {
           
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         >
-<option value=''>choose</option>
+<option required value=''>choose</option>
           {subcategory?.map((item)=>(
 
 <option value={item._id}>{item.sub_category}</option>
@@ -152,10 +154,11 @@ export const Product_add = () => {
                  onChange={handleChanage}
           type="number"
           name="price"
+          required
           placeholder="Price "
           class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
-        <div class="absolute top-0 left-0 mt-3 ml-1 text-gray-400">$</div>
+        {/* <div class="absolute top-0 left-0 mt-3 ml-1 text-gray-400">$</div> */}
         <label for="money" class="absolute duration-300 top-3 left-5 -z-1 origin-0 text-gray-500"></label>
         <span class="text-sm text-red-600 hidden" id="error">Amount is required</span>
       </div>

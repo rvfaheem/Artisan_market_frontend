@@ -51,7 +51,7 @@ export const ArtistNavigation = () => {
  
   return (
     <>
-    <div className='flex px-3 p-5  bg-[#AED0E9]'>
+    <div className='flex px-3 p-5  bg-black text-white'>
         
         <div className='w-[500px] text-[30px] '>ARTISAN MARKET</div>
         <button onClick={Toggle} data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -68,9 +68,9 @@ export const ArtistNavigation = () => {
         <Link to='/artist'><div>HOME</div></Link>
         <Link to='/artist/artist_profile'><div>PROFILE</div></Link>
         
-        <div><span onClick={dropdown}>PRODUCT</span>
+        <div><button onClick={dropdown}>PRODUCT</button>
           {product &&
-                <div className='list-none absolute top-[78px] p-6 bg-[#AED0E9]'>
+                <div className='list-none absolute top-[78px] p-6 bg-black'>
                   <Link to='/artist/product_add'><li>ADD</li></Link>
                   <Link to='/artist/view_product'><li>View</li></Link>
                   <Link to='/artist/view_exihibition_register'><li>View</li></Link>
@@ -82,9 +82,12 @@ export const ArtistNavigation = () => {
         </div>
         <Link to="/artist/view_orders"><div>ORDERS</div></Link>
         <Link to="/artist/view_deivered_product"><div>VIEW DELIVERED PRODUCT</div></Link>
+        <Link to="/artist/Exihibitionorders/"><div>EXIHIBITION ORDERS</div></Link>
+        <Link to="/artist/viewexihibitionproducts/"><div>VIEW EXIHIBITION PRODUCTS</div></Link>
+        {/* <Link to="/artist/Exihiorders/"><div>EXIHIBITION ORDERS</div></Link> */}
         
-        <Link to='/artist/change_password'><div>CHANGE PASSWORD</div></Link>
-        <div onClick={logout} className='pb-[20px]'>LOGOUT</div>
+        {/* <Link to='/artist/change_password'><div>CHANGE PASSWORD</div></Link> */}
+        <button onClick={logout} className='pb-[20px]'>LOGOUT</button>
         
         
 

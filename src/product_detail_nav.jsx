@@ -50,7 +50,7 @@ export const Product_detail_nav = () => {
                 <div class="flex mb-4">
                   <div class="mr-4">
                     <span class="font-bold text-gray-700 dark:text-gray-300">Price:</span>
-                    <span class="text-gray-600 dark:text-gray-300">${data.price}</span>
+                    <span class="text-gray-600 dark:text-gray-300">{data.price}</span>
                   </div>
                   <div>
                     <span class="font-bold text-gray-700 dark:text-gray-300">Availability:</span>
@@ -79,7 +79,7 @@ export const Product_detail_nav = () => {
                 <div>
                   <span class="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
                   <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                    {data.description}
+                    {data.Description}
                   </p>
                 </div>
               </div>

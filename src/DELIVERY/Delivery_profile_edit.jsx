@@ -52,19 +52,19 @@ export const Delivery_profile_edit = () => {
               </div>
               <div className='p-3'>
               <label>IMAGE</label><br />
-              <input onChange={handleChange} placeholder={userData.name} name='name' type="file" />
+              <input onChange={handleChange} placeholder={userData.Image} name='name' type="file" />
               </div>
               <div className='p-3'>
               <label>G-MAIL:</label><br />
-              <input onChange={handleChange} placeholder={userData.name} name='name' type="text" />
+              <input onChange={handleChange} placeholder={userData.gmail} name='name' type="text" />
               </div>          
               <div className='p-3'>
               <label>PHONE NO:</label><br />
-              <input onChange={handleChange} placeholder={userData.name} name='name' type="text" />
+              <input onChange={handleChange} placeholder={userData.phoneNumber} name='name' type="text" />
               </div>
               <div className='p-3'>
               <label>ADDRESS:</label><br />
-              <input onChange={handleChange} placeholder={userData.name} name='name' type="text" />
+              <input onChange={handleChange} placeholder={userData.Address} name='name' type="text" />
               </div>
               </form>                
           <div>

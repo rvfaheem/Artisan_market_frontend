@@ -45,23 +45,23 @@ export const Payment = () => {
      <form onSubmit={handleSubmit}>
         <div className='p-3'>
           <label>NAME:</label><br />
-          <input name='name' onChange={handleChanage} type="text" />
+          <input name='name' required onChange={handleChanage} type="text" />
           </div>
           <div className='p-3'>
           <label>PHONE NO:</label><br />
-          <input name='phoneNumber' onChange={handleChanage} type="text" />
+          <input name='phoneNumber' required onChange={handleChanage} type="text" />
           </div>
           <div className='p-3'>
           <label>CARD NO:</label><br />
-          <input onChange={handleChanage} name='cardno' type="text" />
+          <input onChange={handleChanage} required name='cardno' type="text" />
           </div>          
           <div className='p-3'>
           <label>MM/YY:</label><br />
-          <input onChange={handleChanage} name='mmyy' type="text" />
+          <input onChange={handleChanage} required name='mmyy' type="text" />
           </div>
           <div className='p-3'>
           <label>CVV:</label><br />
-          <input onChange={handleChanage} name='cvv' type="text" />
+          <input onChange={handleChanage} required name='cvv' type="text" />
           </div>
       <div>
         <button type='submit' className='p-3 justify-center bg-red-700'>SUBMIT</button>

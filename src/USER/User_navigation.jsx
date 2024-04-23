@@ -51,7 +51,7 @@ export const User_navigation = () => {
   return (
  <>
  <div>
-     <div className='bg-[#AED0E9] flex flex-wrap p-6 justify-between'>
+     <div className='bg-black text-white flex flex-wrap p-6 justify-between'>
       <div>ARTISIAN MARKET</div>
       <button onClick={Toggle} data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
@@ -70,20 +70,21 @@ export const User_navigation = () => {
         <Link to="/user/Exihibition_orders/"><div >EDXIHIBITION ORDERS</div></Link>
         <Link to="/user/exihibitions/"><div >EXIHIBITION</div></Link>
 
-        <div ><div onClick={dropDown}>EXIHIBITION NOTIFICATION</div>
+        <div ><button onClick={dropDown}>EXIHIBITION NOTIFICATION</button>
         {drop &&
-  <div className='list-none absolute bg-[#AED0E9] top-[78px] p-8'>
+  <div className='list-none absolute bg-black top-[78px] p-8'>
   <Link to="/user/online_notifications/"><li>ONLINE</li></Link>
   <Link to="/user/offline_notifications/"><li>OFFLINE</li></Link>
   </div >
 }</div>
-<div ><div onClick={dropDown1}>OTHERS</div>
+<button onClick={logout}>LOGOUT</button>
+{/* <div ><div onClick={dropDown1}>OTHERS</div>
         {other &&
   <div className='list-none absolute bg-[#AED0E9] top-[78px] pr-16'>
     <Link to="/user/change_password/"><li>CHANGE PASSWORD</li></Link>
     <button onClick={logout}><li>LOGOUT</li></button>
   </div >
-}</div>
+}</div> */}
 
 
       </div>

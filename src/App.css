@@ -12,7 +12,7 @@
 
 }
 .back{
-  background-image: url("../public/image3.jpg");
+  background-image: url("../public/Login1.jpg");
   height: 40rem;
   background-size: 100%;
 }
@@ -35,7 +35,7 @@
 }  */
 /* image */
 .organise{
-  background-image: url("../public/organise.jpg");
+  background-image: url("../public/org.jpg");
   background-color: aqua;
   height: 50rem;
   width: auto;

@@ -115,8 +115,11 @@ export const UserHome = () => {
     {/* <button className=' rounded p-4 bg-lime-500'>Search</button> */}
     </div>
     <div>
-    <div className='flex sm:gap-4 flex-wrap'>
+    <>
+    {/* <h1 className="text-gray-900 text-3xl title-font font-medium mb-8 text-center">PRODUCTS</h1> */}
+    <div className='flex sm:gap-4 flex-wrap justify-evenly'>
     {products.map((item)=>(
+
 
 
 <div class="container  p-9 bg-white max-w-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
@@ -133,8 +136,10 @@ export const UserHome = () => {
     </div>
   </div>
 </div>
+
 ))}
     </div>
+    </>
     </div>
 
     

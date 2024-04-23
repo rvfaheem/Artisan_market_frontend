@@ -19,10 +19,10 @@ export const Exihibitions = () => {
     <div>
         <>
     
-
+        <h1 className="text-gray-900 text-3xl title-font font-medium mb-8 text-center">EXIHIBITIONS</h1>
 
     {/* <div className='flex gap-4 '> */}
-    <div className='flex sm:gap-4 flex-wrap'>
+    <div className='flex sm:gap-4 flex-wrap justify-evenly'>
         {data.map((item)=>(
 
                 <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">

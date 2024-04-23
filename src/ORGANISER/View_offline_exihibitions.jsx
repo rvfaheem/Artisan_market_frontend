@@ -122,7 +122,7 @@ export const View_offline_exihibitions = () => {
                 
                 </td>
                 <td class="px-6 py-4">
-                    <img src={`http://localhost:4000/uploads/${item.Image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
+                    <img src={`http://localhost:4000/uploads/${item.image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
                     
                     </td>
                 {/* <td class="px-6 py-4">

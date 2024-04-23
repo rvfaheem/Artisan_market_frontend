@@ -6,12 +6,17 @@ import axios from 'axios'
 
 export const Online_exihibitions_notifications = () => {
     const [data,setdata]=useState([''])
+    const [data1,setdata1]=useState([''])
     
     useEffect(() =>{
         let fetchData=async()=>{
             let response=await axios.get(`http://localhost:4000/artist/viewonlineexihibitions_b`)
+
             console.log(response.data)
             setdata(response.data)
+          
+            // console.log(response1.data)
+            // setdata1(response1.data)
     }
         fetchData()
     },[])

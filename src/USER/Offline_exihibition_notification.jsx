@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import image from './exhi2.jpg'
 import axios from 'axios'
+import { useParams} from 'react-router-dom'
 
 export const Offline_exihibition_notification = () => {
-  // let {id}=useParams()
+  let {id}=useParams()
   // let userid=localStorage.getItem('id')
 
   const [data, setdata]=useState([''])
 
   useEffect(() =>{
     let fetchData = async () => {
-      let response = await axios.get(`http://localhost:4000/user/viewofflineexihibition/:id`)
+      let response = await axios.get(`http://localhost:4000/user/viewoflinexihibitiondetailsuser/${id}`)
       console.log(response.data)
       setdata(response.data)
     }

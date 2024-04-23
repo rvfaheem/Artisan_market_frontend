@@ -1,9 +1,14 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const Create_exihibition = () => {
   let id=localStorage.getItem('id')
   const [data,setData]=useState('')
+  
+
+  const navigate=useNavigate()
+
 
 let handleFile=(event)=>{
   setData({...data,[event.target.name]:event.target.files[0]})
@@ -44,6 +49,9 @@ let handleFile=(event)=>{
     })
 
     console.log(response);
+    
+
+navigate('/organiser/viewcreateexihibition')
    
   }  
   return (
@@ -51,7 +59,7 @@ let handleFile=(event)=>{
         <>
 
 
-<div class="min-h-screen bg-gray-100 p-0 sm:p-12">
+<div class="organise min-h-screen bg-gray-100 p-0 sm:p-12">
   <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
     <h1 class="text-2xl font-bold mb-8">Create Exihibition</h1>
     <form onSubmit={handleSubmit}   id="form" novalidate>
@@ -72,6 +80,7 @@ let handleFile=(event)=>{
           type=""
           onChange={handleChanage}
           name="sponcers"
+          required
           placeholder="Sponcers"
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
@@ -87,6 +96,7 @@ let handleFile=(event)=>{
           onChange={handleChanage}
           name="description"
           placeholder="Description"
+          required
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
         <label for="password" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
@@ -159,6 +169,7 @@ let handleFile=(event)=>{
           <input
             type="date"
             onChange={handleChanage}
+            required
             name="startdate"
             placeholder="Starting Date "
             onclick="this.setAttribute('type', 'date');"
@@ -172,6 +183,7 @@ let handleFile=(event)=>{
           <input
             type="date"
             onChange={handleChanage}
+            required
             name="enddate"
             placeholder="Ending Date "
             onclick="this.setAttribute('type', 'time');"

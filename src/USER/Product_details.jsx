@@ -109,7 +109,7 @@ export const Product_details = () => {
                 <div>
                   <span class="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
                   <p class="text-gray-600 dark:text-gray-300 text-sm mt-2">
-                    {data.description}
+                    {data.Description}
                   </p>
                 </div>
               </div>
@@ -141,21 +141,21 @@ export const Product_details = () => {
               <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                 Card No
               </label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Card No" />
+              <input required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Card No" />
             </div>
 
             <div class="mb-4">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                 MM/YY
               </label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="MM/YY" />
+              <input required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="MM/YY" />
             </div>
 
             <div class="mb-4">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                 CVV
               </label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="CVV" />
+              <input required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="CVV" />
             </div>
 
             {/* <div class="mb-6">

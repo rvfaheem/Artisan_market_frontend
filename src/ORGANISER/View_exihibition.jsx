@@ -54,10 +54,10 @@ export const View_exihibition = () => {
 <div class="relative overflow-x-auto">
     <form>
     <div className="flex gap-4">
-      <label className='bg-white gap-4'>From Date</label>
+      {/* <label className='bg-white gap-4'>From Date</label>
       <input type="date" />
       <label className='bg-white gap-4'>To Date</label>
-      <input type="date" />
+      <input type="date" /> */}
       <input type="text" />
       <button>Search</button>
 
@@ -122,7 +122,7 @@ export const View_exihibition = () => {
                 
                 </td>
                 <td class="px-6 py-4">
-                    <img src={`http://localhost:4000/uploads/${item.Image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
+                    <img src={`http://localhost:4000/uploads/${item.image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
                     
                     </td>
                 {/* <td class="px-6 py-4">

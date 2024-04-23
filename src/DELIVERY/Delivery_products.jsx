@@ -38,7 +38,7 @@ export const Delivery_products = () => {
       
 
       
-<form>
+{/* <form>
     <div className="flex flex-wrap gap-4">
       <label className='bg-white gap-4 p-4 bg-gray-400'>From Date</label>
       <input type="date" />
@@ -49,7 +49,7 @@ export const Delivery_products = () => {
 
 
     </div>
-</form>
+</form> */}
 <div class="relative overflow-x-auto">
 
 

@@ -84,6 +84,11 @@ import { Update_offline_exihibitions } from './ORGANISER/Update_offline_exihibit
 import { View_categories } from './ADMIN/View_categories';
 import { View_delivered_product } from './ARTIST/View_delivered_product';
 import { Exihibitions } from './USER/Exihibitions';
+import { Exihibitionorders } from './ARTIST/Exihibitionorders';
+import { Exhiorders } from './ARTIST/Exhiorders';
+import { Exihibitionproducts } from './DELIVERY/Exihibitionproducts';
+import { Exihi_Assign_delivery } from './ARTIST/Exihi_Assign_delivery';
+import { Viewexihibitionproducts } from './ARTIST/Viewexihibitionproducts';
 
 
 
@@ -142,6 +147,10 @@ root.render(
          <Route path="view_product" element={<View_product/>}/>
          <Route path="profile_edit" element={<A_profile_edit/>}/>
          <Route path="view_deivered_product" element={<View_delivered_product/>}/>
+         <Route path="/artist/Exihibitionorders/" element={<Exihibitionorders/>}/>
+         {/* <Route path="/artist/Exihibitionorders1/" element={<Exhiorders/>}/> */}
+         <Route path="/artist/Assignexihibitionorders/:id" element={<Exihi_Assign_delivery/>}/>
+         <Route path="/artist/viewexihibitionproducts/" element={<Viewexihibitionproducts/>}/>
          
 
 
@@ -153,7 +162,7 @@ root.render(
       <Route path="products" element={<Products/>}/>
       <Route path="payment/:id" element={<Payment/>}/>
       <Route path="product_details/:id" element={<Product_details/>}/>
-      <Route path="offline_notification" element={<Offline_exihibition_notification/>}/>
+      <Route path="offline_notification/:id" element={<Offline_exihibition_notification/>}/>
       <Route path="offline_notifications" element={<Offline_exihibitions_notifications/>}/>
       <Route path="online_notification/:id" element={<Online_exihibition_notification/>}/>
       <Route path="online_notifications" element={<Online_exihibitions_notifications/>}/>
@@ -170,6 +179,7 @@ root.render(
       <Route path="/user/change_password/" element={<U_Change_password/>}/>
       {/* <Route path="/user/perti_exihi/" element={<perticular_exihibition_product/>}/> */}
       <Route path="/user/exihibitions/" element={<Exihibitions/>}/>
+      
 
       </Route>
 
@@ -199,7 +209,10 @@ root.render(
       
       <Route path="/delivery/d_profile/" element={<Delivery_profile/>}/>
       <Route path="/delivery/D_profile_edit/" element={<Delivery_profile_edit/>}/>
-      </Route>      
+      <Route path="/delivery/exihibitionproducts/" element={<Exihibitionproducts/>}/>
+
+      </Route>
+
 
 
 

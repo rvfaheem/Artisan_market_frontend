@@ -43,7 +43,7 @@ export const Delivery_navigation = () => {
 
 
 
-    <nav class='bg-[#AED0E9] '>
+    <nav class='bg-black text-white '>
   <div class=" flex flex-wrap items-center justify-between  p-6">
         <div>ARTISIAN MARKET</div>
     <button onClick={Toggle} data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -60,8 +60,9 @@ export const Delivery_navigation = () => {
       <Link to='/delivery/'><div>HOME</div></Link>
       <Link to='/delivery/d_profile/'><div>PROFILE</div></Link>
       <Link to='/delivery/delivery_products/'><div>DELIVERY PRODUCTS</div></Link>
-      <Link to='/delivery/d_change_password/'><div>CHANGE PASSWORD</div></Link>
-      <div onClick={logout}>LOGOUT</div>
+      <Link to='/delivery/exihibitionproducts/'><div>EXIHIBITION PRODUCTS</div></Link>
+      {/* <Link to='/delivery/d_change_password/'><div>CHANGE PASSWORD</div></Link> */}
+      <button onClick={logout}>LOGOUT</button>
       
     </div>
     }

@@ -115,7 +115,7 @@ useEffect(()=>{
           onChange={handleCategory}
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         > 
-          <option value=''>choose</option>
+          <option required value=''>choose</option>
         {category?.map((item)=>(
 
           <option value={item._id}>{item.category}</option>
@@ -131,13 +131,14 @@ useEffect(()=>{
         <select
           name="select"
          onChange={handleSubCategory}
+         required
           
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         >
 <option value=''>choose</option>
           {subcategory?.map((item)=>(
 
-<option value={item._id}>{item.sub_category}</option>
+<option required value={item._id}>{item.sub_category}</option>
 ))}
 
         </select>
@@ -182,6 +183,7 @@ useEffect(()=>{
           type="text"
           name="rate"
           onChange={handleChanage}
+          required
           placeholder="Address "
           class="pt-3 pb-2  block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />

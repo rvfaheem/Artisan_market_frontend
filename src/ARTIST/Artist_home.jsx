@@ -11,7 +11,7 @@ export const Artist_home = () => {
     const[data1,setdata1]=useState([''])
     useEffect(()=>{
         let fetchData =async ()=>{
-            let response=await axios.get(`http://localhost:4000/artist/viewonlineexihibitions`)
+            let response=await axios.get(`http://localhost:4000/artist/viewonlineexihibitions_b`)
             let response1=await axios.get(`http://localhost:4000/artist/viewofflineexihibitions`)
             setdata(response.data.slice(0, 3)); 
             setdata1(response1.data.slice(0, 3)); 
@@ -138,17 +138,19 @@ That is Paper origami, Drawing, painting,flower, gift,sculpture,bottle art,…
     </div>
 </div><br /><br /><br /> */}
         <div>
-            <div>
-                NEWS OF EXIHIBITION
+            <div><br /><br />
+            <h1 class="text-gray-900 text-5xl title-font font-medium mb-1">NOTIFICATION OF EXIHIBITION</h1><br /><br />
+                
             </div><br /><br />
             <div>
-                ONLINE
+            <h1 class="text-3xl title-font text-gray-500 tracking-widest">ONLINE</h1><br />
+                
             </div><br />
 
 
 
             
-            <div className='flex sm:gap-4 flex-wrap'>
+            <div className='flex sm:gap-4 flex-wrap justify-evenly'>
   
 
     {data.map((item)=>(            
@@ -219,7 +221,8 @@ That is Paper origami, Drawing, painting,flower, gift,sculpture,bottle art,…
 
         </div>
         <div>
-                OFFLINE
+        <h1 class="text-3xl title-font text-gray-500 tracking-widest">OFFLINE</h1><br />
+                
             </div><br />
 
 

@@ -1,9 +1,14 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const Send_exhi_offline_notification = () => {
 
   const [data,setData] = useState()
+
+  const navigate=useNavigate()
+
+
 
   let handleChanage=(event)=>{
     if(event.target.name === 'Image'){
@@ -47,6 +52,7 @@ let id=localStorage.getItem('id')
     })
     
     console.log(response);
+    navigate('/organiser/viewofflineexihibitions')
    
   }  
   return (
@@ -54,7 +60,7 @@ let id=localStorage.getItem('id')
        <>
 
 
-<div class="min-h-screen bg-gray-100 p-0 sm:p-12">
+<div class="organise min-h-screen bg-gray-100 p-0 sm:p-12">
   <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
     <h1 class="text-2xl font-bold mb-8">Send Offline Exihibition</h1>
     <form onSubmit={handleSubmit}>
@@ -75,6 +81,7 @@ let id=localStorage.getItem('id')
           type=""
           onChange={handleChanage}
           name="sponcers"
+          required
           placeholder="Sponcers"
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
@@ -101,6 +108,7 @@ let id=localStorage.getItem('id')
         <textarea
           type=""
           onChange={handleChanage}
+          required
           name="description"
           placeholder="Description"
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
@@ -176,6 +184,7 @@ let id=localStorage.getItem('id')
             type="date"
             name="startingdate"
             onChange={handleChanage}
+            required
             placeholder="Starting Date "
             onclick="this.setAttribute('type', 'date');"
             class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
@@ -188,6 +197,7 @@ let id=localStorage.getItem('id')
           <input
             type="date"
             name="endingdate"
+            required
             onChange={handleChanage}
             placeholder="Ending Date "
             onclick="this.setAttribute('type', 'time');"

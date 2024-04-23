@@ -44,7 +44,7 @@ export const AdminNavigation = () => {
   }  
   return (
     <>
-    <div className='flex p-5 px-3   bg-indigo-950'>
+    <div className='flex p-5 px-3    bg-black text-white'>
         
         <div className='w-[500px] text-[30px] '>ARTISAN MARKET</div>
         <button onClick={Toggle} data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
@@ -66,8 +66,8 @@ export const AdminNavigation = () => {
         <Link to='/admin/Addcategory'><div>ADD CATEGORY</div></Link>
         <Link to='/admin/addsubcategory'><div>ADD SUBCATEGORY</div></Link>
         <Link to='/admin/viewcategories'><div>VIEW CATEGORIES</div></Link>
-        <Link to='/admin/changepassword'><div>CHANGE PASSWORD</div></Link>
-        <div onClick={logout} className='pb-[20px]'>LOGOUT</div>
+        {/* <Link to='/admin/changepassword'><div>CHANGE PASSWORD</div></Link> */}
+       <button><div onClick={logout} className='pb-[20px]'>LOGOUT</div></button> 
         
         
 

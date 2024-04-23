@@ -126,6 +126,7 @@ export const Exihibition_register = () => {
           type="text"
           name="Address"
           onChange={handleChanage}
+          required
           placeholder="Address "
           class="pt-3 pb-2  block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />

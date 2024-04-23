@@ -3,129 +3,68 @@ import ReactPaginate from 'react-paginate';
 import image from './Artist.jpg';
 import axios from 'axios';
 
-
-
 export const Delivery = () => {
-  const [nav1, setNav1] = useState(true);
-  const[data,setdata]=useState([''])
-  const[refresh,setrefresh]=useState(false)
+  const [nav1, setNav1] = useState(false); // Initialize to false
+  const [data, setData] = useState([]);
+  const [refresh, setRefresh] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
+  const [searchTerm, setSearchTerm] = useState('');
   const itemsPerPage = 5; // Adjust this based on your preference
 
-  useEffect(()=>{
-    let fetchData=async()=>{
-      let response=await axios.get(`http://localhost:4000/admin/viewuserdelivery`)
-      console.log(response.data)
-      setdata(response.data)
-    }
-    fetchData()
-  },[])
+  useEffect(() => {
+    let fetchData = async () => {
+      let response = await axios.get(`http://localhost:4000/admin/viewuserdelivery`);
+      console.log(response.data);
+      setData(response.data);
+    };
+    fetchData();
+  }, [refresh]);
 
-  let handleSubmit=async(statuss,id)=>{
-    setrefresh(!refresh)
+  let handleSubmit = async (statuss, id) => {
+    setRefresh(!refresh);
     console.log(id);
-    let response=await axios.put(`http://localhost:4000/admin/manageUser/${id}`,{status:statuss})
-    console.log(response)
-    setdata('')
-  }
-
-  let toggle1 = () => {
-    setNav1(!nav1);
+    let response = await axios.put(`http://localhost:4000/admin/manageUser/${id}`, { status: statuss });
+    console.log(response);
+    setData([]);
   };
-
-  let toggleFalse = () => {
-    setNav1(false);
-  };
-
-  // Your application data
-  const applications = [
-    {
-      id: 1,
-      name: 'Pranav',
-      image,
-      id_proof:'Download',
-      experience: 'Download',
-      email: 'Pranav@gmail.com',
-      phone: '254675654',
-      address: 'Address1',
-    },
-    {
-      id: 2,
-      name: 'Pranav',
-      image,
-      id_proof:'Download',
-      experience: 'Download',
-      email: 'Pranav@gmail.com',
-      phone: '254675654',
-      address: 'Address1',
-    },
-    {
-      id: 3,
-      name: 'Pranav',
-      image,
-      id_proof:'Download',
-      experience: 'Download',
-      email: 'Pranav@gmail.com',
-      phone: '254675654',
-      address: 'Address1',
-    },
-    {
-      id: 4,
-      name: 'Pranav',
-      image,
-      id_proof:'Download',
-      experience: 'Download',
-      email: 'Pranav@gmail.com',
-      phone: '254675654',
-      address: 'Address1',
-    },
-    {
-      id: 5,
-      name: 'Pranav',
-      image,
-      id_proof:'Download',
-      experience: 'Download',
-      email: 'Pranav@gmail.com',
-      phone: '254675654',
-      address: 'Address1',
-    },
-    {
-      id: 6,
-      name: 'Pranav',
-      image,
-      id_proof:'Download',
-      experience: 'Download',
-      email: 'Pranav@gmail.com',
-      phone: '254675654',
-      address: 'Address1',
-    },                    
-
-    // Add more application objects here
-  ];
-
-  // Calculate index of the first and last item to be displayed
-  const indexOfLastItem = (currentPage + 1) * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
 
   // Function to handle page change
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
   };
 
+  // Filter data based on search term
+  const filteredData = data.filter((delivery) =>
+    delivery.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  // Calculate index of the first and last item to be displayed
+  const indexOfLastItem = (currentPage + 1) * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
+  // Function to handle mouse enter on the image
+  const handleMouseEnter = () => {
+    setNav1(true);
+  };
+
+  // Function to handle mouse leave from the image
+  const handleMouseLeave = () => {
+    setNav1(false);
+  };
+
   return (
     <>
       <div className='bg-orange-300 w-screen h-fit m-4 p-4'>
         <div className='relative overflow-x-auto'>
-          <div className='flex gap-4'>
-            <label className='bg-white gap-4'>From Date</label>
-            <input type='date' />
-            <label className='bg-white gap-4'>To Date</label>
-            <input type='date' />
-            <input type='text' />
-            
-            <button>Search</button>
-          </div>
+          {/* Search input */}
+          <input
+            type='text'
+            className='border border-gray-300 p-2 mb-4 rounded-md'
+            placeholder='Search by name...'
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
 
           <table className='w-[100%] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4'>
             {/* Table Header */}
@@ -155,21 +94,29 @@ export const Delivery = () => {
                 <th scope='col' className='px-6 py-3'>
                   Address
                 </th>
+                <th>Status</th>
                 <th></th>
                 <th></th>
               </tr>
             </thead>
             {/* Table Body */}
             <tbody>
-              {currentItems.map((delivery) => (
+              {currentItems.map((delivery,index) => (
                 <tr key={delivery.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
-                  <td className='px-6 py-4'>{delivery.id}</td>
+                  {/* <td className='px-6 py-4'>{delivery.id}</td> */}
+                  <td class="px-6 py-4">{index}</td>
                   <td className='px-6 py-4'>{delivery.name}</td>
                   <td className='px-6 py-4'>
-                    <img src={delivery.image} onMouseLeave={toggleFalse} onMouseEnter={toggle1} className='w-8 h-8' alt='' />
+                    <img
+                      src={`http://localhost:4000/uploads/${delivery.image}`}
+                      onMouseEnter={handleMouseEnter}
+                      onMouseLeave={handleMouseLeave}
+                      className='w-8 h-8'
+                      alt=''
+                    />
                   </td>
-                  <a download href=""><td class="px-6 py-4 text-blue-600" className='px-6 py-4'>{delivery.id_proof}</td></a>
-                  <td class="px-6 py-4 text-blue-600" className='px-6 py-4'>{delivery.experience}</td>
+                  <td class="px-6 py-4 text-blue-600" className='px-6 py-4'><a  target='_blank' download href={`http://localhost:4000/uploads/${delivery.idproof}`}><button className='bg-blue-950 text-white p-2 rounded-2xl'>Download</button></a></td>
+                  <td class="px-6 py-4 text-blue-600" className='px-6 py-4'><a  target='_blank' download href={`http://localhost:4000/uploads/${delivery.Experience}`}><button className='bg-blue-950 text-white p-2 rounded-2xl'>Download</button></a></td>
                   <td className='px-6 py-4'>{delivery.gmail}</td>
                   <td className='px-6 py-4'>{delivery.phoneNumber}</td>
                   <td className='px-6 py-4'>{delivery.Address}</td>
@@ -178,7 +125,7 @@ export const Delivery = () => {
                     <button type='submit' onClick={()=>{handleSubmit('accept',delivery._id)}} className='bg-[#3BD45C] w-[50%] text-white pt-3 pb-3 rounded-xl '>Accept</button>
                   </td>
                   <td>
-                    <button type='submit' onClick={()=>{handleSubmit('reject',delivery._id)}}className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Reject</button>
+                    <button type='submit' onClick={()=>{handleSubmit('reject',delivery._id)}} className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Reject</button>
                   </td>
                 </tr>
               ))}
@@ -188,7 +135,7 @@ export const Delivery = () => {
           {/* Pagination */}
           <div className='flex justify-center mt-5'>
             <ReactPaginate
-              pageCount={Math.ceil(applications.length / itemsPerPage)}
+              pageCount={Math.ceil(filteredData.length / itemsPerPage)}
               pageRangeDisplayed={5}
               marginPagesDisplayed={2}
               onPageChange={handlePageChange}
@@ -196,19 +143,14 @@ export const Delivery = () => {
               activeClassName='active'
             />
           </div>
-
-          {/* Display image on hover */}
-        
         </div>
       </div>
       {nav1 && (
-            <div className='absolute sm:left-[50%] top-28 z-10'>
-              <img src={image} className='w-96 rounded-[50%] z-[10] h-96' alt='' />
-            </div>
-          )}
+        <div className='absolute sm:left-[50%] top-28 z-10'>
+          <img src={image} className='w-96 rounded-[50%] z-[10] h-96' alt='' />
+        </div>
+      )}
     </>
   );
 };
-
-// export default artist;
 

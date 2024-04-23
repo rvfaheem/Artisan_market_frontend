@@ -46,7 +46,7 @@ export const Exihibition_product_details = () => {
         <div class="flex flex-col md:flex-row -mx-4">
             <div class="md:flex-1 px-4">
                 <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                <img class="w-full h-full object-cover" src={`http://localhost:4000/uploads/${data.image}`} alt='' />
+                <img class="w-72 h-72 object-cover" src={`http://localhost:4000/uploads/${data.image}`} alt='' />
 
                 </div>
                 <div class="flex -mx-2 mb-4">

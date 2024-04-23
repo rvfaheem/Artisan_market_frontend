@@ -34,7 +34,8 @@ export const Exihibition = () => {
     <div>
       <h1 class="mt-5 text-2xl font-semibold">{item.product?.productName}</h1>
       {/* <p class="mt-2">$11.99</p> */}
-      <p class="mt-2">${item.product?.rate}</p>
+      <p class="mt-2">{item.product?.artist}</p>
+      <p class="mt-2">{item.product?.rate}</p>
       <p class="mt-2">{item.artist}</p>
       <p class="mt-2">{item?.subcategory?.sub_category}</p>
       <p class="mt-2">{item?.category?.category}</p>
