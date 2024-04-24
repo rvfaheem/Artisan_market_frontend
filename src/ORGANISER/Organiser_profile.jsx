@@ -33,11 +33,11 @@ export const Organiser_profile = () => {
                     <h4 class="text-xl font-bold text-navy-700 dark:text-white">
                     {userData.name}
                     </h4>
-                    <p class="text-base font-normal text-gray-600">{userData.category}</p>
+                    {/* <p class="text-base font-normal text-gray-600">{userData.category}</p> */}
                     <p class="text-base font-normal text-gray-600">{userData.gmail}</p>
                     <p class="text-base font-normal text-gray-600">{userData.phoneNumber}</p>
                     <p class="text-base font-normal text-gray-600">{userData.Address}</p><br /><br /><br /><br />
-                    <Link to="/organiser/o_profile_edit/"><button className='bg-green-600 rounted w-fit h-fit'>Edit</button></Link>
+                    <Link to="/organiser/o_profile_edit/"><button className='bg-green-600 rounded w-fit h-fit p-2'>Edit</button></Link>
 
                 </div> 
                 {/* <div class="mt-6 mb-3 flex gap-14 md:!gap-14">

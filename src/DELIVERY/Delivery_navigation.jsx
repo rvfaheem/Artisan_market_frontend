@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Outlet,Link,useNavigate } from 'react-router-dom'
 
 export const Delivery_navigation = () => {
+  const[data,setdata]=useState('')
 
   const navigate=useNavigate()
 
@@ -18,6 +19,8 @@ export const Delivery_navigation = () => {
       let gmail=localStorage.getItem('gmail')
       let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,gmail:gmail})
       console.log(response);
+      console.log(response.data)
+      setdata(response.data)
       if(response==null){
         navigate('/login')
       }
@@ -56,7 +59,7 @@ export const Delivery_navigation = () => {
       nav &&
 
       <div className='sm:flex flex-wrap  sm:gap-6'>
-         
+       <mark class="px-2 text-xl text-white bg-blue-600 rounded dark:bg-blue-500">Welcome {data.name}</mark>   
       <Link to='/delivery/'><div>HOME</div></Link>
       <Link to='/delivery/d_profile/'><div>PROFILE</div></Link>
       <Link to='/delivery/delivery_products/'><div>DELIVERY PRODUCTS</div></Link>

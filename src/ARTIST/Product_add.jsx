@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
 import FileBase64 from 'react-filebase64'
 export const Product_add = () => {
   let id=localStorage.getItem('id')
@@ -49,7 +50,8 @@ export const Product_add = () => {
 
     let response=await axios.post(`http://localhost:4000/artist/addproduct`,formdata)
     console.log(response);
-    navigate('/artist/view_product')
+    toast.success('Added the product')
+    // navigate('/artist/view_product')
   }
   const [catId,setCatId]=useState()
   let handleCategory=async(event)=>
@@ -68,7 +70,7 @@ export const Product_add = () => {
   }
   return (
     <>
-
+<ToastContainer/>
 <div className='bg-teal-700 h-screen w-screen'>
 <div class="organise min-h-screen bg-gray-100 p-0 sm:p-12">
   <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">

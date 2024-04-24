@@ -36,7 +36,7 @@ export const Delivery_profile = () => {
                     <p class="text-base font-normal text-gray-600">{userData.gmail}</p>
                     <p class="text-base font-normal text-gray-600">{userData.phoneNumber}</p>
                     <p class="text-base font-normal text-gray-600">{userData.Address}</p><br /><br /><br /><br />
-                    <Link to="/delivery/D_profile_edit/"><button className='bg-green-600 rounted w-fit h-fit'>Edit</button></Link>
+                    <Link to="/delivery/D_profile_edit/"><button className='bg-green-600 rounded w-fit h-fit p-2'>Edit</button></Link>
 
                 </div> 
                 {/* <div class="mt-6 mb-3 flex gap-14 md:!gap-14">

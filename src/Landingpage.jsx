@@ -61,7 +61,7 @@ export const Landingpage = () => {
                 </div>
             </div><br /><br />
             <div>
-            <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">EXIHIBITIONS</h1><br /><br />
+            <h1 class="text-gray-900 text-3xl text-white title-font font-medium mb-1">EXIHIBITIONS</h1><br /><br />
                 <h1 class="text-3xl title-font text-gray-500 tracking-widest">ONLINE</h1><br />
                 <div>
                 <div className='flex sm:gap-4 flex-wrap justify-evenly w-100'>

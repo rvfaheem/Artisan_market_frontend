@@ -4,6 +4,7 @@ import { Outlet,Link,useNavigate } from 'react-router-dom'
 
 export const User_navigation = () => {
   const navigate=useNavigate()
+  const[data,setdata]=useState('')
 
   let logout=()=>{
     localStorage.removeItem('id')
@@ -17,6 +18,8 @@ export const User_navigation = () => {
       let gmail=localStorage.getItem('gmail')
       let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,gmail:gmail})
       console.log(response);
+      console.log(response.data)
+      setdata(response.data)
       if(response==null){
         navigate('/login')
       }
@@ -63,6 +66,8 @@ export const User_navigation = () => {
   nav&&
     
       <div className='flex flex-col sm:flex-row gap-6 items-start'>
+        <mark class="px-2 text-xl text-white bg-blue-600 rounded dark:bg-blue-500">Welcome {data.name}</mark>
+        
       <Link to="/user/"><div>HOME</div></Link>
         <Link to="/user/u_profile/"><div>PROFILE</div></Link>
         <Link to="/user/products/"><div>PRODUCTS</div></Link>

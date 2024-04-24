@@ -4,7 +4,7 @@ import { Outlet,Link,useNavigate } from 'react-router-dom'
 
 
 export const Organiser_nav = () => {
-
+  const[data,setdata]=useState('')
   const navigate=useNavigate()
 
   let logout=()=>{
@@ -19,6 +19,8 @@ export const Organiser_nav = () => {
       let gmail=localStorage.getItem('gmail')
       let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,gmail:gmail})
       console.log(response);
+      console.log(response.data)
+      setdata(response.data)
       if(response==null){
         navigate('/login')
       }
@@ -85,7 +87,9 @@ export const Organiser_nav = () => {
    
         
             <div className='flex flex-col sm:flex-row justify-between px-5 gap-5'>
+              <mark class="px-2 text-xl text-white bg-blue-600 rounded dark:bg-blue-500">Welcome {data.name}</mark>
               <Link to="/organiser"><div>HOME</div></Link>
+              
               <Link to="/organiser/o_profile/"><div>PROFILE</div></Link>
             <div><button onClick={dropdown}>Exihibition</button>
             {exihi &&

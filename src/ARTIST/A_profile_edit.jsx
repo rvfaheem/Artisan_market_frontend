@@ -3,31 +3,62 @@ import React, { useEffect, useState } from 'react'
 
 export const A_profile_edit = () => {
 
-  let id = localStorage.getItem('id')
-  const [userData, setUserData] = useState('')
-  // const [refresh,setrefresh]=useState(false)
-  useEffect(() => {
-    let fetchdata = async () => {
-      let response = await axios.get(`http://localhost:4000/viewprofile/${id}`)
-      console.log(response.data)
-      setUserData(response.data)
-    }
-    fetchdata()
-  }, [])
+  // let {id} =useParams()
+  const [data,setData]=useState('')
+  // const[userdata,setuserdata]=useState('')
+  const[refresh,setrefresh]=useState(false)
+  // useEffect(()=>{
+  //   let fetchdata=async()=>{
+  //     let response=await axios.get('http://localhost:4000/edit_profile')
+  //   }
 
-  const [data, setData] = useState('')
-  let handleChange = (event) => {
-    setData({ ...data, [event.target.name]: event.target.value })
+  // })
+
+
+  let id=localStorage.getItem('id')
+  const[userData,setUserData]=useState('')
+  // const [refresh,setrefresh]=useState(false)
+  useEffect(()=>{
+      let fetchdata=async ()=>{
+          let response=await axios.get(`http://localhost:4000/viewprofile/${id}`,)
+          console.log(response.data)
+          setUserData(response.data)
+          
+      }
+      fetchdata()
+  },[])
+
+
+
+
+  let handlefile=(event)=>{
+    console.log(event.target.files);
+    setData({...data,[event.target.name]:event.target.files[0]})
     console.log(data);
   }
+    let handleChange=(event)=>{
+      setData({...data,[event.target.name]:event.target.value})
+      console.log(data);
+    }
+    let handleSubmit=async (event)=>{
+      event.preventDefault()
+      let formData = new FormData();
+      for (const key in data) {
+        if (data[key]) {
+          formData.append(key, data[key]);
+        }
+      }
 
-  let handleSubmit = async (event) => {
-    event.preventDefault()
-    // setrefresh(!refresh)
-    let response = await axios.put(`http://localhost:4000/editprofile/${id}`, data)
-    console.log(response);
-    setData('')
-  }
+      let response=await axios.put(`http://localhost:4000/editprofile/${id}`,formData,{
+        headers: {
+          'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+        }
+      })
+      console.log(response)
+      
+      console.log(formData);
+  
+    }
   return (
     <>
       <div className=' w-screen h-screen'>
@@ -56,7 +87,7 @@ export const A_profile_edit = () => {
               </div>
               <div className='p-3'>
                 <label>IMAGE</label>
-                <input type="file" name='file' />
+                <input type="file" onChange={handlefile} name='image' />
               </div>
               <div className='p-3'>
                 <label>G-MAIL:</label>

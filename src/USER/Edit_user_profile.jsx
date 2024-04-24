@@ -61,56 +61,55 @@ export const Edit_user_profile = () => {
     }
   return (
     <>
-    <div className='bg-green-300 w-screen h-screen'>    
-    <div className='flex justify-center'>    
-      
-     
-      
-        {/* <div className='bg-red-300 w-fit h-fit p-10'> */}
-          <div className='bg-sky-600 w-96 h-FIT'>
-          <div><label className='p-10 font-bold text-[20px] justify-center flex gap-2'>
-            <p>REGISTRATION</p>
-            <p> FORM</p>
-            </label></div>
-            {/* <div className='flex justify-center'>
+    <div className=' w-screen h-screen'>
+        <div className='flex bg-slate-800 justify-center p-5'>
+
+
+
+          <div className='w-[40%] h-FIT p-4 bg-white rounded-2xl   '>
+            <form onSubmit={handleSubmit} className=''>
+              <div><label className='p-10 font-bold text-[20px] justify-center flex gap-2'>
+                <p>EDIT</p>
+                <p> PROFILE</p>
+              </label></div>
+              {/* <div className='flex justify-center'>
               
             <label className='p-4 fond-bold text-[20px]'>AMOUNT</label><br /><br /><br /><br /><br />
             <label className='p-4 fond-bold text-[20px]'>1000</label>
             </div> */}
-            <form onSubmit={handleSubmit}>
-            <div className='p-3'>
-              <label>NAME:</label><br />
-              <input onChange={handleChange} name="name" type="text" placeholder={userData.name} />
+              <div className='p-3'>
+                <label>NAME:</label>
+                <input onChange={handleChange} placeholder={userData.name} name='name' className='w-[100%] mt-1 border-slate-800 p-4 border-b-2 text-[20px] text-black' type="text" />
+              </div>
+              {/* <div className='p-3'>
+                <label>CATEGORY:</label>
+                <input onChange={handleChange} placeholder={userData.category} type="text" name='gmail' className='w-[100%] mt-1 border-slate-800 p-4 border-b-2 text-[20px] text-black' />
+              </div> */}
+              <div className='p-3'>
+                <label>IMAGE</label>
+                <input onChange={handlefile} type="file" name='image' />
               </div>
               <div className='p-3'>
-              <label>IMAGE</label><br />
-              <input onChange={handlefile} name="image" type="file" />
+                <label>G-MAIL:</label>
+                <input onChange={handleChange} placeholder={userData.gmail} type="text" name='gmail' className='w-[100%] mt-1 border-slate-800 p-4 border-b-2 text-[20px] text-black' />
               </div>
               <div className='p-3'>
-                <label>ID-PROOF</label><br />
-                <input onChange={handlefile} name="id_proof" type="file" />
-                </div>               
-              <div className='p-3'>
-              <label>G-MAIL:</label><br />
-              <input onChange={handleChange} name="gmail" type="text" placeholder={userData.gmail} />
-              </div>          
-              <div className='p-3'>
-              <label>PHONE NO:</label><br />
-              <input onChange={handleChange} name="phoneNumber" placeholder={userData.phoneNumber} type="text" />
+                <label>PHONE NO:</label>
+                <input onChange={handleChange} placeholder={userData.phoneNumber} type="text" name='phoneNumber' className='w-[100%] mt-1 border-slate-800 p-4 border-b-2 text-[20px] text-black' />
               </div>
               <div className='p-3'>
-              <label>ADDRESS:</label><br />
-              <input onChange={handleChange} name="Address" type="text" />
+                <label>ADDRESS:</label>
+                <input onChange={handleChange} placeholder={userData.Address} type="text" name='address' className='w-[100%] mt-1 border-slate-800 p-4 border-b-2 text-[20px] text-black' />
               </div>
-                           
-          <div>
-            <button type='submit' className='p-3 justify-center bg-red-700'>SUBMIT</button>
+
+              <div className='ml-4'>
+                <button type='submit' className='p-3 justify-center bg-red-700'>UPDATE</button>
+              </div>
+            </form>
           </div>
-          </form>
-          </div>
+
         </div>
-      {/* </div> */}
-    </div>
+      </div>
         </>
   )
 }

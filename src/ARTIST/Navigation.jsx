@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link,Outlet,useNavigate } from 'react-router-dom'
 
 export const ArtistNavigation = () => {
-
+ const[data,setdata]=useState('')
 
   const navigate=useNavigate()
 
@@ -19,6 +19,8 @@ export const ArtistNavigation = () => {
       let gmail=localStorage.getItem('gmail')
       let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,gmail:gmail})
       console.log(response);
+      console.log(response.data)
+      setdata(response.data)
       if(response==null){
         navigate('/login')
       }
@@ -65,15 +67,17 @@ export const ArtistNavigation = () => {
   nav&&
    
     <div className='justify-end w-[100%] items-center flex flex-col sm:flex-row gap-5'>
+      <mark class="px-1  text-white bg-blue-600 rounded dark:bg-blue-500">Welcome {data.name}</mark>
         <Link to='/artist'><div>HOME</div></Link>
+        
         <Link to='/artist/artist_profile'><div>PROFILE</div></Link>
         
         <div><button onClick={dropdown}>PRODUCT</button>
           {product &&
                 <div className='list-none absolute top-[78px] p-6 bg-black'>
-                  <Link to='/artist/product_add'><li>ADD</li></Link>
-                  <Link to='/artist/view_product'><li>View</li></Link>
-                  <Link to='/artist/view_exihibition_register'><li>View</li></Link>
+                  <Link to='/artist/product_add'><li>ADD PRODUCTS</li></Link>
+                  <Link to='/artist/view_product'><li>VIEW PRODUCTS</li></Link>
+                  <Link to='/artist/view_exihibition_register'><li>VIEW ACCEPTED EXIHIBITIONS</li></Link>
                 </div>
           
           }
