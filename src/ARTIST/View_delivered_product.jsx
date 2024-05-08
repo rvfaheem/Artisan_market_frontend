@@ -27,10 +27,10 @@ export const View_delivered_product = () => {
         <div className='relative overflow-x-auto'>
           <form>
             <div className='flex gap-4'>
-              <label className='bg-white gap-4'>From Date</label>
+              {/* <label className='bg-white gap-4'>From Date</label>
               <input type='date' />
               <label className='bg-white gap-4'>To Date</label>
-              <input type='date' />
+              <input type='date' /> */}
               <input
                 type='text'
                 value={searchTerm}
@@ -75,7 +75,7 @@ export const View_delivered_product = () => {
 
             <tbody>
               {filteredData.map((item, index) => (
-                <tr key={index} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+                <tr key={index} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black'>
                   <td className='px-6 py-4'>{index + 1}</td>
                   <td className='px-6 py-4'>{item.orders.date}</td>
                   <td className='px-6 py-4'>{item.users.name}</td>

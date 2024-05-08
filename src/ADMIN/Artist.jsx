@@ -96,7 +96,7 @@ export const Artist = () => {
             {/* Table Body */}
             <tbody>
               {currentItems.map((artist,index) => (
-                <tr key={artist.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+                <tr key={artist.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black'>
                   <td class="px-6 py-4">{index}</td>
                   {/* <td className='px-6 py-4'>{artist.id}</td> */}
                   <td className='px-6 py-4'>{artist.name}</td>

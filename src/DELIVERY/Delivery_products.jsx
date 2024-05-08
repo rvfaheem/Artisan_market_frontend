@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const Delivery_products = () => {
     let id=localStorage.getItem('id')
@@ -20,10 +22,12 @@ export const Delivery_products = () => {
         console.log(id);
         let response=await axios.put(`http://localhost:4000/delivery/manageDelivery/${orderId}`,{status:'delivered',deliveryId:id})
         console.log(response)
+        toast.success('Delivered')
         setdata('')
     }
   return (
     <>
+    <ToastContainer/>
         <div class='organise m-4 p-4'>
       {/* <div>
         <div className='bg-[#D9D9D9]  '>
@@ -59,9 +63,9 @@ export const Delivery_products = () => {
                 <th scope="col" class="px-6 py-3">
                     S.L No
                 </th>
-                <th scope="col" class="px-6 py-3">
+                {/* <th scope="col" class="px-6 py-3">
                     Date
-                </th>
+                </th> */}
                 <th scope="col" class="px-6 py-3">
                     Product
                 </th>
@@ -90,16 +94,16 @@ export const Delivery_products = () => {
             </tr>
         </thead>
         <tbody>
-            {data.map((item)=>(
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            {data.map((item,index)=>(
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black">
             <td class="px-6 py-4">
-                    1
+                    {index}
                 </td>
-                <td class="px-6 py-4">
+                {/* <td class="px-6 py-4">
                     03-02-2024
-                </td>
+                </td> */}
                 <td class="px-6 py-4">
-                {item.order.productName} 
+                {item.product?.productName} 
                 </td>
                 <td class="px-6 py-4">
                     

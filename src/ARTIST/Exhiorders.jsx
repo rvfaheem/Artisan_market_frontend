@@ -73,7 +73,7 @@ export const Exhiorders = () => {
                         </thead>
                         <tbody>
                             {filteredData.map((item, index) => (
-                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={index}>
+                                <tr className="bg-white border-b text-black dark:bg-gray-800 dark:border-gray-700" key={index}>
                                     <td className="px-6 py-4">{index + 1}</td>
                                     <td className="px-6 py-4">{item.orders.date}</td>
                                     <td className="px-6 py-4">{item.users.name}</td>

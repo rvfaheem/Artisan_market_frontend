@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const Exihibition_register = () => {
   let {id}=useParams()
@@ -32,6 +34,7 @@ export const Exihibition_register = () => {
     const formdata = new FormData()
     formdata.append("productName",data.productName)
     formdata.append("name",data.name)
+    formdata.append("category",data.category)
     formdata.append("image",data.image)
     formdata.append("email",data.email)
     formdata.append("phoneNumber",data.phoneNumber)
@@ -45,16 +48,18 @@ export const Exihibition_register = () => {
     console.log(data,'ddtas');
     // return true
 
-    let response=await axios.post(`http://localhost:4000/artist/exihibitionregister`,formdata,{
+    let response=await axios.post(`http://localhost:4000/artist/exihibitionregister/`,formdata,{
       headers: {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }
     })
     console.log(response);
+    toast.success('Exihibition registered Successfully')
    
   }  
   return (
     <>
+    <ToastContainer/>
 
 
 <div class="organise min-h-screen bg-gray-100 p-0 sm:p-12">
@@ -86,7 +91,20 @@ export const Exihibition_register = () => {
         />
         <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
         <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
-      </div>      
+      </div>
+      <label class="block mb-2 text-sm font-medium text-orange-300 dark:text-white" >Category</label>
+      <div class="relative z-0 w-full mb-5">
+        <input
+          type="text"
+          name="category"
+          onChange={handleChanage}
+          placeholder="Category"
+          required
+          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+        />
+        <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+        <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+      </div>        
 
       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
 <input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" onChange={handleChanage} name='image' id="file_input" type="file"/>
@@ -108,6 +126,7 @@ export const Exihibition_register = () => {
       <div class="relative z-0 w-full mb-5">
         <input
           type="text"
+          pattern="[0-9]{10}"
           name="phoneNumber"
           onChange={handleChanage}
           placeholder="Phone No"

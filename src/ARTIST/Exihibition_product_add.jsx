@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const Exihibition_product_add = () => {
   let {id}=useParams()
@@ -56,6 +58,7 @@ useEffect(()=>{
       }
     })
     console.log(response);
+    toast.success('Exihibition product Added Successfully')
 
    
   }
@@ -74,7 +77,7 @@ useEffect(()=>{
   }
   return (
     <>
-
+<ToastContainer/>
 
 <div class="organise min-h-screen bg-gray-100 p-0 sm:p-12">
   <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
@@ -167,7 +170,7 @@ useEffect(()=>{
           type="text"
           name="description"
           onChange={handleChanage}
-          placeholder="Phone No"
+          placeholder="Description"
           required
           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
@@ -184,7 +187,7 @@ useEffect(()=>{
           name="rate"
           onChange={handleChanage}
           required
-          placeholder="Address "
+          placeholder="Rate "
           class="pt-3 pb-2  block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
         />
         

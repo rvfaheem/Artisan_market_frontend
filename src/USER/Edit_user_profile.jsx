@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const Edit_user_profile = () => {
   // let {id} =useParams()
@@ -57,10 +59,12 @@ export const Edit_user_profile = () => {
       console.log(response)
       
       console.log(formData);
+      toast.success('Updated')
   
     }
   return (
     <>
+    <ToastContainer/>
     <div className=' w-screen h-screen'>
         <div className='flex bg-slate-800 justify-center p-5'>
 
@@ -101,6 +105,14 @@ export const Edit_user_profile = () => {
                 <label>ADDRESS:</label>
                 <input onChange={handleChange} placeholder={userData.Address} type="text" name='address' className='w-[100%] mt-1 border-slate-800 p-4 border-b-2 text-[20px] text-black' />
               </div>
+              <div className='p-3'>
+                <label>Password:</label>
+                <input onChange={handleChange}  type="password" name='password' className='w-[100%] mt-1 border-slate-800 p-4 border-b-2 text-[20px] text-black' />
+              </div>
+              {/* <div className='p-3'>
+                <label>Confirm Password :</label>
+                <input onChange={handleChange}  type="password" name='ConfirmPassword' className='w-[100%] mt-1 border-slate-800 p-4 border-b-2 text-[20px] text-black' />
+              </div> */}
 
               <div className='ml-4'>
                 <button type='submit' className='p-3 justify-center bg-red-700'>UPDATE</button>

@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const Edit_organiser_profile = () => {
   // let {id} =useParams()
@@ -56,10 +58,12 @@ export const Edit_organiser_profile = () => {
       console.log(response)
       
       console.log(formData);
+      toast.success('Updated')
   
     }
   return (
     <>
+    <ToastContainer/>
       <>
       <div className=' w-screen h-screen'>
         <div className='flex bg-slate-800 justify-center p-5'>

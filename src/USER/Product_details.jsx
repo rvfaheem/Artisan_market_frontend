@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import image from './flower.jpg'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
 
 export const Product_details = () => {
   let { id } = useParams()
@@ -9,6 +11,7 @@ export const Product_details = () => {
 
   const [data, setdata] = useState([''])
   const [data1,setdata1]=useState([''])
+  const navigate=useNavigate()
 
   useEffect(() => {
     let fetchData = async () => {
@@ -37,11 +40,15 @@ export const Product_details = () => {
     event.preventDefault()
     let response = await axios.post(`http://localhost:4000/user/addorder`, { userId: userid, productId: id })
     console.log(response);
+    
+    toast.success('Paymented')
+    // navigate('/user')
     setdata('')
   }
 
   return (
     <>
+    <ToastContainer/>
       <button onClick={Toggle} data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -121,20 +128,20 @@ export const Product_details = () => {
 
       {nav &&
         <div class="w-full max-w-xs absolute top-60 left-60">
-          <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <form onSubmit={handleSubmit}class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
             <div class="mb-4">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                 Name
               </label>
-              <input name='name' class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Name" />
+              <input name='name' required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Name" />
             </div>
 
             <div class="mb-4">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                 Phone No
               </label>
-              <input name='phoneNumber' class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="PhoneNumber" />
+              <input name='phoneNumber' required class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="PhoneNumber" />
             </div>
 
             <div class="mb-4">
@@ -166,7 +173,7 @@ export const Product_details = () => {
       <p class="text-red-500 text-xs italic">Please choose a password.</p>
     </div> */}
             <div class="flex items-center justify-between">
-              <button onClick={handleSubmit}  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+              <button type='submit' class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
                 Submit
               </button>
               {/* <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">

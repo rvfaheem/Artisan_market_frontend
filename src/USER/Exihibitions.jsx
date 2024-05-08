@@ -27,7 +27,7 @@ export const Exihibitions = () => {
 
                 <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                   <a href="#">
-                     <img class="rounded-t-lg" src={`http://localhost:4000/uploads/${item.image}`} alt="" />
+                     <img class="rounded-t-lg w-96 h-80" src={`http://localhost:4000/uploads/${item.image}`} alt="" />
                  </a>
                  <div class="p-5">
                      <a href="#">

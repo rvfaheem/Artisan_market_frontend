@@ -67,7 +67,7 @@ export const Exihibition_orders = () => {
                         </thead>
                         <tbody>
                             {filteredData.map((item, index) => (
-                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black">
                                     <td class="px-6 py-4">
                                         {index}
                                     </td>

@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const Send_exhi_offline_notification = () => {
 
@@ -52,11 +54,13 @@ let id=localStorage.getItem('id')
     })
     
     console.log(response);
-    navigate('/organiser/viewofflineexihibitions')
+    // navigate('/organiser/viewofflineexihibitions')
+    toast.success('Sended Exihibition offline notification')
    
   }  
   return (
     <div>
+      <ToastContainer/>
        <>
 
 

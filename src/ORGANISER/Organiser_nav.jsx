@@ -91,26 +91,26 @@ export const Organiser_nav = () => {
               <Link to="/organiser"><div>HOME</div></Link>
               
               <Link to="/organiser/o_profile/"><div>PROFILE</div></Link>
-            <div><button onClick={dropdown}>Exihibition</button>
+            <div><button onClick={dropdown}>EXIHIBITION</button>
             {exihi &&
                  <div className='list-none absolute top-[78px] p-4 bg-black'>
-                  <Link to='/organiser/create_exihibition'><li>Create</li></Link>
-                  <Link to='/organiser/viewcreateexihibition/'><li>View Online Exihibition</li></Link>
-                  <Link to='/organiser/viewofflineexihibitions/'><li>View Offline Exihibition</li></Link>
+                  <Link to='/organiser/create_exihibition'><li>CREATE EXIHIBITION</li></Link>
+                  <Link to='/organiser/viewcreateexihibition/'><li>VIEW ONLINE EXIHIBITION</li></Link>
+                  <Link to='/organiser/viewofflineexihibitions/'><li>VIEW OFFLINE EXIHIBITION</li></Link>
                   {/* <Link to='/organiser/updateexihibition/'><li>Update</li></Link> */}
-                  <Link to='/organiser/accept_reject'><li>Artist</li></Link>
+                  <Link to='/organiser/accept_reject'><li>MANAGE ARTIST FOR EXIHIBITION</li></Link>
                   </div>
             }
             </div>
-            <div><button onClick={dropdown1}>Notification</button>
+            <div><button onClick={dropdown1}>NOTIFICATION</button>
             {notification &&
                  <div className='list-none absolute top-[78px] p-4 bg-black'>
                   {/* <Link to='/organiser/send_online/'><li>Send_online</li></Link> */}
-                  <Link to='/organiser/send_offline'><li>Send_offline</li></Link>
+                  <Link to='/organiser/send_offline'><li>SEND OFFLINE EXIHIBITION NOTIFICATION</li></Link>
             </div>
             }
             </div>
-            <button onClick={logout}>Log out</button>
+            <button onClick={logout}>LOG OUT</button>
 
             {/* <div><span onClick={dropdown2}>Other</span>
             {others &&

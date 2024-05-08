@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const Update_offline_exihibitions = () => {
     const [data,setData]=useState('')
@@ -64,6 +66,7 @@ export const Update_offline_exihibitions = () => {
           })
       
           console.log(response);
+          toast.success('Updated Offline Exihibition')
          
         }  
         return (

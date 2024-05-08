@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const View_categories = () => {
     const [data, setData] = useState([]);
@@ -21,6 +23,7 @@ export const View_categories = () => {
         try {
             const response = await axios.put(`http://localhost:4000/admin/editcategory/${cid}`, updatedata);
             console.log(response);
+            toast.success('Edited Category')
             // You may want to update the UI or show a success message here
         } catch (error) {
             console.error('Error editing category:', error);
@@ -31,6 +34,7 @@ export const View_categories = () => {
         try {
             const response = await axios.put(`http://localhost:4000/admin/editsubcategory/${sid}`, updatedata);
             console.log(response);
+            toast.success('Edited Subcategory')
             // You may want to update the UI or show a success message here
         } catch (error) {
             console.error('Error editing subcategory:', error);
@@ -46,6 +50,7 @@ export const View_categories = () => {
 
     return (
         <>
+        <ToastContainer/>
             <div className='organise m-4 p-4'>
                 <div className="relative overflow-x-auto">
                     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
@@ -79,7 +84,7 @@ export const View_categories = () => {
                                             type="text"
                                             placeholder={item.subcategory?.category}
                                             onChange={handleChange}
-                                            className="border border-gray-300 rounded-md p-2 mb-4 w-full"
+                                            className="text-black border border-gray-300 rounded-md p-2 mb-4 w-full"
                                             name='category'
                                         />
                                     </td>
@@ -94,7 +99,7 @@ export const View_categories = () => {
                                             placeholder={item.category?.sub_category}
                                             onChange={handleChange}
                                             name='sub_category'
-                                            className="border border-gray-300 rounded-md p-2 mb-4 w-full"
+                                            className="text-black border border-gray-300 rounded-md p-2 mb-4 w-full"
                                         />
                                     </td>
                                     <td>

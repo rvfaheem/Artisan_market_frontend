@@ -51,7 +51,7 @@ export const Products = () => {
                         <div className="flex justify-between items-center">
                             <div>
                                 <h2 className="mt-5 text-2xl font-semibold">{item.productName}</h2>
-                                <p className="mt-2">$11.99</p>
+                                
                                 <p className="mt-2">{item.price}</p>
                                 <p className="mt-2">{item?.sub_category?.sub_category}</p>
                             </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify'
 
 export const View_product = () => {
     let id = localStorage.getItem('id');
@@ -18,10 +19,12 @@ export const View_product = () => {
         fetchData();
     }, [refresh]);
 
-    let handleDelete = async (id) => {
-        let response = await axios.delete(`http://localhost:4000/artist/deleteproduct/${id}`);
+    let handleDelete =  (id) => {
+        let response = axios.delete(`http://localhost:4000/artist/deleteproduct/${id}`);
         console.log(response);
         setRefresh(!refresh);
+        toast.warning('Deleted')
+        
     };
 
     const [nav1, setNav1] = useState(true);
@@ -44,7 +47,10 @@ export const View_product = () => {
     };
 
     return (
+        <>
+        <ToastContainer/>
         <div>
+            
             <div>
                 <div class='organise m-4 p-4'>
                     <form>
@@ -80,15 +86,15 @@ export const View_product = () => {
                         </thead>
                         <tbody>
                             {filterData().map((item, index) => (
-                                <tr key={item.product._id} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <tr key={item.product._id} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black">
                                     <td class="px-6 py-4">{index}</td>
                                     <td class="px-6 py-4">03-02-2024</td>
                                     <td class="px-6 py-4">{item.product.productName}</td>
                                     <td class="px-6 py-4">{item.category?.category}</td>
                                     <td class="px-6 py-4">{item.subcategory.sub_category}</td>
                                     <td class="px-6 py-4">
-                                        <img src={`http://localhost:4000/uploads/${item.product.Image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
-                                    </td>
+                                    <a href={`http://localhost:4000/uploads/${item.product.Image}`} target='_blank'> <img src={`http://localhost:4000/uploads/${item.product.Image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
+                                    </a></td>
                                     <td class="px-6 py-4">requested</td>
                                     <td>
                                         <div className='flex pt-2 pb-2 gap-3'>
@@ -105,13 +111,15 @@ export const View_product = () => {
                 </div>
             </div>
 
-            {nav1 && (
+            {/* {nav1 && (
                 <div className='absolute sm:left-[30%] z-10'>
                     {data.map((item) => (
                         <img src={`http://localhost:4000/uploads/${item.product.Image}`} className="w-96 rounded-[50%]   z-[10] h-96" alt="" />
                     ))}
                 </div>
-            )}
+            )} */}
         </div>
+        </>
     );
 };
+

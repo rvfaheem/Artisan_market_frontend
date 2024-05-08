@@ -98,7 +98,7 @@ export const A_registration_form = () => {
                 <input required onChange={handleChange} name="gmail" type='email' className='w-[100%] text-black placeholder:text-black border-b-4'  placeholder='G-Mail' />
                 </div>          
                 <div className='p-3'>
-                <input onChange={handleChange} required className='w-[100%] text-black placeholder:text-black border-b-4' name="phoneNumber" type='number'   pattern="[0-9]{10}"  placeholder='phone no'/>
+                <input onChange={handleChange} required className='w-[100%] text-black placeholder:text-black border-b-4' name="phoneNumber" type='text'   pattern="[0-9]{10}"  placeholder='phone no'/>
                 </div>
                 <div className='p-3'>
                 <input onChange={handleChange} className='w-[100%] text-black placeholder:text-black border-b-4' name="Address" pattern="^[a-zA-Z ]*$" title="Only alphabets are allowed" type="text" placeholder='address' />

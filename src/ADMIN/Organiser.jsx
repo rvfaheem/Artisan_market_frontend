@@ -98,7 +98,7 @@ const Organiser = () => {
             {/* Table Body */}
             <tbody>
               {currentItems.map((organiser,index) => (
-                <tr key={organiser.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+                <tr key={organiser.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black'>
                   {/* <td className='px-6 py-4'>{organiser.id}</td> */}
                   <td class="px-6 py-4">{index}</td>
                   <td className='px-6 py-4'>{organiser.name}</td>

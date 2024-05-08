@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams  } from "react-router-dom"
+import { ToastContainer, toast } from 'react-toastify'
+
 
 
 export const Product_update = () => {
@@ -62,6 +64,7 @@ export const Product_update = () => {
 
     let response=await axios.put(`http://localhost:4000/artist/editaddproduct/${id}`,formdata)
     console.log(response);
+    toast.success('Product Updated Succesfully')
    
   }
   const [catId,setCatId]=useState()
@@ -81,6 +84,7 @@ export const Product_update = () => {
   }
   return (
     <>
+    <ToastContainer/>
     {userData.map((item)=>(
 
 <div className='bg-teal-700 h-screen w-screen'>

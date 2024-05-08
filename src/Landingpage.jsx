@@ -13,10 +13,13 @@ export const Landingpage = () => {
             let response3 = await axios.get(`http://localhost:4000/artist/viewofflineexihibitions`)
             console.log(response.data)
             setdata(response.data)
+            setdata(response.data.slice(0, 5));
             console.log(response2.data)
             setdata1(response2.data)
+            setdata1(response2.data.slice(0, 5));
             console.log(response3.data)
             setdata2(response3.data)
+            setdata2(response2.data.slice(0, 5));
         }
         fetchData()
     }, [])
@@ -123,8 +126,9 @@ export const Landingpage = () => {
                                             </svg>
                                         </div> */}
                                         <h1 class="text-3xl my-5"> {item.exihibitionName}</h1>
+                                        <h1 class="text-3xl my-5"> {item.venue}</h1>
                                         {/* <p class="mb-5"> {item.description}</p> */}
-                                        <h2 class="font-semibold mb-5">VENUE : {item.venue}</h2>
+                                        {/* <h2 class="font-semibold mb-5"> {item.venue}</h2> */}
                                         {/* <h2 class="font-semibold mb-5">{item.startdate}</h2>
                                         <h2 class="font-semibold mb-5">{item.enddate}</h2> */}
                                         <Link to="/login"><button class="p-2 px-6 bg-purple-500 text-white rounded-md hover:bg-purple-600">MORE DETAILS</button></Link>

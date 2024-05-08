@@ -89,6 +89,9 @@ import { Exhiorders } from './ARTIST/Exhiorders';
 import { Exihibitionproducts } from './DELIVERY/Exihibitionproducts';
 import { Exihi_Assign_delivery } from './ARTIST/Exihi_Assign_delivery';
 import { Viewexihibitionproducts } from './ARTIST/Viewexihibitionproducts';
+import { Online_Exihibitions } from './ARTIST/Online_Exihibitions';
+import { Forget_password1 } from './Forget_password1';
+import { Forget_password2 } from './Forget_password2';
 
 
 
@@ -102,6 +105,8 @@ root.render(
       <Route path="/" element={<Nav />}>
           <Route index element={<Landingpage />} />
           <Route path='/Login' element={<Login />} />
+          <Route path='/otp' element={<Forget_password1/>}/>
+          <Route path='/forget_password/:email' element={<Forget_password2/>}/>
           <Route path='/product_detail/:id' element={<Product_detail_nav/>}/>
          <Route path="/A_registration_form" element={<A_registration_form/>}/>
          <Route path="/u_registration_form" element={<User_registration_form/>}/>
@@ -151,6 +156,7 @@ root.render(
          {/* <Route path="/artist/Exihibitionorders1/" element={<Exhiorders/>}/> */}
          <Route path="/artist/Assignexihibitionorders/:id" element={<Exihi_Assign_delivery/>}/>
          <Route path="/artist/viewexihibitionproducts/" element={<Viewexihibitionproducts/>}/>
+         <Route path="/artist/onlineexihibitions/" element={<Online_Exihibitions/>}/>
          
 
 
@@ -194,7 +200,7 @@ root.render(
       
       <Route path="/organiser/o_profile/" element={<Organiser_profile/>}/>
       <Route path="/organiser/o_profile_edit/" element={<Edit_organiser_profile/>}/> 
-      <Route path="/organiser/viewcreateexihibition/" element={<View_exihibition/>}/>
+      <Route path="/organiser/viewcreateexihibition" element={<View_exihibition/>}/>
       <Route path="/organiser/updateexihibition/:id" element={<Update_exihibition/>}/>
       <Route path="/organiser/viewofflineexihibitions/" element={<View_offline_exihibitions/>}/>
       <Route path="/organiser/updateofflineexihibitions/:id" element={<Update_offline_exihibitions/>}/>

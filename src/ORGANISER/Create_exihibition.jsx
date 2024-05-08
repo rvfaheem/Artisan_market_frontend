@@ -1,12 +1,14 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const Create_exihibition = () => {
   let id=localStorage.getItem('id')
   const [data,setData]=useState('')
   
-
+  const currentDate = new Date().toISOString().split('T')[0];
   const navigate=useNavigate()
 
 
@@ -38,6 +40,7 @@ let handleFile=(event)=>{
     formdata.append("startdate",data.startdate)
     formdata.append("enddate",data.enddate)
     formdata.append("userId",data.userId)
+    formdata.append("organisationId",id)
 
     console.log(data,'ddtas');
     // return true
@@ -49,14 +52,16 @@ let handleFile=(event)=>{
     })
 
     console.log(response);
+    toast.success('Exihibition Created')
     
 
-navigate('/organiser/viewcreateexihibition')
+// navigate('/organiser/viewcreateexihibition')
    
   }  
   return (
     <div>
         <>
+        <ToastContainer/>
 
 
 <div class="organise min-h-screen bg-gray-100 p-0 sm:p-12">
@@ -167,7 +172,8 @@ navigate('/organiser/viewcreateexihibition')
         <div class="relative z-0 w-full mb-5">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Starting Date</label>
           <input
-            type="date"
+          min={currentDate}
+            type="date" 
             onChange={handleChanage}
             required
             name="startdate"
@@ -181,6 +187,7 @@ navigate('/organiser/viewcreateexihibition')
         <div class="relative z-0 w-full">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Ending Date</label>
           <input
+          min={currentDate}
             type="date"
             onChange={handleChanage}
             required

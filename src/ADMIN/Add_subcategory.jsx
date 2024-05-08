@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const Add_subcategory = () => {
   let id = localStorage.getItem('id');
@@ -30,7 +32,8 @@ export const Add_subcategory = () => {
     try {
       const response = await axios.post(`http://localhost:4000/admin/addsubcategory`, data);
       console.log(response);
-      navigate('/admin/viewcategories')
+      // navigate('/admin/viewcategories')
+      toast.success('Sub Category Added Successfully')
       setData('');
     } catch (error) {
       console.error('Error adding subcategory:', error);
@@ -38,7 +41,9 @@ export const Add_subcategory = () => {
   }
 
   return (
+    
     <div>
+      <ToastContainer/>
       <div class='organise px-96 bg-center pt-36 ml-34 flex justify-center'>
         <div className='bg-[#AED0E9] flex flex-col justify-center items-center w-9/12 h-96 p-8 ml-4 mb-8 mt-4 gap-4'>
           <form onSubmit={handleSubmit} className="w-full max-w-md">

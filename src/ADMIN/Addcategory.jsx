@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import image from './category.jpg'
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
 import axios from 'axios'
 
 export const Addcategory = () => {
@@ -17,11 +18,13 @@ export const Addcategory = () => {
     event.preventDefault()
     let response=await axios.post(`http://localhost:4000/admin/addcategory`,{...data,userId:id})
     console.log(response);
-    navigate('/admin/addsubcategory')
+    // navigate('/admin/addsubcategory')
+    toast.success('Category Added Successfully')
     setData('')
   }
   return (
     <>
+    <ToastContainer/>
     <div>
       
         {/* <img className='w-screen h-screen' src={image}></img> */}

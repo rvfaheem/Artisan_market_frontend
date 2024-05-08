@@ -17,15 +17,15 @@ export const Offline_exihibitions_notifications = () => {
   return (
     <div>
             <>
-    <div className='flex justify-center flex-wrap'>
+    <div className='flex justify-center flex-wrap'><br /><br />
 
-
-<div className='flex sm:gap-4 flex-wrap'>
+    <h1 class="text-gray-900 text-3xl title-font font-medium mb-1">OFFLINE EXIHIBITION NOTIFICATIONS</h1><br /><br /><br /><br />
+<div className='flex sm:gap-4 flex-wrap justify-evenly'>
     {data.map((item)=>(
 
             <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <a href="#">
-                 <img class="rounded-t-lg" src={`http://localhost:4000/uploads/${item.image}`} alt="" />
+                 <img class="rounded-t-lg w-96 h-80" src={`http://localhost:4000/uploads/${item.image}`} alt="" />
              </a>
              <div class="p-5">
                  <a href="#">

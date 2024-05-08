@@ -3,6 +3,8 @@ import ReactPaginate from 'react-paginate';
 import image from './box.jpg';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 export const Assign_delivery = () => {
   let { id } = useParams();
@@ -12,6 +14,9 @@ export const Assign_delivery = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [districtFilter, setDistrictFilter] = useState('');
   const [postFilter, setPostFilter] = useState('');
+  
+  const navigate=useNavigate()
+
   const itemsPerPage = 5; // Adjust this based on your preference
 
   useEffect(() => {
@@ -23,14 +28,17 @@ export const Assign_delivery = () => {
     fetchData();
   }, []);
 
-  let handleSubmit = async (statuss, deliveryid) => {
+  let handleSubmit =  (statuss, deliveryid) => {
     setRefresh(!refresh);
     console.log(id);
-    let response = await axios.put(`http://localhost:4000/artist/manageDelivery/${id}`, {
+    let response =  axios.put(`http://localhost:4000/artist/manageDelivery/${id}`, {
       status: 'assigned',
       deliveryId: deliveryid,
     });
     console.log(response);
+    toast.success('Assigned')
+    
+    navigate('/artist')
     setData('');
   };
 
@@ -64,6 +72,7 @@ export const Assign_delivery = () => {
 
   return (
     <>
+    <ToastContainer/>
       <div className='bg-orange-300 w-screen h-fit m-4 p-4'>
         <div className='relative overflow-x-auto'>
           {/* Add district search input */}
@@ -112,6 +121,9 @@ export const Assign_delivery = () => {
                 <th scope='col' className='px-6 py-3'>
                   District
                 </th>
+                {/* <th scope='col' className='px-6 py-3'>
+                  Status
+                </th> */}
                 <th></th>
                 <th></th>
               </tr>
@@ -119,19 +131,20 @@ export const Assign_delivery = () => {
             {/* Table Body */}
             <tbody>
               {currentItems.map((delivery) => (
-                <tr key={delivery.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+                <tr key={delivery.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black'>
                   <td className='px-6 py-4'>{delivery.id}</td>
                   <td className='px-6 py-4'>{delivery.name}</td>
                   <td className='px-6 py-4'>
-                    <img src={delivery.image} onMouseLeave={toggleFalse} onMouseEnter={toggle1} className='w-8 h-8' alt='' />
-                  </td>
+                  <a href={`http://localhost:4000/uploads/${delivery.image}`} target='_blank'> <img src={`http://localhost:4000/uploads/${delivery.image}`}onMouseLeave={toggleFalse} onMouseEnter={toggle1} className='w-8 h-8' alt='' />
+                  </a></td>
                   <td className='px-6 py-4'>{delivery.gmail}</td>
                   <td className='px-6 py-4'>{delivery.phoneNumber}</td>
                   <td className='px-6 py-4'>{delivery.Address}</td>
                   <td className='px-6 py-4'>{delivery.post}</td>
                   <td className='px-6 py-4'>{delivery.district}</td>
+                  {/* <td className='px-6 py-4'>{delivery.status}</td> */}
                   <td>
-                    <button type='submit' onClick={() => { handleSubmit('assigned', delivery._id) }} className='bg-[#3BD45C] w-[50%] text-white pt-3 pb-3 rounded-xl'>Assign</button>
+                    <button type='submit' onClick={() => { handleSubmit('assigned', delivery._id) }} className='bg-[#3BD45C] w-11 text-white pt-3 pb-3 rounded-xl'>Assign</button>
                   </td>
                 </tr>
               ))}
@@ -153,11 +166,11 @@ export const Assign_delivery = () => {
           {/* Display image on hover */}
         </div>
       </div>
-      {nav1 && (
+      {/* {nav1 && (
         <div className='absolute sm:left-[50%] top-28 z-10'>
           <img src={image} className='w-96 rounded-[50%] z-[10] h-96' alt='' />
         </div>
-      )}
+      )} */}
     </>
   );
 };

@@ -50,7 +50,7 @@ export const Product_add = () => {
 
     let response=await axios.post(`http://localhost:4000/artist/addproduct`,formdata)
     console.log(response);
-    toast.success('Added the product')
+    toast.success('Product Added Successfully')
     // navigate('/artist/view_product')
   }
   const [catId,setCatId]=useState()

@@ -2,9 +2,13 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import image from './orga123 .jpg'
+import { ToastContainer, toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
+
 
 export const Update_exihibition = () => {
 const [data,setData]=useState('')
+const navigate=useNavigate()
 const[userData,setUserData]=useState([''])
 const {id}=useParams()
   useEffect(()=>{
@@ -65,10 +69,15 @@ const {id}=useParams()
       })
   
       console.log(response);
+      toast.success('Updated Online Exihibition')
+      // navigate('/organiser/viewcreateexihibition/')
      
     }  
     return (
+      
       <div>
+        <ToastContainer />
+        
           <>
   
   {/* {userData.map((item)=>( */}
@@ -179,13 +188,13 @@ const {id}=useParams()
          <div class="flex flex-row space-x-4">
           <div class="relative z-0 w-full mb-5">
           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Starting Date</label>
-          {userData.startdate}
+          {/* {userData.startdate} */}
           {/* { new Date(userData.contribution?.date).toLocaleDateString()} */}
             <input
               type="date"
               onChange={handleChanage}
               name="startdate"
-              placeholder={userData.startdate}
+              // placeholder={userData.startdate}
               onclick="this.setAttribute('type', 'date');"
               class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
             />
@@ -198,7 +207,7 @@ const {id}=useParams()
               type="date"
               onChange={handleChanage}
               name="enddate"
-              placeholder="Ending Date "
+              // placeholder="Ending Date "
               onclick="this.setAttribute('type', 'time');"
               class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
             />

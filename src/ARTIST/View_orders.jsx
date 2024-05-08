@@ -73,8 +73,8 @@ export const View_orders = () => {
                         </thead>
                         <tbody>
                             {filteredData.map((item, index) => (
-                                <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700" key={index}>
-                                    <td className="px-6 py-4">{index + 1}</td>
+                                <tr className="bg-white  text-black border-b dark:bg-gray-800 dark:border-gray-700 text-black" key={index}>
+                                    <td className="px-6 py-4 ">{index + 1}</td>
                                     <td className="px-6 py-4">{item.orders.date}</td>
                                     <td className="px-6 py-4">{item.users.name}</td>
                                     <td className="px-6 py-4">{item.product.productName}</td>

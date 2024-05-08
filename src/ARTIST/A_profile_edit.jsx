@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+
 
 export const A_profile_edit = () => {
 
@@ -57,10 +59,12 @@ export const A_profile_edit = () => {
       console.log(response)
       
       console.log(formData);
+      toast.success('Profile Edited')
   
     }
   return (
     <>
+    <ToastContainer/>
       <div className=' w-screen h-screen'>
         <div className='flex bg-slate-800 justify-center p-5'>
 

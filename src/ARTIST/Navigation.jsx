@@ -66,7 +66,7 @@ export const ArtistNavigation = () => {
 {
   nav&&
    
-    <div className='justify-end w-[100%] items-center flex flex-col sm:flex-row gap-5'>
+    <div className='justify-end w-[100%] items-center flex flex-col sm:flex-row gap-5 text-[15px]'>
       <mark class="px-1  text-white bg-blue-600 rounded dark:bg-blue-500">Welcome {data.name}</mark>
         <Link to='/artist'><div>HOME</div></Link>
         
@@ -84,7 +84,7 @@ export const ArtistNavigation = () => {
         
 
         </div>
-        <Link to="/artist/view_orders"><div>ORDERS</div></Link>
+        <Link to="/artist/view_orders"><div >ORDERS</div></Link>
         <Link to="/artist/view_deivered_product"><div>VIEW DELIVERED PRODUCT</div></Link>
         <Link to="/artist/Exihibitionorders/"><div>EXIHIBITION ORDERS</div></Link>
         <Link to="/artist/viewexihibitionproducts/"><div>VIEW EXIHIBITION PRODUCTS</div></Link>

@@ -102,7 +102,7 @@ export const Delivery = () => {
             {/* Table Body */}
             <tbody>
               {currentItems.map((delivery,index) => (
-                <tr key={delivery.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700'>
+                <tr key={delivery.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black'>
                   {/* <td className='px-6 py-4'>{delivery.id}</td> */}
                   <td class="px-6 py-4">{index}</td>
                   <td className='px-6 py-4'>{delivery.name}</td>
