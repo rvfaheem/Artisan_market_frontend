@@ -84,7 +84,7 @@ export const Exihibition_orders = () => {
                                         {item.subcategory.sub_category}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {item.product.price}
+                                        {item.product.rate}
                                     </td>
                                     <td class="px-6 py-4">
                                         <Link to={`/user/product_feedback/${item.order._id}`}>Send Product Feedback</Link>

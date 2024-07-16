@@ -73,7 +73,12 @@ export const Forget_password1 = () => {
                                     value={otp}
                                     onChange={(e) => setOtp(e.target.value)}
                                 />
-                                <button onClick={verifyOTP}>Verify OTP</button>
+                                {/* <button onClick={verifyOTP}>Verify OTP</button> */}
+                                <div>
+                                    <button onClick={verifyOTP} className="flex flex-row items-center justify-center text-center w-full border rounded-xl outline-none py-5 bg-blue-700 border-none text-white text-sm shadow-sm">
+                                    Verify OTP
+                                    </button>
+                                </div>
                                 <p>{message}</p>
                                 <div className="flex flex-col space-y-5">
                                 </div>

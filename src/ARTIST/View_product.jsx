@@ -62,9 +62,9 @@ export const View_product = () => {
                                 <th scope="col" class="px-6 py-3">
                                     S.L No
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                {/* <th scope="col" class="px-6 py-3">
                                     Date
-                                </th>
+                                </th> */}
                                 <th scope="col" class="px-6 py-3">
                                     Product
                                 </th>
@@ -88,7 +88,7 @@ export const View_product = () => {
                             {filterData().map((item, index) => (
                                 <tr key={item.product._id} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black">
                                     <td class="px-6 py-4">{index}</td>
-                                    <td class="px-6 py-4">03-02-2024</td>
+                                    {/* <td class="px-6 py-4">03-02-2024</td> */}
                                     <td class="px-6 py-4">{item.product.productName}</td>
                                     <td class="px-6 py-4">{item.category?.category}</td>
                                     <td class="px-6 py-4">{item.subcategory.sub_category}</td>

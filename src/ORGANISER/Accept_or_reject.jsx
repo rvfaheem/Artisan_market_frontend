@@ -83,6 +83,9 @@ export const Accept_or_reject = () => {
                                 <th scope='col' className='px-6 py-3'>
                                     Name
                                 </th>
+                                {/* <th scope='col' className='px-6 py-3'>
+                                    Exihibition Name
+                                </th> */}
                                 <th scope='col' className='px-6 py-3'>
                                     Product Name
                                 </th>
@@ -113,6 +116,7 @@ export const Accept_or_reject = () => {
                                 <tr key={artist.id} className='bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black'>
                                     <td className='px-6 py-4'>{index}</td>
                                     <td className='px-6 py-4'>{artist.name}</td>
+                                    {/* <td className='px-6 py-4'>{artist.exhibition?.exihibitionName}</td> */}
                                     <td className='px-6 py-4'>{artist.productName}</td>
                                     <td className='px-6 py-4'>{artist.category}</td>
                                     <td className='px-6 py-4'>{artist.email}</td>

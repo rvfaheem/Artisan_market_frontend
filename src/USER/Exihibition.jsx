@@ -56,7 +56,8 @@ export const Exihibition = () => {
             <span className="countdown font-mono text-xl">
               {timeRemaining}
             </span>
-            remaining
+            
+            Remaining
           </div>
         </div>
       </div>
