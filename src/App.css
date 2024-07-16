@@ -17,23 +17,7 @@
   background-size: 100%;
 }
 
-/* .organiser{ */
-  /* background-image: url("../public/organise.jpg");
-  background-color: aqua;
-  height: 50rem;
-  background-repeat: no-repeat; */
 
-  /* background-size: ; */
-/* } */
-/* .organise{
-  background-image: url("../public/organise.jpg");
-  height: 100%;
-  background-size: 100%;
-  background-repeat: no-repeat;
-
-  background-size: ;
-}  */
-/* image */
 .organise{
   background-image: url("../public/org.jpg");
   background-color: aqua;
@@ -41,19 +25,11 @@
   width: auto;
   background-repeat: no-repeat;
 }
-/* .organiser{
-  background-image: url("../public/organise.jpg");
-  /* background-color: aqua; */
-  /* height: 50rem;
-  background-repeat: no-repeat;
 
-  background-size: screen; */
-  
-/* } */ */
 
 .organiser{
   background-image: url("../src/ARTIST/imgs.jpg");
-  /* background-color: aqua; */
+ 
   height: 50rem;
   background-repeat: no-repeat;
 
@@ -85,7 +61,7 @@
   display: none;
 }
 
-/* pagination */
+
 .pagination {
   display: flex;
   justify-content: center;
