@@ -13,7 +13,7 @@ export const View_exihibition = () => {
 
     useEffect(() => {
         let fetchData = async () => {
-            let response = await axios.get(`http://localhost:4000/organiser/viewexihibitions/${id}`);
+            let response = await axios.get(`https://artisan-market-backend.onrender.com/organiser/viewexihibitions/${id}`);
             console.log(response.data);
             setData(response.data);
         };
@@ -21,7 +21,7 @@ export const View_exihibition = () => {
     }, [refresh]);
 
     let handleDelete = async (id) => {
-        let response = await axios.delete(`http://localhost:4000/organiser/deleteproduct/${id}`);
+        let response = await axios.delete(`https://artisan-market-backend.onrender.com/organiser/deleteproduct/${id}`);
         console.log(response);
         setRefresh(!refresh);
     };
@@ -83,7 +83,7 @@ export const View_exihibition = () => {
                                         <td class="px-6 py-4">{index}</td>
                                         <td class="px-6 py-4">{item.exihibitionName}</td>
                                         <td class="px-6 py-4">
-                                            <img src={`http://localhost:4000/uploads/${item.image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
+                                            <img src={`https://artisan-market-backend.onrender.com/uploads/${item.image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
                                         </td>
                                         <td class="px-6 py-4">
                                             <div className="flex pt-2 pb-2 gap-3">

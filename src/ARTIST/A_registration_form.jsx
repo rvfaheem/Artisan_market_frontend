@@ -38,7 +38,7 @@ export const A_registration_form = () => {
         formData.append('userType', 'artist');
 
         setData({...data,userType:'artist'})
-        let response=await axios.post('http://localhost:4000/register',formData,{
+        let response=await axios.post('https://artisan-market-backend.onrender.com/register',formData,{
           headers: {
             'Content-Type': 'multipart/form-data'  // Set the content type for FormData
           }

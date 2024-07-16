@@ -11,7 +11,7 @@ export const View_exihibition_register = () => {
 
     useEffect(() => {
         let fetchData = async () => {
-            let response = await axios.get(`http://localhost:4000/artist/viewexihibitionregister/${id}`);
+            let response = await axios.get(`https://artisan-market-backend.onrender.com/artist/viewexihibitionregister/${id}`);
             console.log(response.data);
             setData(response.data);
         };
@@ -42,7 +42,7 @@ export const View_exihibition_register = () => {
                     {filterData().map((item) => (
                         <div key={item.exhibition?._id} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                             <a href="#">
-                                <img className="rounded-t-lg w-96 h-72" src={`http://localhost:4000/uploads/${item.exhibition?.image}`}  alt="" />
+                                <img className="rounded-t-lg w-96 h-72" src={`https://artisan-market-backend.onrender.com/uploads/${item.exhibition?.image}`}  alt="" />
                             </a>
                             <div className="p-5">
                                 <a href="#">

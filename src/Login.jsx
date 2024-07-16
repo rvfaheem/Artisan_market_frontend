@@ -24,7 +24,7 @@ export const Login = () => {
           return toast.error(`${field} is required`)
         }
       }
-      let response=await axios.post('http://localhost:4000/login',data)
+      let response=await axios.post('https://artisan-market-backend.onrender.com/login',data)
       console.log(response);
       if(response.data){
         localStorage.setItem('id',response.data._id)

@@ -14,7 +14,7 @@ export const Add_subcategory = () => {
   useEffect(() => {
     let fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/admin/viewcategory`);
+        const response = await axios.get(`https://artisan-market-backend.onrender.com/admin/viewcategory`);
         setCategory(response.data);
       } catch (error) {
         console.error('Error fetching categories:', error);
@@ -30,7 +30,7 @@ export const Add_subcategory = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:4000/admin/addsubcategory`, data);
+      const response = await axios.post(`https://artisan-market-backend.onrender.com/admin/addsubcategory`, data);
       console.log(response);
       // navigate('/admin/viewcategories')
       toast.success('Sub Category Added Successfully')

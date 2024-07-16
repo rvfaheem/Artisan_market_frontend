@@ -10,7 +10,7 @@ export const Delivery_products = () => {
     const[refresh,setrefresh]=useState([''])
     useEffect(()=>{
         let fetchData=async()=>{
-            let response =await axios.get(`http://localhost:4000/delivery/viewproductorder/${id}`)
+            let response =await axios.get(`https://artisan-market-backend.onrender.com/delivery/viewproductorder/${id}`)
             console.log(response.data)
             setdata(response.data)
         }
@@ -20,7 +20,7 @@ export const Delivery_products = () => {
     let handleSubmit=async(statuss,orderId)=>{
         setrefresh(!refresh)
         console.log(id);
-        let response=await axios.put(`http://localhost:4000/delivery/manageDelivery/${orderId}`,{status:'delivered',deliveryId:id})
+        let response=await axios.put(`https://artisan-market-backend.onrender.com/delivery/manageDelivery/${orderId}`,{status:'delivered',deliveryId:id})
         console.log(response)
         toast.success('Delivered')
         setdata('')

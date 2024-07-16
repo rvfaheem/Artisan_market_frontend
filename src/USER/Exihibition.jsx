@@ -13,8 +13,8 @@ export const Exihibition = () => {
     const fetchData = async () => {
       try {
         const [productResponse, exhibitionResponse] = await Promise.all([
-          axios.get(`http://localhost:4000/user/viewexihibitionproduct1/${id}`),
-          axios.get(`http://localhost:4000/user/viewonlineexihibitiondetailsuser/${id}`)
+          axios.get(`https://artisan-market-backend.onrender.com/user/viewexihibitionproduct1/${id}`),
+          axios.get(`https://artisan-market-backend.onrender.com/user/viewonlineexihibitiondetailsuser/${id}`)
         ]);
   
         setData(productResponse.data);
@@ -65,7 +65,7 @@ export const Exihibition = () => {
       <br /><br /><br /><br /><br /><br />
       {data.map((item) => (
         <div key={item.product?._id} className="container p-9 bg-white max-w-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
-          <img className="rounded-xl h-80 w-72" src={`http://localhost:4000/uploads/${item.product?.image}`} alt="" />
+          <img className="rounded-xl h-80 w-72" src={`https://artisan-market-backend.onrender.com/uploads/${item.product?.image}`} alt="" />
           <div className="flex justify-between items-center">
             <div>
               <h1 className="mt-5 text-2xl font-semibold">{item.product?.productName}</h1>

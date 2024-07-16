@@ -18,7 +18,7 @@ export const AdminNavigation = () => {
 
       let id=localStorage.getItem('id')
       let gmail=localStorage.getItem('gmail')
-      let response=await axios.post('http://localhost:4000/api/auth/authenticate',{_id:id,gmail:gmail})
+      let response=await axios.post('https://artisan-market-backend.onrender.com/api/auth/authenticate',{_id:id,gmail:gmail})
       console.log(response);
       if(response==null){
         navigate('/login')

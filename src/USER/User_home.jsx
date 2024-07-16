@@ -11,7 +11,7 @@ export const UserHome = () => {
 
     useEffect(()=>{
         let fetchdata=async ()=>{
-            let response=await axios.get(`http://localhost:4000/admin/Viewcategory`)
+            let response=await axios.get(`https://artisan-market-backend.onrender.com/admin/Viewcategory`)
             console.log(response)
             setcategory(response.data)
 
@@ -31,13 +31,13 @@ export const UserHome = () => {
     {
         if(event.target.value){
             setCatId(event.target.value)
-            let response=await axios.get(`http://localhost:4000/artist/viewsubcategory/${event.target.value}`)
+            let response=await axios.get(`https://artisan-market-backend.onrender.com/artist/viewsubcategory/${event.target.value}`)
             console.log(response);
             setsubcategory(response.data)
     }
     }
     const handleSubCategory=async (e)=>{
-        let response=await axios.get(`http://localhost:4000/user/viewsubcategorywiseproducts/${e.target.value}`)
+        let response=await axios.get(`https://artisan-market-backend.onrender.com/user/viewsubcategorywiseproducts/${e.target.value}`)
         setProducts(response.data)
     }
     console.log(products);
@@ -123,7 +123,7 @@ export const UserHome = () => {
 
 
 <div class="container  p-9 bg-white max-w-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
-  <img class="rounded-xl" className='w-72 h-64' src={`http://localhost:4000/uploads/${item.Image}`} alt="" />
+  <img class="rounded-xl" className='w-72 h-64' src={`https://artisan-market-backend.onrender.com/uploads/${item.Image}`} alt="" />
   <div class="flex justify-between items-center">
     <div>
       <h1 class="mt-5 text-2xl font-semibold">{item.productName}</h1>

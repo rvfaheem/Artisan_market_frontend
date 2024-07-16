@@ -8,7 +8,7 @@ export const Delivery_profile_edit = () => {
   const[refresh,setrefresh]=useState(false)
   // useEffect(()=>{
   //   let fetchdata=async()=>{
-  //     let response=await axios.get('http://localhost:4000/edit_profile')
+  //     let response=await axios.get('https://artisan-market-backend.onrender.com/edit_profile')
   //   }
 
   // })
@@ -19,7 +19,7 @@ export const Delivery_profile_edit = () => {
   // const [refresh,setrefresh]=useState(false)
   useEffect(()=>{
       let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/viewprofile/${id}`,)
+          let response=await axios.get(`https://artisan-market-backend.onrender.com/viewprofile/${id}`,)
           console.log(response.data)
           setUserData(response.data)
           
@@ -48,7 +48,7 @@ export const Delivery_profile_edit = () => {
         }
       }
 
-      let response=await axios.put(`http://localhost:4000/editprofile/${id}`,formData,{
+      let response=await axios.put(`https://artisan-market-backend.onrender.com/editprofile/${id}`,formData,{
         headers: {
           'Content-Type': 'multipart/form-data'  // Set the content type for FormData
         }

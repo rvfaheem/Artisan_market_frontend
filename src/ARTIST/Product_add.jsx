@@ -23,7 +23,7 @@ export const Product_add = () => {
 
   useEffect(()=>{
       let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/admin/viewcategory`,)
+          let response=await axios.get(`https://artisan-market-backend.onrender.com/admin/viewcategory`,)
           console.log(response)
           setcategory(response.data)
           
@@ -48,7 +48,7 @@ export const Product_add = () => {
     console.log(data,'ddtas');
     // return true
 
-    let response=await axios.post(`http://localhost:4000/artist/addproduct`,formdata)
+    let response=await axios.post(`https://artisan-market-backend.onrender.com/artist/addproduct`,formdata)
     console.log(response);
     toast.success('Product Added Successfully')
     // navigate('/artist/view_product')
@@ -58,7 +58,7 @@ export const Product_add = () => {
   {
     if(event.target.value){
       setCatId(event.target.value)
-      let response=await axios.get(`http://localhost:4000/artist/viewsubcategory/${event.target.value}`)
+      let response=await axios.get(`https://artisan-market-backend.onrender.com/artist/viewsubcategory/${event.target.value}`)
       console.log(response);
         setsubcategory(response.data)
     }

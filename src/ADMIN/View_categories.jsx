@@ -10,7 +10,7 @@ export const View_categories = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/admin/viewsubcategory`);
+                const response = await axios.get(`https://artisan-market-backend.onrender.com/admin/viewsubcategory`);
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -21,7 +21,7 @@ export const View_categories = () => {
 
     const handleEditCategory = async (cid) => {
         try {
-            const response = await axios.put(`http://localhost:4000/admin/editcategory/${cid}`, updatedata);
+            const response = await axios.put(`https://artisan-market-backend.onrender.com/admin/editcategory/${cid}`, updatedata);
             console.log(response);
             toast.success('Edited Category')
             // You may want to update the UI or show a success message here
@@ -32,7 +32,7 @@ export const View_categories = () => {
 
     const handleEditSubcategory = async (sid) => {
         try {
-            const response = await axios.put(`http://localhost:4000/admin/editsubcategory/${sid}`, updatedata);
+            const response = await axios.put(`https://artisan-market-backend.onrender.com/admin/editsubcategory/${sid}`, updatedata);
             console.log(response);
             toast.success('Edited Subcategory')
             // You may want to update the UI or show a success message here

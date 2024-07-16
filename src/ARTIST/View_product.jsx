@@ -12,7 +12,7 @@ export const View_product = () => {
 
     useEffect(() => {
         let fetchData = async () => {
-            let response = await axios.get(`http://localhost:4000/artist/Viewaddedproducts/${id}`);
+            let response = await axios.get(`https://artisan-market-backend.onrender.com/artist/Viewaddedproducts/${id}`);
             console.log(response.data);
             setData(response.data);
         };
@@ -20,7 +20,7 @@ export const View_product = () => {
     }, [refresh]);
 
     let handleDelete =  (id) => {
-        let response = axios.delete(`http://localhost:4000/artist/deleteproduct/${id}`);
+        let response = axios.delete(`https://artisan-market-backend.onrender.com/artist/deleteproduct/${id}`);
         console.log(response);
         setRefresh(!refresh);
         toast.warning('Deleted')
@@ -93,7 +93,7 @@ export const View_product = () => {
                                     <td class="px-6 py-4">{item.category?.category}</td>
                                     <td class="px-6 py-4">{item.subcategory.sub_category}</td>
                                     <td class="px-6 py-4">
-                                    <a href={`http://localhost:4000/uploads/${item.product.Image}`} target='_blank'> <img src={`http://localhost:4000/uploads/${item.product.Image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
+                                    <a href={`https://artisan-market-backend.onrender.com/uploads/${item.product.Image}`} target='_blank'> <img src={`https://artisan-market-backend.onrender.com/uploads/${item.product.Image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
                                     </a></td>
                                     <td class="px-6 py-4">requested</td>
                                     <td>
@@ -114,7 +114,7 @@ export const View_product = () => {
             {/* {nav1 && (
                 <div className='absolute sm:left-[30%] z-10'>
                     {data.map((item) => (
-                        <img src={`http://localhost:4000/uploads/${item.product.Image}`} className="w-96 rounded-[50%]   z-[10] h-96" alt="" />
+                        <img src={`https://artisan-market-backend.onrender.com/uploads/${item.product.Image}`} className="w-96 rounded-[50%]   z-[10] h-96" alt="" />
                     ))}
                 </div>
             )} */}

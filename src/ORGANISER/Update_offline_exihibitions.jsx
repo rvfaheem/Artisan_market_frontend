@@ -10,7 +10,7 @@ export const Update_offline_exihibitions = () => {
     const {id}=useParams()
       useEffect(()=>{
         let fetchdata=async ()=>{
-            let response=await axios.get(`http://localhost:4000/organiser/viewupdateofflineexihibition/${id}`)
+            let response=await axios.get(`https://artisan-market-backend.onrender.com/organiser/viewupdateofflineexihibition/${id}`)
             console.log(response)
             setUserData(response.data)
         }
@@ -59,7 +59,7 @@ export const Update_offline_exihibitions = () => {
           // console.log(data,'ddtas');
           // return true
       
-          let response=await axios.put(`http://localhost:4000/organiser/editofflineexihibition/${id}`,formdata,{
+          let response=await axios.put(`https://artisan-market-backend.onrender.com/organiser/editofflineexihibition/${id}`,formdata,{
             headers: {
               'Content-Type': 'multipart/form-data'  // Set the content type for FormData
             }

@@ -16,7 +16,7 @@ export const Addcategory = () => {
 
   let handleSubmit=async (event)=>{
     event.preventDefault()
-    let response=await axios.post(`http://localhost:4000/admin/addcategory`,{...data,userId:id})
+    let response=await axios.post(`https://artisan-market-backend.onrender.com/admin/addcategory`,{...data,userId:id})
     console.log(response);
     // navigate('/admin/addsubcategory')
     toast.success('Category Added Successfully')

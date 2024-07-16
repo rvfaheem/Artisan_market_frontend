@@ -8,7 +8,7 @@
 
 //     useEffect(() => {
 //         let fetchData = async () => {
-//             let response = await axios.get(`http://localhost:4000/user/viewexihibitionproduct`)
+//             let response = await axios.get(`https://artisan-market-backend.onrender.com/user/viewexihibitionproduct`)
 //             console.log(response.data)
 //             setdata(response.data)
 //         }
@@ -21,7 +21,7 @@
   
   
 //   <div class="container  p-9 bg-white max-w-sm rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
-//     <img class="rounded-xl" src={`http://localhost:4000/uploads/${item.Image}`} alt="" />
+//     <img class="rounded-xl" src={`https://artisan-market-backend.onrender.com/uploads/${item.Image}`} alt="" />
 //     <div class="flex justify-between items-center">
 //       <div>
 //         <h1 class="mt-5 text-2xl font-semibold">{item.productName}</h1>

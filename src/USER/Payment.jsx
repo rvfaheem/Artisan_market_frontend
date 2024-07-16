@@ -9,7 +9,7 @@ export const Payment = () => {
 
   useEffect(() =>{
     let fetchData = async () =>{
-      let response = await axios.get(`http://localhost:4000/user/viewproductdetails/${id}`)
+      let response = await axios.get(`https://artisan-market-backend.onrender.com/user/viewproductdetails/${id}`)
       console.log(response.data)
       setData(response.data)
     }
@@ -23,7 +23,7 @@ export const Payment = () => {
 
   let handleSubmit=async (event)=>{
     event.preventDefault()
-    let response=await axios.post(`http://localhost:4000/user/payment`,{userId:userid,productId:id})
+    let response=await axios.post(`https://artisan-market-backend.onrender.com/user/payment`,{userId:userid,productId:id})
     console.log(response);
     setData('')
   }

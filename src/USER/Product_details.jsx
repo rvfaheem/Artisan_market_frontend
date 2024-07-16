@@ -15,7 +15,7 @@ export const Product_details = () => {
 
   useEffect(() => {
     let fetchData = async () => {
-      let response = await axios.get(`http://localhost:4000/user/viewproductdetails/${id}`)
+      let response = await axios.get(`https://artisan-market-backend.onrender.com/user/viewproductdetails/${id}`)
       console.log(response.data)
       setdata(response.data)
     }
@@ -25,7 +25,7 @@ export const Product_details = () => {
   // let handleSubmit1=async(statuss,id)=>{
   //   setrefresh(!refresh)
   //   console.log(id);
-  //   let response=await axios.put(`http://localhost:4000/admin/manageUser/${id}`,{status:statuss})
+  //   let response=await axios.put(`https://artisan-market-backend.onrender.com/admin/manageUser/${id}`,{status:statuss})
   //   console.log(response)
   //   setdata('')
   // }
@@ -38,7 +38,7 @@ export const Product_details = () => {
 
   let handleSubmit = async (event) => {
     event.preventDefault()
-    let response = await axios.post(`http://localhost:4000/user/addorder`, { userId: userid, productId: id })
+    let response = await axios.post(`https://artisan-market-backend.onrender.com/user/addorder`, { userId: userid, productId: id })
     console.log(response);
     
     toast.success('Paymented')
@@ -63,7 +63,7 @@ export const Product_details = () => {
             <div class="flex flex-col md:flex-row -mx-4">
               <div class="md:flex-1 px-4">
                 <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                  <img class="w-full h-full object-cover" src={`http://localhost:4000/uploads/${data.Image}`} alt='' />
+                  <img class="w-full h-full object-cover" src={`https://artisan-market-backend.onrender.com/uploads/${data.Image}`} alt='' />
 
                 </div>
                 <div class="flex -mx-2 mb-4">

@@ -10,7 +10,7 @@ export const View_delivered_product = () => {
 
   useEffect(() => {
     let fetchData = async () => {
-      let response = await axios.get(`http://localhost:4000/artist/deliveredviewproductorder/${id}`);
+      let response = await axios.get(`https://artisan-market-backend.onrender.com/artist/deliveredviewproductorder/${id}`);
       console.log(response.data);
       setData(response.data);
     };

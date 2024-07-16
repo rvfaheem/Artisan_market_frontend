@@ -11,7 +11,7 @@ export const Forget_password1 = () => {
 
     const sendOTP = async () => {
         try {
-            const response = await axios.post(`http://localhost:4000/sendOTP`, { email });
+            const response = await axios.post(`https://artisan-market-backend.onrender.com/sendOTP`, { email });
             setMessage(response.data.message);
             setVerifyotp(response.data.otp);
             

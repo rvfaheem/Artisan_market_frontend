@@ -13,7 +13,7 @@ export const Artist = () => {
 
   useEffect(() => {
     let fetchData = async () => {
-      let response = await axios.get(`http://localhost:4000/admin/viewuserartist`);
+      let response = await axios.get(`https://artisan-market-backend.onrender.com/admin/viewuserartist`);
       console.log(response.data);
       setData(response.data);
     };
@@ -22,7 +22,7 @@ export const Artist = () => {
 
   let handleSubmit =  (statuss, id) => {
     console.log(id);
-    let response =  axios.put(`http://localhost:4000/admin/manageUser/${id}`, { status: statuss });
+    let response =  axios.put(`https://artisan-market-backend.onrender.com/admin/manageUser/${id}`, { status: statuss });
     setRefresh(!refresh);
     console.log(response);
     setData([]);
@@ -101,9 +101,9 @@ export const Artist = () => {
                   {/* <td className='px-6 py-4'>{artist.id}</td> */}
                   <td className='px-6 py-4'>{artist.name}</td>
                   <td className='px-6 py-4 text-center'>
-                    <img src={`http://localhost:4000/uploads/${artist.image}`} onMouseEnter={toggleImage} onMouseLeave={toggleImage} className='w-8 h-8' alt='' />
+                    <img src={`https://artisan-market-backend.onrender.com/uploads/${artist.image}`} onMouseEnter={toggleImage} onMouseLeave={toggleImage} className='w-8 h-8' alt='' />
                   </td>
-                  <td class="px-6 py-4 text-blue-600" className='px-6 py-4'><a  target='_blank' download href={`http://localhost:4000/uploads/${artist.artwork}`}><button className='bg-blue-950 text-white p-2 rounded-2xl'>Download</button></a></td>
+                  <td class="px-6 py-4 text-blue-600" className='px-6 py-4'><a  target='_blank' download href={`https://artisan-market-backend.onrender.com/uploads/${artist.artwork}`}><button className='bg-blue-950 text-white p-2 rounded-2xl'>Download</button></a></td>
                   {/* <td className='px-6 py-4'>{artist.artwork}</td> */}
                   <td className='px-6 py-4'>{artist.category}</td>
                   <td className='px-6 py-4'>{artist.gmail}</td>

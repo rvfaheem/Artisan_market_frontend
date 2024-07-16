@@ -6,7 +6,7 @@ export const Online_Exihibitions = () => {
     
     useEffect(()=>{
         let fetchData =async ()=>{
-            let response=await axios.get(`http://localhost:4000/artist/viewonlineexihibitions_b`)
+            let response=await axios.get(`https://artisan-market-backend.onrender.com/artist/viewonlineexihibitions_b`)
 
             setdata(response.data); 
 
@@ -30,7 +30,7 @@ export const Online_Exihibitions = () => {
 
 <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
   <a href="#">
-     <img class="rounded-t-lg w-96 h-64 object-cover" src={`http://localhost:4000/uploads/${item.image}`} alt="" />
+     <img class="rounded-t-lg w-96 h-64 object-cover" src={`https://artisan-market-backend.onrender.com/uploads/${item.image}`} alt="" />
  </a>
  <div class="p-5">
      <a href="#">

@@ -11,8 +11,8 @@ export const Artist_home = () => {
     const[data1,setdata1]=useState([''])
     useEffect(()=>{
         let fetchData =async ()=>{
-            let response=await axios.get(`http://localhost:4000/artist/viewonlineexihibitions_b`)
-            let response1=await axios.get(`http://localhost:4000/artist/viewofflineexihibitions`)
+            let response=await axios.get(`https://artisan-market-backend.onrender.com/artist/viewonlineexihibitions_b`)
+            let response1=await axios.get(`https://artisan-market-backend.onrender.com/artist/viewofflineexihibitions`)
             setdata(response.data.slice(0, 3)); 
             setdata1(response1.data.slice(0, 3)); 
             console.log(response.data)
@@ -157,7 +157,7 @@ That is Paper origami, Drawing, painting,flower, gift,sculpture,bottle art,…
 
    <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
      <a href="#">
-        <img class="rounded-t-lg w-96 h-64 object-cover" src={`http://localhost:4000/uploads/${item.image}`} alt="" />
+        <img class="rounded-t-lg w-96 h-64 object-cover" src={`https://artisan-market-backend.onrender.com/uploads/${item.image}`} alt="" />
     </a>
     <div class="p-5">
         <a href="#">
@@ -235,7 +235,7 @@ That is Paper origami, Drawing, painting,flower, gift,sculpture,bottle art,…
 {data1.map((item)=>(
    <div class=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
      <a href="#">
-        <img class="rounded-t-lg w-96 h-64" src={`http://localhost:4000/uploads/${item.image}`}  alt="" />
+        <img class="rounded-t-lg w-96 h-64" src={`https://artisan-market-backend.onrender.com/uploads/${item.image}`}  alt="" />
     </a>
     <div class="p-5">
         <a href="#">

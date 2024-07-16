@@ -39,7 +39,7 @@ export const Send_exhi_online_notification = () => {
     console.log(data,'ddtas');
     // return true
 
-    let response=await axios.post(`http://localhost:4000/organiser/Sendonline`,formdata,{
+    let response=await axios.post(`https://artisan-market-backend.onrender.com/organiser/Sendonline`,formdata,{
       headers: {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }    

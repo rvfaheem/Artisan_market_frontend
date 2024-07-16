@@ -28,8 +28,8 @@ export const Product_update = () => {
 
   useEffect(()=>{
       let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/admin/viewcategory`,)
-          let response1=await axios.get(`http://localhost:4000/artist/Vieweditaddedproducts/${id}`)
+          let response=await axios.get(`https://artisan-market-backend.onrender.com/admin/viewcategory`,)
+          let response1=await axios.get(`https://artisan-market-backend.onrender.com/artist/Vieweditaddedproducts/${id}`)
           console.log(response)
           console.log(response1)
           setUserData(response1.data)
@@ -62,7 +62,7 @@ export const Product_update = () => {
     // console.log(data,'ddtas');
     // return true
 
-    let response=await axios.put(`http://localhost:4000/artist/editaddproduct/${id}`,formdata)
+    let response=await axios.put(`https://artisan-market-backend.onrender.com/artist/editaddproduct/${id}`,formdata)
     console.log(response);
     toast.success('Product Updated Succesfully')
    
@@ -72,7 +72,7 @@ export const Product_update = () => {
   {
     if(event.target.value){
       setCatId(event.target.value)
-      let response=await axios.get(`http://localhost:4000/artist/viewsubcategory/${event.target.value}`)
+      let response=await axios.get(`https://artisan-market-backend.onrender.com/artist/viewsubcategory/${event.target.value}`)
       console.log(response);
         setsubcategory(response.data)
     }

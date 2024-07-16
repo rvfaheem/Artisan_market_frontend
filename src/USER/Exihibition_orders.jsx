@@ -10,7 +10,7 @@ export const Exihibition_orders = () => {
 
     useEffect(() => {
         let fetchData = async () => {
-            let response = await axios.get(`http://localhost:4000/user/exihivieworders/${id}`)
+            let response = await axios.get(`https://artisan-market-backend.onrender.com/user/exihivieworders/${id}`)
             console.log(response.data)
             setdata(response.data)
         }

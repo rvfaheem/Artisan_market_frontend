@@ -13,7 +13,7 @@ const[userData,setUserData]=useState([''])
 const {id}=useParams()
   useEffect(()=>{
     let fetchdata=async ()=>{
-        let response=await axios.get(`http://localhost:4000/artist/viewupdateexihibition/${id}`)
+        let response=await axios.get(`https://artisan-market-backend.onrender.com/artist/viewupdateexihibition/${id}`)
         console.log(response)
         setUserData(response.data)
     }
@@ -62,7 +62,7 @@ const {id}=useParams()
       // console.log(data,'ddtas');
       // return true
   
-      let response=await axios.put(`http://localhost:4000/organiser/editexihibition/${id}`,formdata,{
+      let response=await axios.put(`https://artisan-market-backend.onrender.com/organiser/editexihibition/${id}`,formdata,{
         headers: {
           'Content-Type': 'multipart/form-data'  // Set the content type for FormData
         }

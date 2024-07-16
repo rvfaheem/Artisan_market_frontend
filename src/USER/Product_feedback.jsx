@@ -13,7 +13,7 @@ export const Product_feedback = () => {
 
   let handleSubmit=async (event)=>{
     event.preventDefault()
-    let response=await axios.put(`http://localhost:4000/user/sendfeedback/${id}`,data)
+    let response=await axios.put(`https://artisan-market-backend.onrender.com/user/sendfeedback/${id}`,data)
     console.log(response);
     setData('')
   }

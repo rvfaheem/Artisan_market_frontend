@@ -18,7 +18,7 @@ export const Forget_password2 = () => {
       toast.error('Passwords do not match');
     } else {
       try {
-        const response = await axios.put(`http://localhost:4000/changepass/${email}`, data);
+        const response = await axios.put(`https://artisan-market-backend.onrender.com/changepass/${email}`, data);
         console.log(response);
         toast.success('Password updated');
         setData('');

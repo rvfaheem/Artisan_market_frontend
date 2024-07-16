@@ -12,7 +12,7 @@ export const View_offline_exihibitions = () => {
 
     useEffect(() => {
         let fetchData = async () => {
-            let response = await axios.get(`http://localhost:4000/organiser/viewofflineexihibitions/${id}`);
+            let response = await axios.get(`https://artisan-market-backend.onrender.com/organiser/viewofflineexihibitions/${id}`);
             console.log(response.data);
             setData(response.data);
         };
@@ -20,7 +20,7 @@ export const View_offline_exihibitions = () => {
     }, [refresh]);
 
     let handleDelete = async (id) => {
-        let response = await axios.delete(`http://localhost:4000/organiser/deleteexihibition/${id}`);
+        let response = await axios.delete(`https://artisan-market-backend.onrender.com/organiser/deleteexihibition/${id}`);
         console.log(response);
         setRefresh(!refresh);
     };
@@ -87,7 +87,7 @@ export const View_offline_exihibitions = () => {
                                         <td class="px-6 py-4">{item.exihibitionName}</td>
                                         <td class="px-6 py-4">
                                             <img
-                                                src={`http://localhost:4000/uploads/${item.image}`}
+                                                src={`https://artisan-market-backend.onrender.com/uploads/${item.image}`}
                                                 onMouseLeave={ToggleFalse}
                                                 onMouseEnter={Toggle1}
                                                 className="w-8 h-8"

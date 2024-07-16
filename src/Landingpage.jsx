@@ -8,9 +8,9 @@ export const Landingpage = () => {
     const [data2, setdata2] = useState([''])
     useEffect(() => {
         let fetchData = async () => {
-            let response = await axios.get(`http://localhost:4000/user/viewproduct`)
-            let response2 = await axios.get(`http://localhost:4000/artist/viewonlineexihibitions_b`)
-            let response3 = await axios.get(`http://localhost:4000/artist/viewofflineexihibitions`)
+            let response = await axios.get(`https://artisan-market-backend.onrender.com/user/viewproduct`)
+            let response2 = await axios.get(`https://artisan-market-backend.onrender.com/artist/viewonlineexihibitions_b`)
+            let response3 = await axios.get(`https://artisan-market-backend.onrender.com/artist/viewofflineexihibitions`)
             console.log(response.data)
             setdata(response.data)
             setdata(response.data.slice(0, 5));
@@ -49,7 +49,7 @@ export const Landingpage = () => {
 
 
                                     <section class="w-3/12  p-5 py-10 bg-purple-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer">
-                                        <img class="rounded-xl" className='w-96 h-72' src={`http://localhost:4000/uploads/${item.Image}`} alt="" />
+                                        <img class="rounded-xl" className='w-96 h-72' src={`https://artisan-market-backend.onrender.com/uploads/${item.Image}`} alt="" />
  
                                         <h1 class="text-3xl my-5">{item.productName}</h1>
                                         {/* <p class="mb-5">{item.Description}</p> */}
@@ -72,7 +72,7 @@ export const Landingpage = () => {
 
 
                                     <section class="w-3/12  p-5 py-10 bg-purple-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer">
-                                        <img class="rounded-xl" className='w-96 h-72' src={`http://localhost:4000/uploads/${item.image}`} alt="" />
+                                        <img class="rounded-xl" className='w-96 h-72' src={`https://artisan-market-backend.onrender.com/uploads/${item.image}`} alt="" />
 
                                         <h1 class="text-3xl my-5">{item.exihibitionName}</h1>
                                         {/* <p class="mb-5">{item.description}</p> */}
@@ -92,7 +92,7 @@ export const Landingpage = () => {
 
 
                                     <section class="w-3/12  p-5 py-10 bg-purple-50 text-center transform duration-500 hover:-translate-y-2 cursor-pointer">
-                                        <img class="rounded-xl" className='w-96 h-72' src={`http://localhost:4000/uploads/${item.image}`} alt="" />
+                                        <img class="rounded-xl" className='w-96 h-72' src={`https://artisan-market-backend.onrender.com/uploads/${item.image}`} alt="" />
                                         {/* <div class="space-x-1 flex justify-center mt-10">
                                             <svg class="w-4 h-4 mx-px fill-current text-orange-600" xmlns="http://www.w3.org/2000/svg"
                                                 viewBox="0 0 14 14">

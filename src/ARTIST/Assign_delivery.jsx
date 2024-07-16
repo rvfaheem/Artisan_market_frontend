@@ -21,7 +21,7 @@ export const Assign_delivery = () => {
 
   useEffect(() => {
     let fetchData = async () => {
-      let response = await axios.get(`http://localhost:4000/admin/viewuserdelivery`);
+      let response = await axios.get(`https://artisan-market-backend.onrender.com/admin/viewuserdelivery`);
       console.log(response.data);
       setData(response.data);
     };
@@ -31,7 +31,7 @@ export const Assign_delivery = () => {
   let handleSubmit =  (statuss, deliveryid) => {
     setRefresh(!refresh);
     console.log(id);
-    let response =  axios.put(`http://localhost:4000/artist/manageDelivery/${id}`, {
+    let response =  axios.put(`https://artisan-market-backend.onrender.com/artist/manageDelivery/${id}`, {
       status: 'assigned',
       deliveryId: deliveryid,
     });
@@ -135,7 +135,7 @@ export const Assign_delivery = () => {
                   <td className='px-6 py-4'>{delivery.id}</td>
                   <td className='px-6 py-4'>{delivery.name}</td>
                   <td className='px-6 py-4'>
-                  <a href={`http://localhost:4000/uploads/${delivery.image}`} target='_blank'> <img src={`http://localhost:4000/uploads/${delivery.image}`}onMouseLeave={toggleFalse} onMouseEnter={toggle1} className='w-8 h-8' alt='' />
+                  <a href={`https://artisan-market-backend.onrender.com/uploads/${delivery.image}`} target='_blank'> <img src={`https://artisan-market-backend.onrender.com/uploads/${delivery.image}`}onMouseLeave={toggleFalse} onMouseEnter={toggle1} className='w-8 h-8' alt='' />
                   </a></td>
                   <td className='px-6 py-4'>{delivery.gmail}</td>
                   <td className='px-6 py-4'>{delivery.phoneNumber}</td>

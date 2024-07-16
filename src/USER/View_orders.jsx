@@ -10,7 +10,7 @@ export const U_View_orders = () => {
 
     useEffect(() => {
         let fetchData = async () => {
-            let response = await axios.get(`http://localhost:4000/user/vieworders/${id}`)
+            let response = await axios.get(`https://artisan-market-backend.onrender.com/user/vieworders/${id}`)
             console.log(response.data)
             setdata(response.data)
         }

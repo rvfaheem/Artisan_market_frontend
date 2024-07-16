@@ -17,7 +17,7 @@ export const Accept_or_reject = () => {
     useEffect(() => {
         let fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4000/organiser/viewexihibitionartist/${id}`)
+                const response = await axios.get(`https://artisan-market-backend.onrender.com/organiser/viewexihibitionartist/${id}`)
                 console.log(response.data);
                 setData(response.data);
             } catch (error) {
@@ -30,7 +30,7 @@ export const Accept_or_reject = () => {
     let handleSubmit =  (statuss, id) => {
       console.log(id);
       try {
-        const response =  axios.put(`http://localhost:4000/organiser/manageexhibitionartist/${id}`, { status: statuss });
+        const response =  axios.put(`https://artisan-market-backend.onrender.com/organiser/manageexhibitionartist/${id}`, { status: statuss });
         console.log(response);
         setRefresh(!refresh);
         setData([]);
@@ -121,7 +121,7 @@ export const Accept_or_reject = () => {
                                     <td className='px-6 py-4'>{artist.category}</td>
                                     <td className='px-6 py-4'>{artist.email}</td>
                                     <td class="px-6 py-4 text-blue-600" className='px-6 py-4'>
-                                        <a target='_blank' download href={`http://localhost:4000/uploads/${artist.image}`}>
+                                        <a target='_blank' download href={`https://artisan-market-backend.onrender.com/uploads/${artist.image}`}>
                                             <button className='bg-blue-950 text-white p-2 rounded-2xl'>Download</button>
                                         </a>
                                     </td>

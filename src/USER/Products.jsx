@@ -9,7 +9,7 @@ export const Products = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/user/viewproduct');
+                const response = await axios.get('https://artisan-market-backend.onrender.com/user/viewproduct');
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -45,7 +45,7 @@ export const Products = () => {
                     >
                         <img
                             className="rounded-xl w-96 h-72"
-                            src={`http://localhost:4000/uploads/${item.Image}`}
+                            src={`https://artisan-market-backend.onrender.com/uploads/${item.Image}`}
                             alt=""
                         />
                         <div className="flex justify-between items-center">

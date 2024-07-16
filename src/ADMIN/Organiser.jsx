@@ -14,7 +14,7 @@ const Organiser = () => {
 
   useEffect(() => {
     let fetchData = async () => {
-      let response = await axios.get(`http://localhost:4000/admin/viewuserorganiser`);
+      let response = await axios.get(`https://artisan-market-backend.onrender.com/admin/viewuserorganiser`);
       console.log(response.data);
       setData(response.data);
     };
@@ -24,7 +24,7 @@ const Organiser = () => {
   let handleSubmit = async (statuss, id) => {
     setRefresh(!refresh);
     console.log(id);
-    let response = await axios.put(`http://localhost:4000/admin/manageUser/${id}`, { status: statuss });
+    let response = await axios.put(`https://artisan-market-backend.onrender.com/admin/manageUser/${id}`, { status: statuss });
     console.log(response);
     setData('');
   };
@@ -104,10 +104,10 @@ const Organiser = () => {
                   <td className='px-6 py-4'>{organiser.name}</td>
 
                   <td className='px-6 py-4'>
-                    <img src={`http://localhost:4000/uploads/${organiser.image}`} onMouseLeave={toggleFalse} onMouseEnter={toggle1} className='w-8 h-8' alt='' />
+                    <img src={`https://artisan-market-backend.onrender.com/uploads/${organiser.image}`} onMouseLeave={toggleFalse} onMouseEnter={toggle1} className='w-8 h-8' alt='' />
                   </td>
                   
-                  <td class="px-6 py-4 text-blue-600" className='px-6 py-4'><a  target='_blank' download href={`http://localhost:4000/uploads/${organiser.Experience}`}><button className='bg-blue-950 text-white p-2 rounded-2xl'>Download</button></a></td>
+                  <td class="px-6 py-4 text-blue-600" className='px-6 py-4'><a  target='_blank' download href={`https://artisan-market-backend.onrender.com/uploads/${organiser.Experience}`}><button className='bg-blue-950 text-white p-2 rounded-2xl'>Download</button></a></td>
                   <td className='px-6 py-4'>{organiser.gmail}</td>
                   <td className='px-6 py-4'>{organiser.phoneNumber}</td>
                   <td className='px-6 py-4'>{organiser.Address}</td>

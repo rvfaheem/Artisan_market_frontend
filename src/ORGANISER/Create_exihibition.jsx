@@ -45,7 +45,7 @@ let handleFile=(event)=>{
     console.log(data,'ddtas');
     // return true
 
-    let response=await axios.post(`http://localhost:4000/organiser/createexihibition`,formdata,{
+    let response=await axios.post(`https://artisan-market-backend.onrender.com/organiser/createexihibition`,formdata,{
       headers: {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }

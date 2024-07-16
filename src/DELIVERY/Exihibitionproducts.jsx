@@ -10,7 +10,7 @@ export const Exihibitionproducts = () => {
     const[refresh,setrefresh]=useState([''])
     useEffect(()=>{
         let fetchData=async()=>{
-            let response =await axios.get(`http://localhost:4000/delivery/exhiviewproductorder/${id}`)
+            let response =await axios.get(`https://artisan-market-backend.onrender.com/delivery/exhiviewproductorder/${id}`)
             console.log(response.data)
             setdata(response.data)
         }
@@ -20,7 +20,7 @@ export const Exihibitionproducts = () => {
     let handleSubmit=async(statuss,orderId)=>{
         setrefresh(!refresh)
         console.log(id);
-        let response=await axios.put(`http://localhost:4000/delivery/exhimanageDelivery/${orderId}`,{status:'delivered',deliveryId:id})
+        let response=await axios.put(`https://artisan-market-backend.onrender.com/delivery/exhimanageDelivery/${orderId}`,{status:'delivered',deliveryId:id})
         console.log(response)
         toast.success('Exihibition product Delivered')
         setdata('')

@@ -10,7 +10,7 @@ export const A_Exihibition = () => {
 
   useEffect(()=>{
     let fetchData=async () =>{
-      let response=await axios.get(`http://localhost:4000/artist/viewonlineexihibitiondetails/${id}`)
+      let response=await axios.get(`https://artisan-market-backend.onrender.com/artist/viewonlineexihibitiondetails/${id}`)
       console.log(response.data)
       setdata(response.data)
     }
@@ -27,7 +27,7 @@ export const A_Exihibition = () => {
             <div class="flex flex-col md:flex-row -mx-4">
               <div class="md:flex-1 px-4">
                 <div class="h-[460px] rounded-lg bg-gray-300 dark:bg-gray-700 mb-4">
-                  <img class="w-full h-full object-cover" src={`http://localhost:4000/uploads/${data.image}`} alt='' />
+                  <img class="w-full h-full object-cover" src={`https://artisan-market-backend.onrender.com/uploads/${data.image}`} alt='' />
 
                 </div>
                 <div class="flex -mx-2 mb-4">
