@@ -23,6 +23,7 @@ export const Nav = () => {
         <div className='text-4xl'>ARTISAN MARKET</div>
     </div>  
     <div className='flex gap-5' >
+    <Link to='/'><div>Home</div></Link>
 
     <div><button onClick={dropdown} >REGISTER</button>
         {drop&&
