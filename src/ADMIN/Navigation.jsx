@@ -66,6 +66,7 @@ export const AdminNavigation = () => {
         <Link to='/admin/Addcategory'><div>ADD CATEGORY</div></Link>
         <Link to='/admin/addsubcategory'><div>ADD SUBCATEGORY</div></Link>
         <Link to='/admin/viewcategories'><div>VIEW CATEGORIES</div></Link>
+        <Link to='/admin/viewExihibitions'><div>VIEW Exihibition</div></Link>
         {/* <Link to='/admin/changepassword'><div>CHANGE PASSWORD</div></Link> */}
        <button><div onClick={logout} className='pb-[20px]'>LOGOUT</div></button> 
         

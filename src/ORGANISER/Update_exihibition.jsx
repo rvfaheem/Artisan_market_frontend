@@ -11,6 +11,9 @@ const [data,setData]=useState('')
 const navigate=useNavigate()
 const[userData,setUserData]=useState([''])
 const {id}=useParams()
+
+const currentDate = new Date().toISOString().split('T')[0];
+
   useEffect(()=>{
     let fetchdata=async ()=>{
         let response=await axios.get(`https://artisan-market-backend.onrender.com/artist/viewupdateexihibition/${id}`)
@@ -191,6 +194,7 @@ const {id}=useParams()
           {/* {userData.startdate} */}
           {/* { new Date(userData.contribution?.date).toLocaleDateString()} */}
             <input
+              min={currentDate}
               type="date"
               onChange={handleChanage}
               name="startdate"
@@ -204,6 +208,7 @@ const {id}=useParams()
           <div class="relative z-0 w-full">
           <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Ending Date</label>
             <input
+              min={currentDate}
               type="date"
               onChange={handleChanage}
               name="enddate"

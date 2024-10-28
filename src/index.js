@@ -92,6 +92,7 @@ import { Viewexihibitionproducts } from './ARTIST/Viewexihibitionproducts';
 import { Online_Exihibitions } from './ARTIST/Online_Exihibitions';
 import { Forget_password1 } from './Forget_password1';
 import { Forget_password2 } from './Forget_password2';
+import { View_Exihibitions } from './ADMIN/View_Exihibitions';
 
 
 
@@ -124,6 +125,8 @@ root.render(
          <Route path="addsubcategory" element={<Add_subcategory/>}/>
          <Route path="changepassword" element={<Change_password/>}/>
          <Route path="viewcategories" element={<View_categories/>}/>
+         <Route path="viewExihibitions" element={<View_Exihibitions/>}/>
+         
 
          
 

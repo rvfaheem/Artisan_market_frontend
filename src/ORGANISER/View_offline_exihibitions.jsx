@@ -75,6 +75,10 @@ export const View_offline_exihibitions = () => {
                                     <th scope="col" class="px-6 py-3">
                                         Image
                                     </th>
+                                    <th>Sponcers</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Description</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
@@ -85,6 +89,8 @@ export const View_offline_exihibitions = () => {
                                         <td class="px-6 py-4">{index}</td>
                                         {/* <td class="px-6 py-4">03-02-2024</td> */}
                                         <td class="px-6 py-4">{item.exihibitionName}</td>
+
+                                        {/* <td class="px-6 py-4">{item.description}</td> */}
                                         <td class="px-6 py-4">
                                             <img
                                                 src={`https://artisan-market-backend.onrender.com/uploads/${item.image}`}
@@ -94,16 +100,21 @@ export const View_offline_exihibitions = () => {
                                                 alt=""
                                             />
                                         </td>
+                                        <td class="px-6 py-4">{item.sponcers}</td>
+                                        <td class="px-6 py-4">{new Date(item.startingdate).toLocaleDateString()}</td>
+                                        <td class="px-6 py-4">{new Date(item.endingdate).toLocaleDateString()}</td>
+                                        
+                                        <td class="max-h-20 overflow-y-auto border border-gray-300 p-2 rounded">{item.description}</td>
                                         <td class="px-6 py-4">
                                             <div className="flex pt-2 pb-2 gap-3">
                                                 <Link to={`/organiser/updateofflineexihibitions/${item._id}`}>
-                                                    <button className="bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl ">
+                                                    <button className="bg-[#3BD45C] w-20 text-white pt-3 pb-3 rounded-xl ">
                                                         Update
                                                     </button>
                                                 </Link>
                                                 <button
                                                     onClick={() => handleDelete(item._id)}
-                                                    className="bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl "
+                                                    className="bg-[#DC3838] w-20 text-white pt-3 pb-3 rounded-xl "
                                                 >
                                                     Delete
                                                 </button>

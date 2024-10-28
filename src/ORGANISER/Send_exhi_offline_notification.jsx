@@ -9,6 +9,7 @@ export const Send_exhi_offline_notification = () => {
   const [data,setData] = useState()
 
   const navigate=useNavigate()
+  const currentDate = new Date().toISOString().split('T')[0];
 
 
 
@@ -185,6 +186,7 @@ let id=localStorage.getItem('id')
         <div class="relative z-0 w-full mb-5">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Starting Date</label>
           <input
+            min={currentDate}
             type="date"
             name="startingdate"
             onChange={handleChanage}
@@ -199,6 +201,7 @@ let id=localStorage.getItem('id')
         <div class="relative z-0 w-full">
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Ending Date</label>
           <input
+            min={currentDate}
             type="date"
             name="endingdate"
             required

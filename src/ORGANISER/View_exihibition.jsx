@@ -38,12 +38,10 @@ export const View_exihibition = () => {
         setNav1(false);
     };
 
-    // Function to handle search input change
     const handleSearchInputChange = (event) => {
         setSearchQuery(event.target.value);
     };
 
-    // Filter data based on search query
     const filteredData = data.filter((item) =>
         item.exihibitionName.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -51,7 +49,7 @@ export const View_exihibition = () => {
     return (
         <>
             <div>
-                <div class="organise m-4 p-4">
+                <div className="organise m-4 p-4">
                     <input
                         type="text"
                         placeholder="Search by exhibition name"
@@ -60,35 +58,41 @@ export const View_exihibition = () => {
                         className="border border-gray-300 rounded-md py-2 px-4"
                     />
 
-                    <div class="relative overflow-x-auto">
-                        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <div className="relative overflow-x-auto">
+                        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-4">
+                            <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
-                                    <th scope="col" class="px-6 py-3">
-                                        S.L No
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Exihibition
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
-                                        Image
-                                    </th>
+                                    <th scope="col" className="px-6 py-3">S.L No</th>
+                                    <th scope="col" className="px-6 py-3">Exhibition</th>
+                                    <th scope="col" className="px-6 py-3">Image</th>
+                                    <th>Sponsors</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Description</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {filteredData.map((item, index) => (
-                                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black" key={index}>
-                                        <td class="px-6 py-4">{index}</td>
-                                        <td class="px-6 py-4">{item.exihibitionName}</td>
-                                        <td class="px-6 py-4">
+                                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 text-black" key={index}>
+                                        <td className="px-6 py-4">{index}</td>
+                                        <td className="px-6 py-4">{item.exihibitionName}</td>
+                                        <td className="px-6 py-4">
                                             <img src={`https://artisan-market-backend.onrender.com/uploads/${item.image}`} onMouseLeave={ToggleFalse} onMouseEnter={Toggle1} className="w-8 h-8" alt="" />
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td className="px-6 py-4">{item.sponcers}</td>
+                                        <td className="px-6 py-4">
+                                            {new Date(item.startdate).toLocaleDateString()}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {new Date(item.enddate).toLocaleDateString()}
+                                        </td>
+                                        <td className="max-h-20 overflow-y-auto border border-gray-300 p-2 rounded">{item.description}</td>
+                                        <td className="px-6 py-4">
                                             <div className="flex pt-2 pb-2 gap-3">
                                                 <Link to={`/organiser/updateexihibition/${item._id}`}>
-                                                    <button className="bg-[#3BD45C] w-[100%] text-white pt-3 pb-3 rounded-xl">Update</button>
+                                                    <button className="bg-[#3BD45C] w-20 text-white pt-3 pb-3 rounded-xl">Update</button>
                                                 </Link>
                                                 <button onClick={() => handleDelete(item._id)} className="bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl">Delete</button>
                                             </div>
@@ -99,15 +103,10 @@ export const View_exihibition = () => {
                         </table>
                     </div>
                 </div>
-
-                {/* {nav1 && (
-                    <div className="absolute sm:left-[30%] z-10">
-                        <img src={image} className="w-96 rounded-[50%] z-[10] h-96" alt="" />
-                    </div>
-                )} */}
             </div>
         </>
     );
 };
+
 
 
