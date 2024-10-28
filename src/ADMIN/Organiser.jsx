@@ -114,10 +114,10 @@ const Organiser = () => {
 
                   <td className='px-6 py-4'>{organiser.status}</td>
                   <td>
-                    <button type='submit' onClick={()=>{handleSubmit('accept',organiser._id)}} className='bg-[#3BD45C] w-[50%] text-white pt-3 pb-3 rounded-xl '>Accept</button>
+                    <button type='submit' onClick={()=>{handleSubmit('accept',organiser._id)}} className='bg-[#3BD45C] w-24 text-white pt-3 pb-3 rounded-xl '>Accept</button>
                   </td>
                   <td>
-                    <button type='submit' onClick={()=>{handleSubmit('reject',organiser._id)}} className='bg-[#DC3838] w-[50%] text-white pt-3 pb-3 rounded-xl '>Reject</button>
+                    <button type='submit' onClick={()=>{handleSubmit('reject',organiser._id)}} className='bg-[#DC3838] w-24 text-white pt-3 pb-3 rounded-xl '>Reject</button>
                   </td>
                 </tr>
               ))}
