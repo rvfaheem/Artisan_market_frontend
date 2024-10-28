@@ -73,7 +73,7 @@ const currentDate = new Date().toISOString().split('T')[0];
   
       console.log(response);
       toast.success('Updated Online Exihibition')
-      // navigate('/organiser/viewcreateexihibition/')
+      navigate('/organiser/viewcreateexihibition/')
      
     }  
     return (
