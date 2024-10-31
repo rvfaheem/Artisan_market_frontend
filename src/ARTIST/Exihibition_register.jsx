@@ -181,6 +181,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 
 export const Exihibition_register = () => {
@@ -190,6 +191,7 @@ export const Exihibition_register = () => {
 
   let id=localStorage.getItem('id')
   const[userData,setUserData]=useState('')
+  const navigate=useNavigate()
   // const [refresh,setrefresh]=useState(false)
   useEffect(()=>{
       let fetchdata=async ()=>{
@@ -245,6 +247,7 @@ export const Exihibition_register = () => {
     })
     console.log(response);
     toast.success('Exihibition registered Successfully')
+    setTimeout(() => navigate('/artist'), 3000); // Delay navigate
    
   }  
   return (

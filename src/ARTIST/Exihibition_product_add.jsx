@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import {useParams} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 
 
@@ -9,6 +10,7 @@ export const Exihibition_product_add = () => {
   let userid=localStorage.getItem('id')
   const[category,setcategory]=useState([])
   const[subcategory,setsubcategory]=useState([]) 
+  const navigate=useNavigate()
   
   const [data,setData] = useState()
 
@@ -59,6 +61,7 @@ useEffect(()=>{
     })
     console.log(response);
     toast.success('Exihibition product Added Successfully')
+    setTimeout(() => navigate('/artist'), 3000); // Delay navigate
 
    
   }

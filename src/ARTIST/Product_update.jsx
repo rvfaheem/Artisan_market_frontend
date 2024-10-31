@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams  } from "react-router-dom"
 import { ToastContainer, toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -10,7 +11,7 @@ export const Product_update = () => {
 
   let {id} =useParams()
   const[userData,setUserData]=useState([''])
-
+  const navigate=useNavigate()
   const[category,setcategory]=useState([])
   const[subcategory,setsubcategory]=useState([])
     const [data,setData] = useState()
@@ -65,6 +66,7 @@ export const Product_update = () => {
     let response=await axios.put(`https://artisan-market-backend.onrender.com/artist/editaddproduct/${id}`,formdata)
     console.log(response);
     toast.success('Product Updated Succesfully')
+    setTimeout(() => navigate('/artist/view_product'), 3000); // Delay navigate
    
   }
   const [catId,setCatId]=useState()

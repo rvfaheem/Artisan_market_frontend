@@ -38,7 +38,8 @@ export const Assign_delivery = () => {
     console.log(response);
     toast.success('Assigned')
     
-    navigate('/artist')
+    // navigate('/artist')
+    setTimeout(() => navigate('/artist'), 3000); // Delay navigate
     setData('');
   };
 
