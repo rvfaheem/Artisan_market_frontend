@@ -9,7 +9,7 @@ export const View_categories = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/admin/viewsubcategory');
+                const response = await axios.get('https://artisan-market-backend.onrender.com/admin/viewsubcategory');
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);
@@ -20,7 +20,7 @@ export const View_categories = () => {
 
     const handleEditCategory = async (cid) => {
         try {
-            await axios.put(`http://localhost:4000/admin/editcategory/${cid}`, updatedata);
+            await axios.put(`https://artisan-market-backend.onrender.com/admin/editcategory/${cid}`, updatedata);
             toast.success('Category edited successfully');
         } catch (error) {
             console.error('Error editing category:', error);
@@ -30,7 +30,7 @@ export const View_categories = () => {
 
     const handleEditSubcategory = async (sid) => {
         try {
-            await axios.put(`http://localhost:4000/admin/editsubcategory/${sid}`, updatedata);
+            await axios.put(`https://artisan-market-backend.onrender.com/admin/editsubcategory/${sid}`, updatedata);
             toast.success('Subcategory edited successfully');
         } catch (error) {
             console.error('Error editing subcategory:', error);
@@ -40,7 +40,7 @@ export const View_categories = () => {
 
     const handleDeleteCategory = async (cid) => {
         try {
-            await axios.delete(`http://localhost:4000/admin/deletecategory/${cid}`);
+            await axios.delete(`https://artisan-market-backend.onrender.com/admin/deletecategory/${cid}`);
             toast.success('Category deleted successfully');
             setData(data.filter(item => item.category._id !== cid));
         } catch (error) {
@@ -51,7 +51,7 @@ export const View_categories = () => {
 
     const handleDeleteSubcategory = async (sid) => {
         try {
-            await axios.delete(`http://localhost:4000/admin/deletesubcategory/${sid}`);
+            await axios.delete(`https://artisan-market-backend.onrender.com/admin/deletesubcategory/${sid}`);
             toast.success('Subcategory deleted successfully');
             setData(data.map(item => ({
                 ...item,

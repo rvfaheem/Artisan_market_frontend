@@ -7,7 +7,7 @@ export const View_Exihibitions = () => {
     useEffect(() => {
         // Fetch data from the API
         const fetchData = async () => {
-            const response = await axios.get('http://localhost:4000/admin/viewexihibitions');
+            const response = await axios.get('https://artisan-market-backend.onrender.com/admin/viewexihibitions');
             setData(response.data);
         };
         fetchData();

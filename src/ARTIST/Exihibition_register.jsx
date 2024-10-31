@@ -193,7 +193,7 @@ export const Exihibition_register = () => {
   // const [refresh,setrefresh]=useState(false)
   useEffect(()=>{
       let fetchdata=async ()=>{
-          let response=await axios.get(`http://localhost:4000/viewprofile/${id}`,)
+          let response=await axios.get(`https://artisan-market-backend.onrender.com/viewprofile/${id}`,)
           console.log(response.data)
           setUserData(response.data)
           
@@ -238,7 +238,7 @@ export const Exihibition_register = () => {
     console.log(data,'ddtas');
     // return true
 
-    let response=await axios.post(`http://localhost:4000/artist/exihibitionregister/`,formdata,{
+    let response=await axios.post(`https://artisan-market-backend.onrender.com/artist/exihibitionregister/`,formdata,{
       headers: {
         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
       }
