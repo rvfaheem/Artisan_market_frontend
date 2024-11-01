@@ -241,151 +241,162 @@
 //   )
 // }
 
-import axios from 'axios'
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify'
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
+export const Send_exhi_offline_notification = () => {
+  const [data, setData] = useState({
+    exihibitionName: '',
+    sponcers: '',
+    image: null,
+    venue: '',
+    description: '',
+  });
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
 
-export const Create_exihibition = () => {
-  let id = localStorage.getItem('id')
-  const [data, setData] = useState('')
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
-  const currentDate = new Date().toISOString().split('T')[0]
-  const navigate = useNavigate()
-
-  const handleFile = (event) => {
-    setData({ ...data, [event.target.name]: event.target.files[0] })
-    console.log(data);
-  }
+  const navigate = useNavigate();
+  const currentDate = new Date().toISOString().split('T')[0];
 
   const handleChange = (event) => {
-    const { name, value, files } = event.target
+    const { name, value, files } = event.target;
     if (name === 'image') {
-      setData({ ...data, [name]: files[0] })
+      setData({ ...data, [name]: files[0] });
     } else {
-      setData({ ...data, [name]: value })
-      if (name === 'startdate') setStartDate(value)  // Set start date
-      if (name === 'enddate') setEndDate(value)      // Set end date
-    }
-    console.log(data)
-  }
+      setData({ ...data, [name]: value });
 
+      // Update start and end dates separately to validate dynamically
+      if (name === 'startingdate') setStartDate(value);
+      if (name === 'endingdate') setEndDate(value);
+    }
+  };
+
+  let id = localStorage.getItem('id');
   const handleSubmit = async (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
     if (startDate && endDate && startDate > endDate) {
-      toast.error('End date cannot be before start date.')
-      return
+      toast.error('End date cannot be before start date.');
+      return;
     }
 
-    const formData = new FormData()
-    formData.append("exihibitionName", data.exihibitionName)
-    formData.append("sponcers", data.sponcers)
-    formData.append("description", data.description)
-    formData.append("image", data.image)
-    formData.append("startdate", data.startdate)
-    formData.append("enddate", data.enddate)
-    formData.append("userId", data.userId)
-    formData.append("organisationId", id)
+    const formData = new FormData();
+    formData.append("exihibitionName", data.exihibitionName);
+    formData.append("sponcers", data.sponcers);
+    formData.append("image", data.image);
+    formData.append("venue", data.venue);
+    formData.append("description", data.description);
+    formData.append("startingdate", startDate);
+    formData.append("endingdate", endDate);
+    formData.append("organiserId", id);
 
-    let response = await axios.post(`https://artisan-market-backend.onrender.com/organiser/createexihibition`, formData, {
-      headers: { 'Content-Type': 'multipart/form-data' }
-    })
-
-    console.log(response)
-    toast.success('Exihibition Created')
-    setTimeout(() => navigate('/organiser/viewcreateexihibition'), 1000)
-  }
+    try {
+      let response = await axios.post(`https://artisan-market-backend.onrender.com/organiser/Sendoffline`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log(response);
+      toast.success('Sent Exhibition offline notification');
+      navigate('/organiser/viewofflineexihibitions');
+    } catch (error) {
+      console.error(error);
+      toast.error('Failed to send notification');
+    }
+  };
 
   return (
     <div>
-      <>
-        <ToastContainer />
-        <div className="organise min-h-screen bg-gray-100 p-0 sm:p-12">
-          <div className="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
-            <h1 className="text-2xl font-bold mb-8">Create Exhibition</h1>
-            <form onSubmit={handleSubmit} id="form" noValidate>
-              <div className="relative z-0 w-full mb-5">
-                <input
-                  type="text"
-                  onChange={handleChange}
-                  name='exihibitionName'
-                  placeholder="Exhibition Name"
-                  required
-                  className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-                />
-              </div>
-
-              <div className="relative z-0 w-full mb-5">
-                <input
-                  type="text"
-                  onChange={handleChange}
-                  name="sponcers"
-                  required
-                  placeholder="Sponsors"
-                  className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-                />
-              </div>
-
-              <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload Image</label>
+      <ToastContainer />
+      <div className="organise min-h-screen bg-gray-100 p-0 sm:p-12">
+        <div className="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
+          <h1 className="text-2xl font-bold mb-8">Send Offline Exhibition</h1>
+          <form onSubmit={handleSubmit}>
+            <div className="relative z-0 w-full mb-5">
               <input
-                onChange={handleFile}
-                name='image'
-                className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                id="file_input"
-                type="file"
+                type="text"
+                onChange={handleChange}
+                name="exihibitionName"
+                placeholder="Exhibition Name"
+                required
+                className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
               />
+            </div>
+            <div className="relative z-0 w-full mb-5">
+              <input
+                type="text"
+                onChange={handleChange}
+                name="sponcers"
+                placeholder="Sponsors"
+                required
+                className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              />
+            </div>
+            <div className="relative z-0 w-full mb-5">
+              <input
+                type="text"
+                name="venue"
+                onChange={handleChange}
+                placeholder="Venue"
+                required
+                className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              />
+            </div>
+            <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="file_input">
+              Upload Image
+            </label>
+            <input
+              name="image"
+              onChange={handleChange}
+              className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+              type="file"
+            />
+            <div className="relative z-0 w-full mb-5">
+              <textarea
+                onChange={handleChange}
+                name="description"
+                placeholder="Description"
+                required
+                className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              />
+            </div>
 
+            <div className="flex flex-row space-x-4">
               <div className="relative z-0 w-full mb-5">
-                <textarea
+                <label className="block mb-2 text-sm font-medium text-gray-900">Starting Date</label>
+                <input
+                  type="date"
+                  name="startingdate"
+                  min={currentDate}
                   onChange={handleChange}
-                  name="description"
-                  placeholder="Description"
                   required
                   className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
                 />
               </div>
-
-              <div className="flex flex-row space-x-4">
-                <div className="relative z-0 w-full mb-5">
-                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Starting Date</label>
-                  <input
-                    min={currentDate}
-                    type="date"
-                    onChange={handleChange}
-                    required
-                    name="startdate"
-                    className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-                  />
-                </div>
-
-                <div className="relative z-0 w-full">
-                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ending Date</label>
-                  <input
-                    min={startDate || currentDate}  // Ensures end date can't be before start date
-                    type="date"
-                    onChange={handleChange}
-                    required
-                    name="enddate"
-                    className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-                  />
-                </div>
+              <div className="relative z-0 w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">Ending Date</label>
+                <input
+                  type="date"
+                  name="endingdate"
+                  min={startDate || currentDate} // Ensure End Date can't be before Start Date
+                  onChange={handleChange}
+                  required
+                  className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+                />
               </div>
+            </div>
 
-              <button
-                id="button"
-                type="submit"
-                className="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none"
-              >
-                Create
-              </button>
-            </form>
-          </div>
+            <button
+              type="submit"
+              className="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none"
+            >
+              Send Notification to Artists and Users
+            </button>
+          </form>
         </div>
-      </>
+      </div>
     </div>
-  )
-}
-
+  );
+};
