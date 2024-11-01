@@ -283,6 +283,14 @@ export const Send_exhi_offline_notification = () => {
       ...data,
       [name]: name === 'image' ? files[0] : value,
     })
+
+    // Reset the ending date if starting date changes
+    if (name === 'startingdate') {
+      setData((prevData) => ({
+        ...prevData,
+        endingdate: '', // Clear end date if start date changes
+      }))
+    }
   }
 
   const id = localStorage.getItem('id')
@@ -402,7 +410,7 @@ export const Send_exhi_offline_notification = () => {
                 <input
                   type="date"
                   name="endingdate"
-                  min={data.startingdate || currentDate} // Set minimum end date based on start date
+                  min={data.startingdate || currentDate} // Ensure End Date can't be before Start Date
                   required
                   onChange={handleChange}
                   className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
@@ -422,5 +430,3 @@ export const Send_exhi_offline_notification = () => {
     </div>
   )
 }
-
-
