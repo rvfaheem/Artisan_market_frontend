@@ -20,7 +20,7 @@ export const Addcategory = () => {
     console.log(response);
     // navigate('/admin/addsubcategory')
     toast.success('Category Added Successfully')
-    setTimeout(() => navigate('/admin/addsubcategory'), 3000); // Delay navigate
+    setTimeout(() => navigate('/admin/addsubcategory'), 1000); // Delay navigate
     setData('')
   }
   return (

@@ -34,7 +34,7 @@ export const Add_subcategory = () => {
       console.log(response);
       // navigate('/admin/viewcategories')
       toast.success('Sub Category Added Successfully')
-      setTimeout(() => navigate('/admin/viewcategory'), 3000); // Delay navigate
+      setTimeout(() => navigate('/admin/viewcategory'), 1000); // Delay navigate
       setData('');
     } catch (error) {
       console.error('Error adding subcategory:', error);

@@ -61,7 +61,7 @@ useEffect(()=>{
     })
     console.log(response);
     toast.success('Exihibition product Added Successfully')
-    setTimeout(() => navigate('/artist'), 3000); // Delay navigate
+    setTimeout(() => navigate('/artist'), 1000); // Delay navigate
 
    
   }

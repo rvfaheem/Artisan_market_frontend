@@ -66,7 +66,7 @@ export const Product_update = () => {
     let response=await axios.put(`https://artisan-market-backend.onrender.com/artist/editaddproduct/${id}`,formdata)
     console.log(response);
     toast.success('Product Updated Succesfully')
-    setTimeout(() => navigate('/artist/view_product'), 3000); // Delay navigate
+    setTimeout(() => navigate('/artist/view_product'), 1000); // Delay navigate
    
   }
   const [catId,setCatId]=useState()

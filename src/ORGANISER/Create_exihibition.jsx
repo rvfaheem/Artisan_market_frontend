@@ -53,7 +53,7 @@ let handleFile=(event)=>{
 
     console.log(response);
     toast.success('Exihibition Created')
-    setTimeout(() => navigate('/organiser/viewcreateexihibition'), 3000); // Delay navigate
+    setTimeout(() => navigate('/organiser/viewcreateexihibition'), 1000); // Delay navigate
     
 
 // navigate('/organiser/viewcreateexihibition')

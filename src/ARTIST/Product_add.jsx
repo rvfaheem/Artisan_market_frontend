@@ -52,7 +52,7 @@ export const Product_add = () => {
     console.log(response);
     toast.success('Product Added Successfully')
     // navigate('/artist/view_product')
-    setTimeout(() => navigate('/artist/view_product'), 3000); // Delay navigate
+    setTimeout(() => navigate('/artist/view_product'), 1000); // Delay navigate
   }
   const [catId,setCatId]=useState()
   let handleCategory=async(event)=>
