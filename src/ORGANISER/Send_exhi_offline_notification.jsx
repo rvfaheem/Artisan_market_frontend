@@ -1,256 +1,426 @@
+// import axios from 'axios'
+// import React, { useState } from 'react'
+// import { useNavigate } from 'react-router-dom'
+// import { ToastContainer, toast } from 'react-toastify'
+
+
+// export const Send_exhi_offline_notification = () => {
+
+//   const [data,setData] = useState()
+
+//   const navigate=useNavigate()
+//   const currentDate = new Date().toISOString().split('T')[0];
+
+
+
+//   let handleChanage=(event)=>{
+//     if(event.target.name === 'Image'){
+//     setData({...data,[event.target.name]:event.target.files[0]})
+
+//     }else{
+//       setData({...data,[event.target.name]:event.target.value})
+//     }
+//   }
+//   console.log(data);
+
+//   let handlefile=(event)=>{
+//     console.log(event.target.files);
+//     setData({...data,[event.target.name]:event.target.files[0]})
+//     console.log(data);
+//   }
+
+// let id=localStorage.getItem('id')
+//   let handleSubmit=async (event)=>{
+//     event.preventDefault()
+
+//     const formdata = new FormData()
+//     formdata.append("exihibitionName",data.exihibitionName)
+//     formdata.append("sponcers",data.sponcers)
+//     formdata.append("image",data.image)
+//     formdata.append("venue",data.venue)
+//     formdata.append("description",data.description)
+//     formdata.append("startingdate",data.startingdate)
+//     formdata.append("endingdate",data.endingdate)
+//     formdata.append("organiserId",id)
+    
+    
+
+//     console.log(data,'ddtas');
+//     // return true
+
+//     let response=await axios.post(`https://artisan-market-backend.onrender.com/organiser/Sendoffline`,formdata,{
+//       headers: {
+//         'Content-Type': 'multipart/form-data'  // Set the content type for FormData
+//       }
+//     })
+    
+//     console.log(response);
+//     // navigate('/organiser/viewofflineexihibitions')
+//     toast.success('Sended Exihibition offline notification')
+   
+//   }  
+//   return (
+//     <div>
+//       <ToastContainer/>
+//        <>
+
+
+// <div class="organise min-h-screen bg-gray-100 p-0 sm:p-12">
+//   <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
+//     <h1 class="text-2xl font-bold mb-8">Send Offline Exihibition</h1>
+//     <form onSubmit={handleSubmit}>
+//       <div class="relative z-0 w-full mb-5">
+//         <input
+//           type="text"
+//           onChange={handleChanage}
+//           name="exihibitionName"
+//           placeholder="exihibitionName"
+//           required
+//           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+//         />
+//         <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+//         <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+//       </div>
+//       <div class="relative z-0 w-full mb-5">
+//         <input
+//           type=""
+//           onChange={handleChanage}
+//           name="sponcers"
+//           required
+//           placeholder="Sponcers"
+//           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+//         />
+        
+//         <label for="password" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+//         <span class="text-sm text-red-600 hidden" id="error">Password is required</span>
+//       </div>
+//       <div class="relative z-0 w-full mb-5">
+//         <input
+//           type="text"
+//           name="venue"
+//           onChange={handleChanage}
+//           placeholder="Venue"
+//           required
+//           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+//         />
+//         <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+//         <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+//       </div>
+//       <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
+// <input name='image' onChange={handlefile} class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+
+//       <div class="relative z-0 w-full mb-5">
+//         <textarea
+//           type=""
+//           onChange={handleChanage}
+//           required
+//           name="description"
+//           placeholder="Description"
+//           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+//         />
+//         <label for="password" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+//         <span class="text-sm text-red-600 hidden" id="error">Password is required</span>
+//       </div>
+
+//       {/* <fieldset class="relative z-0 w-full p-px mb-5">
+//         <legend class="absolute text-gray-500 transform scale-75 -top-3 origin-0">Choose an option</legend>
+//         <div class="block pt-3 pb-2 space-x-4">
+//           <label>
+//             <input
+//               type="radio"
+//               name="radio"
+//               value="1"
+//               class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
+//             />
+//             Option 1
+//           </label>
+//           <label>
+//             <input
+//               type="radio"
+//               name="radio"
+//               value="2"
+//               class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
+//             />
+//             Option 2
+//           </label>
+//         </div>
+//         <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+//       </fieldset> */}
+
+//       {/* <div class="relative z-0 w-full mb-5">
+//         <select
+//           name="select"
+//           value=""
+//           onclick="this.setAttribute('value', this.value);"
+//           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+//         >
+//           <option value="" selected disabled hidden></option>
+//           <option value="1">Option 1</option>
+//           <option value="2">Option 2</option>
+//           <option value="3">Option 3</option>
+//           <option value="4">Option 4</option>
+//           <option value="5">Option 5</option>
+//         </select>
+//         <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Category</label>
+//         <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+//       </div>
+//       <div class="relative z-0 w-full mb-5">
+//         <select
+//           name="select"
+//           value=""
+//           onclick="this.setAttribute('value', this.value);"
+//           class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+//         >
+//           <option value="" selected disabled hidden></option>
+//           <option value="1">Option 1</option>
+//           <option value="2">Option 2</option>
+//           <option value="3">Option 3</option>
+//           <option value="4">Option 4</option>
+//           <option value="5">Option 5</option>
+//         </select>
+//         <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Sub category</label>
+//         <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+//       </div> */}
+
+//        <div class="flex flex-row space-x-4">
+//         <div class="relative z-0 w-full mb-5">
+//         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Starting Date</label>
+//           <input
+//             min={currentDate}
+//             type="date"
+//             name="startingdate"
+//             onChange={handleChanage}
+//             required
+//             placeholder="Starting Date "
+//             onclick="this.setAttribute('type', 'date');"
+//             class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+//           />
+//           <label for="date" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+//           <span class="text-sm text-red-600 hidden" id="error">Date is required</span>
+//         </div>
+//         <div class="relative z-0 w-full">
+//         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Ending Date</label>
+//           <input
+//             min={currentDate}
+//             type="date"
+//             name="endingdate"
+//             required
+//             onChange={handleChanage}
+//             placeholder="Ending Date "
+//             onclick="this.setAttribute('type', 'time');"
+//             class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+//           />
+//           <label for="time" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
+//           <span class="text-sm text-red-600 hidden" id="error">Time is required</span>
+//         </div>
+//       </div> 
+
+//       {/* <div class="relative z-0 w-full mb-5">
+//         <input
+//           type="number"
+//           name="money"
+//           placeholder="Price "
+//           class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+//         />
+//         <div class="absolute top-0 left-0 mt-3 ml-1 text-gray-400">$</div>
+//         <label for="money" class="absolute duration-300 top-3 left-5 -z-1 origin-0 text-gray-500"></label>
+//         <span class="text-sm text-red-600 hidden" id="error">Amount is required</span>
+//       </div> */}
+
+//       {/* <div class="relative z-0 w-full mb-5">
+//         <input
+//           type="text"
+//           name="duration"
+//           placeholder=" "
+//           class="pt-3 pb-2 pr-12 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+//         />
+//         <div class="absolute top-0 right-0 mt-3 mr-4 text-gray-400">min</div>
+//         <label for="duration" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Duration</label>
+//         <span class="text-sm text-red-600 hidden" id="error">Duration is required</span>
+//       </div> */}
+
+//       <button
+//         id="button"
+//         type="submit"
+//         class="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none"
+//       >
+//         Send Artist and Users
+//       </button>
+//     </form>
+//   </div>
+// </div>
+//     </>
+//     </div>
+//   )
+// }
+
+
+
+
+
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify'
 
-
 export const Send_exhi_offline_notification = () => {
+  const [data, setData] = useState({
+    exihibitionName: '',
+    sponcers: '',
+    image: null,
+    venue: '',
+    description: '',
+    startingdate: '',
+    endingdate: '',
+  })
 
-  const [data,setData] = useState()
+  const navigate = useNavigate()
+  const currentDate = new Date().toISOString().split('T')[0] // Format current date for min validation
 
-  const navigate=useNavigate()
-  const currentDate = new Date().toISOString().split('T')[0];
+  const handleChange = (event) => {
+    const { name, value, files } = event.target
+    setData({
+      ...data,
+      [name]: name === 'image' ? files[0] : value,
+    })
+  }
 
+  const id = localStorage.getItem('id')
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const formData = new FormData()
 
+    // Append all form data
+    Object.keys(data).forEach((key) => {
+      formData.append(key, data[key])
+    })
+    formData.append("organiserId", id)
 
-  let handleChanage=(event)=>{
-    if(event.target.name === 'Image'){
-    setData({...data,[event.target.name]:event.target.files[0]})
-
-    }else{
-      setData({...data,[event.target.name]:event.target.value})
+    try {
+      let response = await axios.post(`https://artisan-market-backend.onrender.com/organiser/Sendoffline`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
+      console.log(response)
+      toast.success('Sent Exhibition Offline Notification')
+      navigate('/organiser/viewofflineexihibitions')
+    } catch (error) {
+      console.error(error)
+      toast.error('Failed to send notification')
     }
   }
-  console.log(data);
 
-  let handlefile=(event)=>{
-    console.log(event.target.files);
-    setData({...data,[event.target.name]:event.target.files[0]})
-    console.log(data);
-  }
-
-let id=localStorage.getItem('id')
-  let handleSubmit=async (event)=>{
-    event.preventDefault()
-
-    const formdata = new FormData()
-    formdata.append("exihibitionName",data.exihibitionName)
-    formdata.append("sponcers",data.sponcers)
-    formdata.append("image",data.image)
-    formdata.append("venue",data.venue)
-    formdata.append("description",data.description)
-    formdata.append("startingdate",data.startingdate)
-    formdata.append("endingdate",data.endingdate)
-    formdata.append("organiserId",id)
-    
-    
-
-    console.log(data,'ddtas');
-    // return true
-
-    let response=await axios.post(`https://artisan-market-backend.onrender.com/organiser/Sendoffline`,formdata,{
-      headers: {
-        'Content-Type': 'multipart/form-data'  // Set the content type for FormData
-      }
-    })
-    
-    console.log(response);
-    // navigate('/organiser/viewofflineexihibitions')
-    toast.success('Sended Exihibition offline notification')
-   
-  }  
   return (
     <div>
-      <ToastContainer/>
-       <>
+      <ToastContainer />
+      <div className="organise min-h-screen bg-gray-100 p-0 sm:p-12">
+        <div className="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
+          <h1 className="text-2xl font-bold mb-8">Send Offline Exhibition</h1>
+          <form onSubmit={handleSubmit}>
+            {/* Exhibition Name */}
+            <div className="relative z-0 w-full mb-5">
+              <input
+                type="text"
+                name="exihibitionName"
+                placeholder="Exhibition Name"
+                required
+                onChange={handleChange}
+                className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              />
+            </div>
 
+            {/* Sponsors */}
+            <div className="relative z-0 w-full mb-5">
+              <input
+                type="text"
+                name="sponcers"
+                placeholder="Sponsors"
+                required
+                onChange={handleChange}
+                className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              />
+            </div>
 
-<div class="organise min-h-screen bg-gray-100 p-0 sm:p-12">
-  <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
-    <h1 class="text-2xl font-bold mb-8">Send Offline Exihibition</h1>
-    <form onSubmit={handleSubmit}>
-      <div class="relative z-0 w-full mb-5">
-        <input
-          type="text"
-          onChange={handleChanage}
-          name="exihibitionName"
-          placeholder="exihibitionName"
-          required
-          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-        />
-        <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
-        <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
-      </div>
-      <div class="relative z-0 w-full mb-5">
-        <input
-          type=""
-          onChange={handleChanage}
-          name="sponcers"
-          required
-          placeholder="Sponcers"
-          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-        />
-        
-        <label for="password" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
-        <span class="text-sm text-red-600 hidden" id="error">Password is required</span>
-      </div>
-      <div class="relative z-0 w-full mb-5">
-        <input
-          type="text"
-          name="venue"
-          onChange={handleChanage}
-          placeholder="Venue"
-          required
-          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-        />
-        <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
-        <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
-      </div>
-      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload Image</label>
-<input name='image' onChange={handlefile} class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" id="file_input" type="file"/>
+            {/* Venue */}
+            <div className="relative z-0 w-full mb-5">
+              <input
+                type="text"
+                name="venue"
+                placeholder="Venue"
+                required
+                onChange={handleChange}
+                className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              />
+            </div>
 
-      <div class="relative z-0 w-full mb-5">
-        <textarea
-          type=""
-          onChange={handleChanage}
-          required
-          name="description"
-          placeholder="Description"
-          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-        />
-        <label for="password" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
-        <span class="text-sm text-red-600 hidden" id="error">Password is required</span>
-      </div>
-
-      {/* <fieldset class="relative z-0 w-full p-px mb-5">
-        <legend class="absolute text-gray-500 transform scale-75 -top-3 origin-0">Choose an option</legend>
-        <div class="block pt-3 pb-2 space-x-4">
-          <label>
+            {/* Image Upload */}
+            <label className="block mb-2 text-sm font-medium text-gray-900" htmlFor="file_input">
+              Upload Image
+            </label>
             <input
-              type="radio"
-              name="radio"
-              value="1"
-              class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
+              name="image"
+              type="file"
+              onChange={handleChange}
+              className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
             />
-            Option 1
-          </label>
-          <label>
-            <input
-              type="radio"
-              name="radio"
-              value="2"
-              class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
-            />
-            Option 2
-          </label>
-        </div>
-        <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
-      </fieldset> */}
 
-      {/* <div class="relative z-0 w-full mb-5">
-        <select
-          name="select"
-          value=""
-          onclick="this.setAttribute('value', this.value);"
-          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-        >
-          <option value="" selected disabled hidden></option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
-          <option value="4">Option 4</option>
-          <option value="5">Option 5</option>
-        </select>
-        <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Category</label>
-        <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+            {/* Description */}
+            <div className="relative z-0 w-full mb-5">
+              <textarea
+                name="description"
+                placeholder="Description"
+                required
+                onChange={handleChange}
+                className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+              />
+            </div>
+
+            {/* Starting Date and Ending Date */}
+            <div className="flex flex-row space-x-4">
+              {/* Starting Date */}
+              <div className="relative z-0 w-full mb-5">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Starting Date
+                </label>
+                <input
+                  type="date"
+                  name="startingdate"
+                  min={currentDate}
+                  required
+                  onChange={(e) => {
+                    handleChange(e)
+                    setData({ ...data, endingdate: '' }) // Clear end date if start date changes
+                  }}
+                  className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+                />
+              </div>
+
+              {/* Ending Date */}
+              <div className="relative z-0 w-full">
+                <label className="block mb-2 text-sm font-medium text-gray-900">
+                  Ending Date
+                </label>
+                <input
+                  type="date"
+                  name="endingdate"
+                  min={data.startingdate || currentDate} // Set minimum end date based on start date
+                  required
+                  onChange={handleChange}
+                  className="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+                />
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none"
+            >
+              Send Notification to Artists and Users
+            </button>
+          </form>
+        </div>
       </div>
-      <div class="relative z-0 w-full mb-5">
-        <select
-          name="select"
-          value=""
-          onclick="this.setAttribute('value', this.value);"
-          class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-        >
-          <option value="" selected disabled hidden></option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
-          <option value="4">Option 4</option>
-          <option value="5">Option 5</option>
-        </select>
-        <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Sub category</label>
-        <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
-      </div> */}
-
-       <div class="flex flex-row space-x-4">
-        <div class="relative z-0 w-full mb-5">
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" >Starting Date</label>
-          <input
-            min={currentDate}
-            type="date"
-            name="startingdate"
-            onChange={handleChanage}
-            required
-            placeholder="Starting Date "
-            onclick="this.setAttribute('type', 'date');"
-            class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-          />
-          <label for="date" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
-          <span class="text-sm text-red-600 hidden" id="error">Date is required</span>
-        </div>
-        <div class="relative z-0 w-full">
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Ending Date</label>
-          <input
-            min={currentDate}
-            type="date"
-            name="endingdate"
-            required
-            onChange={handleChanage}
-            placeholder="Ending Date "
-            onclick="this.setAttribute('type', 'time');"
-            class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-          />
-          <label for="time" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500"></label>
-          <span class="text-sm text-red-600 hidden" id="error">Time is required</span>
-        </div>
-      </div> 
-
-      {/* <div class="relative z-0 w-full mb-5">
-        <input
-          type="number"
-          name="money"
-          placeholder="Price "
-          class="pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-        />
-        <div class="absolute top-0 left-0 mt-3 ml-1 text-gray-400">$</div>
-        <label for="money" class="absolute duration-300 top-3 left-5 -z-1 origin-0 text-gray-500"></label>
-        <span class="text-sm text-red-600 hidden" id="error">Amount is required</span>
-      </div> */}
-
-      {/* <div class="relative z-0 w-full mb-5">
-        <input
-          type="text"
-          name="duration"
-          placeholder=" "
-          class="pt-3 pb-2 pr-12 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
-        />
-        <div class="absolute top-0 right-0 mt-3 mr-4 text-gray-400">min</div>
-        <label for="duration" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Duration</label>
-        <span class="text-sm text-red-600 hidden" id="error">Duration is required</span>
-      </div> */}
-
-      <button
-        id="button"
-        type="submit"
-        class="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none"
-      >
-        Send Artist and Users
-      </button>
-    </form>
-  </div>
-</div>
-    </>
     </div>
   )
 }
+
 
